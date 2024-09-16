@@ -10,9 +10,9 @@ function* cores(){ //function com * significa que é uma função geradora
 //Cada vez que yield é encontrado, a execução da função é pausada e o valor especificado após yield é retornado.
 
 let itc=cores() //variavel recebe chamada da function
-console.log(itc.next().value) 
-console.log(itc.next().value)
-console.log(itc.next().value)
+console.log(itc.next().value) //executa até o 1° yield, retorna o valor e pausa
+console.log(itc.next().value) //executa até o 2° yield, retorna o valor e pausa
+console.log(itc.next().value) //executa até o 3° yield, retorna o valor e pausa
 
 //.next() é a proxima execução da function
 //.value é o valor após yield
