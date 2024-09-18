@@ -22,3 +22,4 @@ const soma3=(n1,n2)=>{ //em funções mais complexas é necessario o "return" e 
 }
 
 console.log(soma3(2,40))
+
