@@ -14,6 +14,7 @@ while(n<max){
 
 console.log('fim do programa')
 */
+// break interrompe imediatamente o código
 
 for(let i=n; i<max; i++){
     if(i%2!=0){
