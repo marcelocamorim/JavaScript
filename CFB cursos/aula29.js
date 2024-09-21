@@ -1,12 +1,3 @@
-let num = 0;
-
-while(num<20){
-    if(num%2==0){
-        num++
-        continue
-    }else if(num>11){
-        break
-    }
-    console.log(num)
-    num++
+function aluno(nome,nota){
+      this.nome=nome  //this.nome== variavel para function aluno que recebe o valor do argumento nome, usado quando quiser usar a variavel com o mesmo nome do argumento
 }
