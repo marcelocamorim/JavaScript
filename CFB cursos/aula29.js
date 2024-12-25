@@ -1,12 +1,9 @@
-let n1,n2,n3,n4
+let v1=10
+let v2="10"
+let v3=v1===v2
+let v4={nome:"marcelo"}
 
-n1=10
-n2=5
-n3=15
-n4=2
-
-if((n1>n2)||(n2>n3)){
-    console.log("verdadeiro")
-}else{
-    console.log("falso")
-}
+console.log(typeof(v1))
+console.log(typeof(v2))
+console.log(typeof(v3))
+console.log(typeof(v4))
