@@ -1,9 +1,5 @@
-let v1=10
-let v2="10"
-let v3=v1===v2
-let v4={nome:"marcelo"}
+let jogador1={nome:'marcelo', energia:100, vidas:3}
+let jogador2={nome:'peter', energia:100, vidas:5}
+let jogador3={...jogador1, ...jogador2}
 
-console.log(typeof(v1))
-console.log(typeof(v2))
-console.log(typeof(v3))
-console.log(typeof(v4))
+console.log(jogador3)
