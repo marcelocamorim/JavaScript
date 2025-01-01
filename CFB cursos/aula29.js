@@ -1,19 +1,8 @@
-let colocacao=5
-
-switch(colocacao){
-    case 1:
-        console.log('primeiro lugar')
-        break
-    case 2:
-        console.log('segundo lugar')
-        break
-    case 3:
-        console.log('terceiro lugar')
-        break
-    default:
-        console.log('não participou')
-        break
+for(let i=0; i<10; i++){
+    if(i%2==0){
+        console.log(i + ' é par')
+    }else{
+        console.log(i + ' é impar')
+    }
 }
-
-
-
+console.log('fim do programa')
