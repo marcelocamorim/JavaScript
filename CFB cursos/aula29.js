@@ -1,12 +1,9 @@
-let n=0
-let max =10
-
-while(n<max){
-    n++
-    if(n==5 || n==4 || n==6){
-        continue
+function somar(...valores){
+    let res=0
+    for(v of valores){
+        res+=v
     }
-    console.log('CFB curso '+n )
+    return res
 }
 
-console.log('fim do programa')
+console.log(somar(10,20))
