@@ -1,9 +1,15 @@
-function somar(...valores){
-    let res=0
-    for(v of valores){
-        res+=v
+
+const soma=(...valores)=>{
+    const somar=(val)=>{
+        let res=0
+        for(v of val)
+            res+=v
+            return res
+        
     }
-    return res
+    return somar(valores)
 }
 
-console.log(somar(10,20))
+console.log(soma(10,20,30))
+
+

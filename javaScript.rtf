@@ -1,5 +1,5 @@
 {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}}
-{\colortbl ;\red255\green0\blue0;\red155\green187\blue89;\red128\green100\blue162;}
+{\colortbl ;\red255\green0\blue0;\red155\green187\blue89;\red128\green100\blue162;\red0\green0\blue0;}
 {\*\generator Riched20 10.0.19041}\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\b\f0\fs32\lang22 JavaScript\par
 \b0\fs24 comentario de linha use //comentario aqui\par
@@ -17046,10 +17046,58 @@ break: Interrompe completamente o loop ou switch.\par
 continue: Pula a execu\'e7\'e3o da itera\'e7\'e3o atual do loop e vai para a pr\'f3xima.\par
 Ambos s\'e3o ferramentas poderosas para controlar o fluxo dos loops, permitindo sair ou pular certas partes do c\'f3digo quando necess\'e1rio.\par
 \par
-\ul\b\fs28 Fun\'e7\'f5es\par
+\ul\b\fs28 Fun\'e7\'f5es Functions\par
 \cf3\ulnone\b0\fs24 function nome()\{ \cf2 //function definida como "nome"\par
 \cf3     console.log("CFB Cursos") \cf2 // a\'e7\'e3o a ser executada pela function\cf3\par
 \}\par
-nome() \cf2 //chamada para execu\'e7\'e3o da function\ul\b\i\fs28\par
+nome() \cf2 //chamada para execu\'e7\'e3o da function\par
+\par
+\cf4\ul\b fun\'e7\'f5es an\'f4nimas\par
+\ulnone\b0 fun\'e7\'f5es an\'f4nimas n\'e3o possuem nomes e s\'e3o declaradas a uma variavel\par
+\par
+\b exemplo de fun\'e7\'e3o anonima\par
+\cf3\b0\i let f=function(v1,v2)\{\par
+    return v1+v2\par
+\}\par
+console.log(f(10,20))\par
+\cf4\i0\par
+\par
+\par
+\b exemplo de fun\'e7\'e3o anonima 'fun\'e7\'e3o construtor'\par
+\b0 declara a function a uma const\par
+usa "new" antes de function e "Function" com F maiusculo\par
+toda fun\'e7\'e3o deve ser colocada no local dos argumentos e como strings\par
+o \'faltimo argumento sempre ser\'e1 o corpo da fun\'e7\'e3o\par
+\par
+\cf3\i const func=new Function ('v1','v2','v3', 'return v1+v2+v3')\par
+console.log(func(10,20,30))\ul\b\par
+\cf2\ulnone\b0\i0\par
+\cf0\ul\b Arrow Function\par
+\cf2\ulnone\b0\par
+//exemplo de function comum\par
+\cf3\i function soma1(n1,n2)\{\par
+    return n1+n2\par
+\}\par
+let res=soma1(10,20)\par
+console.log(res)\par
+\cf2\i0\par
+\par
+//exemplo de Arrow function (mesma fun\'e7\'e3o do exemplo acima)\par
+//pode ser usada com "return" ou sem, em fun\'e7\'f5es mais simples\par
+\par
+\cf3\i let soma2=(n1,n2)=>\{return n1+n2\} \cf2\i0 //exemplo com "return"\par
+\cf3\i let soma2=(n1,n2)=>n1+n2  \cf2\i0 - //Exemplo sem return\par
+console.log(soma2(10,20))\par
+\par
+//em fun\'e7\'f5es mais complexas \'e9 necessario o "return" e as chaves "\{\}"\par
+\cf3\i const soma3=(n1,n2)=>\{ \par
+    let res=n1*n2\par
+    return res\par
+\}\par
+console.log(soma3(2,40))\par
+\par
+\par
+\par
+\ul\b\fs28\par
 }
  
