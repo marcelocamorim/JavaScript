@@ -1,15 +1,10 @@
-
-const soma=(...valores)=>{
-    const somar=(val)=>{
-        let res=0
-        for(v of val)
-            res+=v
-            return res
-        
-    }
-    return somar(valores)
+function* perguntas(){
+    const nome=yield 'qual seu nome'
+    const esporte=yield 'qual seu esporte favorito'
+    return 'seu nome é ' + nome + ' seu esporte favorito é ' + esporte
 }
 
-console.log(soma(10,20,30))
-
-
+const itp=perguntas()
+console.log(itp.next().value)
+console.log(itp.next('marcelo').value)
+console.log(itp.next('Muay Thai').value)

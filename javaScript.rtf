@@ -17096,7 +17096,23 @@ console.log(soma2(10,20))\par
 \}\par
 console.log(soma3(2,40))\par
 \par
+\cf0\ul\b\i0\fs28 Fun\'e7\'f5es geradoras\par
+\ulnone\b0\fs24 As fun\'e7\'f5es geradoras (ou generators) em JavaScript s\'e3o um tipo especial de fun\'e7\'e3o que podem ser pausadas e retomadas. Elas retornam um objeto que implementa o protocolo de iterador, permitindo gerar valores conforme necess\'e1rio, ao inv\'e9s de calcul\'e1-los todos de uma vez. Isso as torna poderosas para trabalhar com grandes conjuntos de dados, sequ\'eancias infinitas ou cen\'e1rios onde voc\'ea quer gerar valores sob demanda.\par
 \par
+Sintaxe de uma Fun\'e7\'e3o Geradora\par
+Uma fun\'e7\'e3o geradora \'e9 declarada com a palavra-chave function* (note o * ap\'f3s function), e dentro da fun\'e7\'e3o, usamos a palavra-chave yield para pausar e retornar valores.\par
+\par
+\ul\b Exemplo B\'e1sico de Fun\'e7\'e3o Geradora:\par
+\cf3\ulnone\b0\i function* geradorExemplo() \{\par
+    yield 1;\par
+    yield 2;\par
+    yield 3;\par
+\}\par
+const iterador = geradorExemplo();\par
+console.log(iterador.next().value); \cf2 // Sa\'edda: 1\par
+\cf3 console.log(iterador.next().value); \cf2 // Sa\'edda: 2\par
+\cf3 console.log(iterador.next().value); \cf2 // Sa\'edda: 3\par
+\cf3\par
 \par
 \ul\b\fs28\par
 }
