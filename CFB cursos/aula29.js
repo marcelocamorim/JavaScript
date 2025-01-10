@@ -1,6 +1,9 @@
 let n=0
 
-while(n<10){
-    console.log('testando while '+n)
+do{
     n++
-}
+    if((n==5), (n==6)){
+        continue
+    }
+    console.log('testando do while' + n)
+}while(n<10)
