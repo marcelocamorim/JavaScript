@@ -1,6 +1,6 @@
-{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}}
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Cambria Math;}}
 {\colortbl ;\red255\green0\blue0;\red155\green187\blue89;\red128\green100\blue162;\red0\green0\blue0;}
-{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont2\mwrapIndent1440 }\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\b\f0\fs32\lang22 JavaScript\par
 \b0\fs24 comentario de linha use //comentario aqui\par
 comentario de bloco use /*comentario aqui*/\par
@@ -17112,7 +17112,38 @@ const iterador = geradorExemplo();\par
 console.log(iterador.next().value); \cf2 // Sa\'edda: 1\par
 \cf3 console.log(iterador.next().value); \cf2 // Sa\'edda: 2\par
 \cf3 console.log(iterador.next().value); \cf2 // Sa\'edda: 3\par
-\cf3\par
+\par
+\par
+\cf0\ul\b\i0\fs28 M\'e9todo MAP\par
+\par
+\ulnone\b0\fs24 O m\'e9todo map() em JavaScript \'e9 uma ferramenta poderosa usada para percorrer arrays e transformar seus elementos, criando um novo array com base nos resultados de uma fun\'e7\'e3o aplicada a cada item.\par
+\par
+\ul\b Sintaxe do map()\par
+\cf3\ulnone\b0\i const novoArray = arrayOriginal.map((elemento, indice, arrayCompleto) => \{\par
+\cf2     // Retorna o novo valor para o elemento\par
+\cf3\});\par
+\par
+\cf0\ul\b\i0 Par\'e2metros:\ulnone\b0\par
+elemento \f2\u8594?\f1  \f0 O valor atual sendo processado no array.\par
+indice \f2\u8594?\f1  \f0 (Opcional) A posi\'e7\'e3o do elemento atual.\par
+arrayCompleto \f2\u8594?\f1  \f0 (Opcional) O array original que est\'e1 sendo percorrido.\par
+\par
+\ul\b Retorno:\par
+\ulnone\b0 Retorna um novo array com o mesmo tamanho, mas com valores transformados.\par
+\ul\b Exemplo B\'e1sico\par
+\cf3\ulnone\b0\i const numeros = [1, 2, 3, 4, 5];\par
+const dobrados = numeros.map((num) => num * 2);\par
+\par
+console.log(dobrados);  // [2, 4, 6, 8, 10]\par
+\par
+\cf0\ul\b\i0 Explica\'e7\'e3o:\par
+\ulnone\b0 O array original \'e9 [1, 2, 3, 4, 5].\par
+O map() multiplicou cada n\'famero por 2.\par
+O resultado foi um novo array: [2, 4, 6, 8, 10].\par
+Importante: O array original n\'e3o \'e9 alterado.\par
+\par
+\ul\b\fs28\lang22\par
+\cf3\ulnone\b0\i\fs24\par
 \par
 \ul\b\fs28\par
 }
