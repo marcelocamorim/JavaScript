@@ -33021,10 +33021,39 @@ O m\'e9todo sempre retorna o primeiro elemento encontrado com o id especificado,
 Retorna null se o elemento n\'e3o existe:\par
 Se nenhum elemento com o id especificado for encontrado, o m\'e9todo retorna null.\par
 \par
-\f0\par
+\ul\b\f0\fs28 getElementsByTagName\par
+\ulnone\b0\fs24\par
+\lang22 O m\'e9todo document.getElementsByTagName \'e9 usado em JavaScript para selecionar elementos do DOM com base no nome da tag (por exemplo, div, p, span, etc.). Ele retorna uma cole\'e7\'e3o HTML de todos os elementos correspondentes ao nome da tag especificado.\par
 \par
-\ul\b\fs28\lang22\par
-\cf3\ulnone\b0\i\fs24\par
+\b Sintaxe\par
+\cf3\b0\i document.getElementsByTagName(tagName);\par
+\par
+\cf0\i0 tagName: O nome da tag que voc\'ea deseja selecionar (como string). \'c9 case-insensitive (div, DIV, e Div funcionam igualmente).\par
+O m\'e9todo retorna uma HTMLCollection, que \'e9 semelhante a um array, mas n\'e3o \'e9 exatamente um array.\par
+\par
+\b Caracter\'edsticas\par
+\b0 HTMLCollection:\par
+\'c9 uma cole\'e7\'e3o "ao vivo" (live collection). Isso significa que ela ser\'e1 atualizada automaticamente se os elementos no DOM mudarem.\par
+Voc\'ea pode acessar elementos da cole\'e7\'e3o usando \'edndices, como um array: collection[0], collection[1], etc.\par
+\par
+\b Compatibilidade:\par
+\b0\'c9 amplamente suportado por todos os navegadores.\par
+Itera\'e7\'e3o:\par
+Para percorrer os elementos, voc\'ea pode usar um loop como for, for...of, ou converter a cole\'e7\'e3o em um array para usar m\'e9todos como .map.\par
+\par
+\b Trabalhando com HTMLCollection\par
+Exemplo de Itera\'e7\'e3o Usando for...of:\par
+\cf3\b0\i const headers = document.getElementsByTagName("h1");\par
+for (let header of headers) \{\par
+  console.log(header.textContent);\par
+\}\par
+\cf0\i0\par
+Converter para Array para Usar M\'e9todos de Array:\par
+\cf3\i const headers = [...document.getElementsByTagName("h1")];\par
+headers.forEach((header) => \{\par
+  console.log(header.textContent);\par
+\});\ul\b\fs28\par
+\ulnone\b0\fs24\par
 \par
 \ul\b\fs28\par
 }
