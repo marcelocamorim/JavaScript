@@ -33009,7 +33009,7 @@ btn\f3 .\f0 addEventListener\f3 (\f0 "click"\f3 , \f0 function\f3  () \{\f0\par
 \cf0 O\f3  \f0 operador\f3  \f0 this\f3  \f0\'e9\f3  \f0 flex\'edvel\f3 , \f0 mas\f3  \f0 entender\f3  \f0 seu\f3  \f0 comportamento\f3  \f0 requer\f3  \f0 aten\'e7\'e3o\f3  \f0 ao\f3  \f0 contexto\f3  \f0 de\f3  \f0 execu\'e7\'e3o\f3 .\par
 \par
 \par
-\ul\b\fs28\lang1046 getElementById \ulnone\b0\fs24\par
+\ul\b\fs28 getElementById \ulnone\b0\fs24\par
 O m\'e9todo getElementById em JavaScript \'e9 usado para selecionar um elemento do DOM (Document Object Model) com base no valor de seu atributo id. Ele retorna uma refer\'eancia direta ao elemento correspondente ou null caso nenhum elemento seja encontrado.\par
 \par
 \b Sintaxe\par
@@ -33052,9 +33052,86 @@ Converter para Array para Usar M\'e9todos de Array:\par
 \cf3\i const headers = [...document.getElementsByTagName("h1")];\par
 headers.forEach((header) => \{\par
   console.log(header.textContent);\par
-\});\ul\b\fs28\par
+\});\par
+\par
+\par
+\cf4\ul\b\i0\fs28 .getElementsByClassName \cf3\i\par
+\cf4\ulnone\b0\i0\fs24 O m\'e9todo document.getElementsByClassName \'e9 usado em JavaScript para selecionar elementos do DOM com base no(s) nome(s) da classe especificado(s). Ele retorna uma HTMLCollection contendo todos os elementos que possuem a classe ou classes fornecidas.\par
+\par
+\b Sintaxe\par
+\cf3\b0\i document.getElementsByClassName(className);\par
+\par
+\cf4\i0 className: O nome da classe (ou classes) que voc\'ea deseja selecionar. \'c9 case-sensitive.\par
+Retorna uma HTMLCollection, que \'e9 uma cole\'e7\'e3o ao vivo (live collection) de elementos.\par
+\par
+\b Caracter\'edsticas\par
+HTMLCollection:\par
+\b0 N\'e3o \'e9 exatamente um array, mas pode ser acessado como um array usando \'edndices (collection[0], collection[1], etc.).\par
+\'c9 uma cole\'e7\'e3o "ao vivo", o que significa que, se elementos forem adicionados ou removidos do DOM, a cole\'e7\'e3o ser\'e1 automaticamente atualizada.\par
+\par
+\par
+Compatibilidade:\par
+Totalmente suportado por todos os navegadores modernos.\par
+Itera\'e7\'e3o:\par
+Voc\'ea pode usar loops como for, for...of, ou converter a cole\'e7\'e3o em um array para usar m\'e9todos como .map ou .forEach.\cf3\ul\b\i\fs28\par
 \ulnone\b0\fs24\par
 \par
-\ul\b\fs28\par
+\cf0\ul\b\i0\fs28 querySelector e querySelectorAll\par
+\par
+\ulnone\b0\fs24 Os m\'e9todos querySelector e querySelectorAll s\'e3o usados para selecionar elementos do DOM com base em seletores CSS. Eles s\'e3o mais vers\'e1teis do que m\'e9todos como getElementById, getElementsByClassName, e getElementsByTagName, porque aceitam qualquer seletor CSS v\'e1lido.\par
+\par
+\ul\b\fs28 querySelector\par
+\ulnone\b0\fs24 Seleciona o primeiro elemento que corresponde ao seletor especificado.\par
+Retorna o elemento ou null se nenhum elemento for encontrado.\par
+Sintaxe:\par
+\cf3\i document.querySelector(seletor);\par
+\cf4\i0 seletor: Um seletor CSS v\'e1lido, como .classe, #id, ou tag.\par
+\par
+\b Exemplo:\cf0\par
+\cf3\b0\i html\par
+<div id="c1">Primeiro</div>\par
+<div class="box">Segundo</div>\par
+<div class="box">Terceiro</div>\par
+\par
+<script>\par
+  const elemento = document.querySelector(".box");\par
+  console.log(elemento.textContent); // "Segundo" (o primeiro elemento com a classe 'box')\par
+</script>\par
+\cf0\i0\par
+\par
+\ul\b\fs28 querySelectorAll\par
+\ulnone\b0\fs24 Seleciona todos os elementos que correspondem ao seletor especificado.\par
+Retorna uma NodeList est\'e1tica (n\'e3o \'e9 atualizada automaticamente se o DOM mudar).\par
+A NodeList pode ser iterada com forEach.\par
+\par
+Sintaxe:\par
+\cf3\i document.querySelectorAll(seletor);\par
+\par
+\cf0\b\i0 Exemplo:\par
+\cf3\b0\i <div id="c1">Primeiro</div>\par
+<div class="box">Segundo</div>\par
+<div class="box">Terceiro</div>\par
+\par
+<script>\par
+  const elementos = document.querySelectorAll(".box");\par
+  elementos.forEach((el) => \{\par
+    console.log(el.textContent);\par
+  \});\par
+  // Sa\'edda:\par
+  // "Segundo"\par
+  // "Terceiro"\par
+</script>\par
+\par
+\cf4\ul\b\i0 Mais Exemplos\par
+\cf3\ulnone\b0\i const query_cursoTodos=[...document.querySelectorAll(".curso")] \cf2 //pega a classe .curso\par
+\cf3 const query_cursoEspecial=document.querySelectorAll("#c1") \cf2 //pega ID #c1\par
+\cf3\par
+const query_divTodas=[...document.querySelectorAll("div,p")] \cf2 //\'c9 possivel pegar mais de um elemento como nesse exemplo. pega <div> e <p>\par
+\par
+\cf3 const query_divTodas=[...document.querySelectorAll("div[class]")] \cf2 //seleciona as <div> que possuem "class"\par
+\par
+\cf3 const query_divTodas=[...document.querySelectorAll("div > p")]  \cf2 //pega todos <p> dentro de uma <div>\par
+\par
+\par
 }
  
