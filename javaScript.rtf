@@ -33132,6 +33132,84 @@ const query_divTodas=[...document.querySelectorAll("div,p")] \cf2 //\'c9 possive
 \par
 \cf3 const query_divTodas=[...document.querySelectorAll("div > p")]  \cf2 //pega todos <p> dentro de uma <div>\par
 \par
+\cf4\ul\b\i0\fs28 addEventListener\par
+\ulnone\b0\fs24 O m\'e9todo addEventListener \'e9 usado para adicionar eventos a elementos do DOM em JavaScript. Ele \'e9 prefer\'edvel a outras formas de adicionar eventos, como onclick, porque permite adicionar m\'faltiplos ouvintes de evento ao mesmo elemento sem sobrescrever os anteriores.\par
+\par
+Sintaxe\par
+\cf3\i element.addEventListener(event, callback, options);\par
+\par
+\cf4\i0 Par\'e2metros:\par
+\b event\b0 : O tipo de evento (como "click", "mouseover", "keydown", etc.).\par
+\b callback: \b0 A fun\'e7\'e3o que ser\'e1 executada quando o evento ocorrer.\par
+\b options\b0  (opcional): Um objeto ou booleano que especifica op\'e7\'f5es adicionais, como:\par
+\b once: \b0 Se for true, o evento ser\'e1 executado apenas uma vez.\par
+\b capture\b0 : Indica se o evento ser\'e1 capturado na fase de captura ou bolha (fase de propaga\'e7\'e3o).\par
+\b passive: \b0 Se for true, indica que o ouvinte nunca chamar\'e1 preventDefault().\par
+\par
+\b Exemplo B\'e1sico\par
+\ul\b0 Adicionando um evento de clique a um bot\'e3o:\par
+\cf3\ulnone\i <button id="meuBotao">Clique Aqui</button>\par
+\par
+<script>\par
+  const botao = document.getElementById("meuBotao");\par
+  botao.addEventListener("click", () => \{\par
+    alert("Bot\'e3o clicado!");\par
+  \});\par
+</script>\par
+\par
+\cf4\ul\i0 Adicionar V\'e1rios Eventos ao Mesmo Elemento\par
+\ulnone O addEventListener permite adicionar m\'faltiplos eventos ao mesmo elemento sem sobrescrever os anteriores:\par
+\par
+\cf3\i <button id="meuBotao">Clique Aqui</button>\par
+<script>\par
+  const botao = document.getElementById("meuBotao");\par
+\par
+\cf2   // Primeiro evento\par
+\cf3   botao.addEventListener("click", () => \{\par
+    console.log("Primeiro evento.");\par
+  \});\par
+\par
+\cf2   // Segundo evento\par
+\cf3   botao.addEventListener("click", () => \{\par
+    console.log("Segundo evento.");\par
+  \});\par
+</script>\par
+Sa\'edda no console:\par
+Primeiro evento.\par
+Segundo evento.\par
+\par
+\cf4\b\i0 Passando Dados para o Callback\par
+\b0 Voc\'ea pode passar dados adicionais para a fun\'e7\'e3o usando uma fun\'e7\'e3o intermedi\'e1ria:\par
+\par
+\cf3\i <button id="meuBotao">Clique Aqui</button>\par
+<script>\par
+  const botao = document.getElementById("meuBotao");\par
+  botao.addEventListener("click", () => \{\par
+    meuCallback("Ol\'e1, Mundo!");\par
+  \});\par
+  function meuCallback(mensagem) \{\par
+    alert(mensagem);\par
+  \}\par
+</script>\par
+\par
+\cf4\b\i0 Removendo um Event Listener\par
+\b0 Para remover um evento, a fun\'e7\'e3o de callback deve ser definida em uma vari\'e1vel:\par
+\par
+\cf3\i <button id="meuBotao">Clique Aqui</button>\par
+<script>\par
+  const botao = document.getElementById("meuBotao");\par
+  function meuCallback() \{\par
+    alert("Bot\'e3o clicado!");\par
+  \}\par
+  botao.addEventListener("click", meuCallback);\par
+\par
+\cf2   // Removendo o evento ap\'f3s 5 segundos\par
+\cf3   setTimeout(() => \{\par
+    botao.removeEventListener("click", meuCallback);\par
+    console.log("Evento removido.");\par
+  \}, 5000);\par
+</script>\par
+\par
 \par
 }
  
