@@ -4,7 +4,6 @@ const btn=document.querySelector("#btn_copiar")
 const todosCursos=[...document.querySelectorAll(".curso")]
 
 
-
 todosCursos.map((el)=>{//itera cada elemento do array todosCursos
     el.addEventListener("click",(evt)=>{//add evento de click
         const curso=evt.target//captura o elemento clicado

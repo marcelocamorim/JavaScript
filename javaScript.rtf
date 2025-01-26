@@ -33217,6 +33217,27 @@ Segundo evento.\par
 \b0 parentElement.appendChild(newChild);\par
 parentElement: O elemento ao qual voc\'ea quer adicionar um novo filho.\par
 newChild: O elemento (ou n\'f3) que ser\'e1 adicionado como \'faltimo filho de parentElement.\par
+\par
+\par
+\b\fs28 stopPropagation\par
+\b0\fs24 Parando a propaga\'e7\'e3o do evento com o m\'e9todo stopPropagation\par
+\par
+\cf3\i const caixa1=document.querySelector("#caixa1")\par
+const cursos=[...document.querySelectorAll(".curso")]\par
+\par
+caixa1.addEventListener("click",(evt)=>\{\par
+    console.log("clicooou")\par
+\})\par
+\par
+cursos.map((el)=>\{\par
+    el.addEventListener("click",(evt)=>\{\par
+        evt.stopPropagation()\par
+    \})\par
+\})\par
+\cf0\i0\par
+evento foi add \'e0 div caixa1 por\'e9m todos os elementos filhos dessa div tamb\'e9m herdam esse evento\par
+para parar o evento nos filhos criamos um array com todos eles -> usando map adicionamos um evento em todos -> evt \'e9 o olemento que dispara o evento -> loggo adicionamos stopPpropagation em evt\par
+o evento funciona na div caixa1 mas foi parado nos elementos filhos\par
 \cf3\i\par
 \par
 \par
