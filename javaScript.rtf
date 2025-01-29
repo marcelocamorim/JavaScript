@@ -33252,72 +33252,152 @@ element.setAttribute(atributo, valor);\par
 element: O elemento HTML cujo atributo ser\'e1 definido ou modificado.\par
 atributo: O nome do atributo que voc\'ea deseja definir (exemplo: id, class, src, etc.).\par
 valor: O valor que voc\'ea deseja atribuir ao atributo.\par
-Exemplo 1: Adicionar um atributo a um elemento\par
-javascript\par
-Copiar\par
-Editar\par
-const img = document.querySelector("img"); // Seleciona uma imagem no DOM\par
-img.setAttribute("alt", "Descri\'e7\'e3o da imagem"); // Adiciona o atributo "alt"\par
-img.setAttribute("src", "imagem.jpg");         // Define o caminho para o atributo "src"\par
-Antes do c\'f3digo acima, a tag <img> poderia ser assim:\par
-html\par
-Copiar\par
-Editar\par
-<img>\par
-Depois do c\'f3digo acima, a tag <img> ficar\'e1 assim:\par
-html\par
-Copiar\par
-Editar\par
-<img alt="Descri\'e7\'e3o da imagem" src="imagem.jpg">\par
-Exemplo 2: Alterar um atributo existente\par
-javascript\par
-Copiar\par
-Editar\par
-const link = document.querySelector("a"); // Seleciona um link no DOM\par
-link.setAttribute("href", "{{\field{\*\fldinst{HYPERLINK https://example.com }}{\fldrslt{https://example.com\ul0\cf0}}}}\f0\fs24 "); // Modifica o atributo "href"\par
+\par
+\ul\b Exemplo 1: Adicionar um atributo a um elemento\par
+\cf3\ulnone\b0 const img = document.querySelector("img"); \cf2 // Seleciona uma imagem no DOM\par
+\cf3 img.setAttribute("alt", "Descri\'e7\'e3o da imagem"); \cf2 // Adiciona o atributo "alt"\par
+\cf3 img.setAttribute("src", "imagem.jpg");         \cf2 // Define o caminho para o atributo "src"\par
+\cf4 Antes do c\'f3digo acima, a tag <img> poderia ser assim:\par
+\cf3\i <img>\par
+\cf4\i0 Depois do c\'f3digo acima, a tag <img> ficar\'e1 assim:\par
+\cf3\i <img alt="Descri\'e7\'e3o da imagem" src="imagem.jpg">\par
+\cf4\i0\par
+\ul\b Exemplo 2: Alterar um atributo existente\par
+\cf3\ulnone\b0\i const link = document.querySelector("a"); \cf2 // Seleciona um link no DOM\cf3\par
+link.setAttribute("href", "{{\field{\*\fldinst{HYPERLINK https://example.com }}{\fldrslt{https://example.com\ul0\cf0}}}}\f0\fs24 "); \cf2 // Modifica o atributo "href"\par
+\cf4\i0\par
 Se o link original fosse:\par
-\par
-html\par
-Copiar\par
-Editar\par
-<a href="https://oldsite.com">Clique aqui</a>\par
+\cf3\i <a href="https://oldsite.com">Clique aqui</a>\par
+\cf4\i0\par
 Ap\'f3s o c\'f3digo, ele se tornar\'e1:\par
-\par
-html\par
-Copiar\par
-Editar\par
-<a href="https://example.com">Clique aqui</a>\par
-Exemplo 3: Adicionar classes dinamicamente\par
-javascript\par
-Copiar\par
-Editar\par
-const div = document.querySelector("div"); // Seleciona uma div\par
-div.setAttribute("class", "nova-classe");  // Define o atributo "class"\par
-Se a div original fosse:\par
-\par
-html\par
-Copiar\par
-Editar\par
+\cf3\i <a href="https://example.com">Clique aqui</a>\par
+\cf4\i0\par
+\ul\b Exemplo 3: Adicionar classes dinamicamente\par
+\cf3\ulnone\b0\i const div = document.querySelector("div"); \cf2 // Seleciona uma div\par
+\cf3 div.setAttribute("class", "nova-classe");  \cf2 // Define o atributo "class"\par
+\cf3 Se a div original fosse:\par
 <div></div>\par
+\cf4\i0\par
 Ap\'f3s o c\'f3digo, ela ficar\'e1:\par
-\par
-html\par
-Copiar\par
-Editar\par
-<div class="nova-classe"></div>\par
-Exemplo 4: Adicionar m\'faltiplos atributos\par
-javascript\par
-Copiar\par
-Editar\par
-const input = document.createElement("input"); // Cria um elemento input\par
-input.setAttribute("type", "text");            // Adiciona o atributo "type"\par
-input.setAttribute("placeholder", "Digite seu nome"); // Adiciona o atributo "placeholder"\par
-document.body.appendChild(input);             // Adiciona o input ao body\par
+\cf3\i <div class="nova-classe"></div>\par
+\cf4\i0\par
+\ul\b Exemplo 4: Adicionar m\'faltiplos atributos\par
+\cf3\ulnone\b0\i const input = document.createElement("input"); \cf2 // Cria um elemento input\par
+\cf3 input.setAttribute("type", "text");            \cf2 // Adiciona o atributo "type"\par
+\cf3 input.setAttribute("placeholder", "Digite seu nome"); \cf2 // Adiciona o atributo "placeholder"\par
+\cf3 document.body.appendChild(input);             \cf2 // Adiciona o input ao body\par
+\cf4\i0\par
 Isso resultar\'e1 em:\par
+\cf3\i <input type="text" placeholder="Digite seu nome">\par
 \par
+\par
+\par
+\par
+\cf4\ul\b\i0\fs32 createElement \par
+\ulnone\b0\fs24 O m\'e9todo document.createElement() em JavaScript \'e9 usado para criar novos elementos HTML de forma din\'e2mica. Este m\'e9todo retorna um elemento vazio do tipo especificado, que voc\'ea pode personalizar e adicionar ao DOM.\par
+\cf3\i\par
+\cf4\ul Sintaxe\par
+\cf3\ulnone document.createElement(tagName);\par
+\cf4\i0 tagName: O nome da tag HTML que voc\'ea deseja criar (como div, p, span, button, etc.). Deve ser uma string.\par
+\par
+\ul\b Exemplo 1: Criar e adicionar um elemento ao DOM\par
+\cf3\ulnone\b0\i javascript\par
+\cf2 // Criando um novo elemento <div>\par
+\cf3 const novaDiv = document.createElement("div");\par
+\par
+\cf2 // Adicionando conte\'fado \'e0 div\par
+\cf3 novaDiv.textContent = "Esta \'e9 uma nova div";\par
+\par
+\cf2 // Adicionando a div ao body do documento\par
+\cf3 document.body.appendChild(novaDiv);\par
+\par
+\cf4\i0 Resultado no DOM:\par
+\cf3\i html\par
+<div>Esta \'e9 uma nova div</div>\par
+\par
+\cf4\ul\b\i0 Exemplo 2: Personalizar o elemento criado\par
+\cf3\ulnone\b0\i javascript\par
+const novaDiv = document.createElement("div");\par
+\par
+\cf2 // Adicionando atributos e classes\par
+\cf3 novaDiv.setAttribute("id", "minhaDiv");\par
+novaDiv.classList.add("classe-exemplo");\par
+\par
+\cf2 // Adicionando conte\'fado\par
+\cf3 novaDiv.textContent = "Conte\'fado da nova div";\par
+\par
+\cf2 // Adicionando ao body\par
+\cf3 document.body.appendChild(novaDiv);\par
+\par
+\cf4\i0 Resultado no DOM:\par
+\cf3\i html\par
+<div id="minhaDiv" class="classe-exemplo">Conte\'fado da nova div</div>\par
+\par
+\cf4\ul\b\i0 Exemplo 3: Criar um bot\'e3o com evento\par
+\cf3\ulnone\b0\i javascript\par
+\cf2 // Criando um bot\'e3o\par
+\cf3 const botao = document.createElement("button");\par
+\par
+\cf2 // Adicionando texto ao bot\'e3o\par
+\cf3 botao.textContent = "Clique aqui";\par
+\par
+\cf2 // Adicionando um evento ao bot\'e3o\par
+\cf3 botao.addEventListener("click", () => \{\par
+    alert("Voc\'ea clicou no bot\'e3o!");\par
+\});\par
+\par
+\cf2 // Adicionando o bot\'e3o ao body\par
+\cf3 document.body.appendChild(botao);\par
+\par
+\cf4\i0 Resultado no DOM:\cf3\i\par
 html\par
-Copiar\par
-Editar\par
-<input type="text" placeholder="Digite seu nome">\par
+<button>Clique aqui</button>\par
+\cf2 Quando voc\'ea clica no bot\'e3o, exibe um alerta com o texto "Voc\'ea clicou no bot\'e3o!".\par
+\cf3\par
+\cf4\ul\b\i0 Exemplo 4: Criar m\'faltiplos elementos dinamicamente\par
+\cf3\ulnone\b0\i javascript\par
+const lista = document.createElement("ul");\par
+\par
+const itens = ["Item 1", "Item 2", "Item 3"];\par
+itens.forEach((texto) => \{\par
+    const item = document.createElement("li");\par
+    item.textContent = texto;\par
+    lista.appendChild(item);\par
+\});\par
+\par
+\cf2 // Adicionando a lista ao body\par
+\cf3 document.body.appendChild(lista);\par
+\par
+\cf4\i0 Resultado no DOM:\par
+\cf3\i html\par
+<ul>\par
+  <li>Item 1</li>\par
+  <li>Item 2</li>\par
+  <li>Item 3</li>\par
+</ul>\par
+\par
+\cf4\ul\b\i0 Exemplo 5: Inserir elementos criados em uma posi\'e7\'e3o espec\'edfica\par
+\cf3\ulnone\b0\i javascript\par
+const novaDiv = document.createElement("div");\par
+novaDiv.textContent = "Inserida antes de outro elemento";\par
+\par
+const referencia = document.querySelector("#elementoExistente");\par
+document.body.insertBefore(novaDiv, referencia);\par
+Isso adicionar\'e1 a nova <div> antes do elemento com o ID #elementoExistente.\par
+\par
+\cf4\i0 Como funciona o fluxo com createElement()\par
+Cria\'e7\'e3o: Voc\'ea cria o elemento com createElement(tagName).\par
+Personaliza\'e7\'e3o: Pode adicionar atributos, classes, IDs, eventos e conte\'fado ao elemento.\par
+\par
+Inser\'e7\'e3o no DOM: Depois de configurar o elemento, voc\'ea o adiciona ao DOM usando m\'e9todos como:\par
+appendChild(): Insere como \'faltimo filho.\par
+insertBefore(): Insere antes de um elemento espec\'edfico.\par
+parentElement.append(): Adiciona ao final (similar ao appendChild).\par
+\par
+Dica: Combinar com outros m\'e9todos\par
+Use setAttribute() para adicionar atributos.\par
+Combine com createTextNode() se preferir criar texto manualmente.\par
+Combine com querySelector() ou querySelectorAll() para inserir elementos em locais espec\'edficos.\par
+\par
 }
  
