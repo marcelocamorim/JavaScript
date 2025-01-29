@@ -6,7 +6,7 @@ const c1_2=document.querySelector("#c1_2")
 
 
 
-console.log(c1_2.parentNode.parentNode.children[2])//pega o filho2 do pai do pai do elemento
+console.log(c1_2.parentNode.parentNode.parentNode.children[0])//pega o filho2 do pai do pai do elemento
 
 //console.log(caixa1.children[1].innerHTML="teste teste") //pegando children
 
