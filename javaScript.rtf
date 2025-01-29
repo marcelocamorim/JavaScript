@@ -1,5 +1,5 @@
 {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Cambria Math;}{\f3\fnil\fcharset0 Cambria Math;}}
-{\colortbl ;\red255\green0\blue0;\red155\green187\blue89;\red128\green100\blue162;\red0\green0\blue0;}
+{\colortbl ;\red255\green0\blue0;\red155\green187\blue89;\red128\green100\blue162;\red0\green0\blue0;\red0\green0\blue255;}
 {\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont2\mwrapIndent1440 }\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\b\f0\fs32\lang22 JavaScript\par
 \b0\fs24 comentario de linha use //comentario aqui\par
@@ -33239,7 +33239,85 @@ evento foi add \'e0 div caixa1 por\'e9m todos os elementos filhos dessa div tamb
 para parar o evento nos filhos criamos um array com todos eles -> usando map adicionamos um evento em todos -> evt \'e9 o olemento que dispara o evento -> loggo adicionamos stopPpropagation em evt\par
 o evento funciona na div caixa1 mas foi parado nos elementos filhos\par
 \cf3\i\par
+\cf4\b\i0\fs28 trabalhando com children e parents no dom\par
+\cf3\b0\i\fs24 //console.log(caixa1.children[1].innerHTML="teste teste") \cf2 //pegando children\par
 \par
+\cf3 console.log(c1_2.parentNode.parentNode.parentNode.children[0]) \cf2 / /pega o filho2 do pai do pai do elemento\par
 \par
+\cf4\ul\b\i0\fs28 setAttribute\par
+\ulnone\b0\fs24 O m\'e9todo setAttribute() em JavaScript \'e9 usado para adicionar, modificar ou definir o valor de um atributo de um elemento HTML. Ele \'e9 amplamente utilizado para manipular dinamicamente elementos no DOM.\par
+\par
+Sintaxe\par
+element.setAttribute(atributo, valor);\par
+element: O elemento HTML cujo atributo ser\'e1 definido ou modificado.\par
+atributo: O nome do atributo que voc\'ea deseja definir (exemplo: id, class, src, etc.).\par
+valor: O valor que voc\'ea deseja atribuir ao atributo.\par
+Exemplo 1: Adicionar um atributo a um elemento\par
+javascript\par
+Copiar\par
+Editar\par
+const img = document.querySelector("img"); // Seleciona uma imagem no DOM\par
+img.setAttribute("alt", "Descri\'e7\'e3o da imagem"); // Adiciona o atributo "alt"\par
+img.setAttribute("src", "imagem.jpg");         // Define o caminho para o atributo "src"\par
+Antes do c\'f3digo acima, a tag <img> poderia ser assim:\par
+html\par
+Copiar\par
+Editar\par
+<img>\par
+Depois do c\'f3digo acima, a tag <img> ficar\'e1 assim:\par
+html\par
+Copiar\par
+Editar\par
+<img alt="Descri\'e7\'e3o da imagem" src="imagem.jpg">\par
+Exemplo 2: Alterar um atributo existente\par
+javascript\par
+Copiar\par
+Editar\par
+const link = document.querySelector("a"); // Seleciona um link no DOM\par
+link.setAttribute("href", "{{\field{\*\fldinst{HYPERLINK https://example.com }}{\fldrslt{https://example.com\ul0\cf0}}}}\f0\fs24 "); // Modifica o atributo "href"\par
+Se o link original fosse:\par
+\par
+html\par
+Copiar\par
+Editar\par
+<a href="https://oldsite.com">Clique aqui</a>\par
+Ap\'f3s o c\'f3digo, ele se tornar\'e1:\par
+\par
+html\par
+Copiar\par
+Editar\par
+<a href="https://example.com">Clique aqui</a>\par
+Exemplo 3: Adicionar classes dinamicamente\par
+javascript\par
+Copiar\par
+Editar\par
+const div = document.querySelector("div"); // Seleciona uma div\par
+div.setAttribute("class", "nova-classe");  // Define o atributo "class"\par
+Se a div original fosse:\par
+\par
+html\par
+Copiar\par
+Editar\par
+<div></div>\par
+Ap\'f3s o c\'f3digo, ela ficar\'e1:\par
+\par
+html\par
+Copiar\par
+Editar\par
+<div class="nova-classe"></div>\par
+Exemplo 4: Adicionar m\'faltiplos atributos\par
+javascript\par
+Copiar\par
+Editar\par
+const input = document.createElement("input"); // Cria um elemento input\par
+input.setAttribute("type", "text");            // Adiciona o atributo "type"\par
+input.setAttribute("placeholder", "Digite seu nome"); // Adiciona o atributo "placeholder"\par
+document.body.appendChild(input);             // Adiciona o input ao body\par
+Isso resultar\'e1 em:\par
+\par
+html\par
+Copiar\par
+Editar\par
+<input type="text" placeholder="Digite seu nome">\par
 }
  
