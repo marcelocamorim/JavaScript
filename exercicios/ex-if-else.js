@@ -24,13 +24,14 @@ if(idade>=18){
 // Aprovado: Nota maior ou igual a 7
 // Recuperação: Nota entre 5 e 6.9
 // Reprovado: Nota abaixo de 5
-let nota=4
+
+let nota = 4
 if(nota>=7){
-    console.log("Aprovado")
+    console.log("aprovado")
 }else if(nota>=5){
     console.log("Recuperação")
 }else{
-    console.log("Reprovado")
+    console.log("reprovado")
 }
 
 
