@@ -1,6 +1,6 @@
-{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Cambria Math;}{\f3\fnil\fcharset0 Cambria Math;}}
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil\fcharset1 Segoe UI Emoji;}{\f4\fnil\fcharset1 Segoe UI Symbol;}{\f5\fnil\fcharset1 Cambria Math;}{\f6\fnil\fcharset0 Cambria Math;}}
 {\colortbl ;\red255\green0\blue0;\red155\green187\blue89;\red128\green100\blue162;\red0\green0\blue0;\red0\green0\blue255;}
-{\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont2\mwrapIndent1440 }\viewkind4\uc1 
+{\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont5\mwrapIndent1440 }\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\b\f0\fs32\lang22 JavaScript\par
 \b0\fs24 comentario de linha use //comentario aqui\par
 comentario de bloco use /*comentario aqui*/\par
@@ -17096,6 +17096,52 @@ console.log(soma2(10,20))\par
 \}\par
 console.log(soma3(2,40))\par
 \par
+\par
+\par
+\par
+\cf0\ul\b\i0\fs28 Quando usar chaves \{\} em arrow function\i\par
+\ulnone\b0\i0\fs24 o uso de chaves \{\} em fun\'e7\'f5es arrow functions depende do que voc\'ea deseja fazer. Vamos entender as regras b\'e1sicas:\par
+\par
+\ul\b Quando N\'c3O usar chaves \{\}\par
+\ulnone\b0 Voc\'ea pode omitir as chaves quando a fun\'e7\'e3o tem apenas uma express\'e3o e retorna um valor diretamente.\par
+\par
+Exemplo: Retorno impl\'edcito\par
+javascript\par
+\cf3\i const dobrar = num => num * 2;\par
+console.log(dobrar(5)); \cf2 // 10\cf3\par
+\cf0\i0 Aqui, a fun\'e7\'e3o retorna num * 2 automaticamente, sem precisar de return.\par
+\par
+\f2\u-10179?\u-8903?\f1  \f0 Tamb\'e9m funciona com filter(), map(), find(), etc.:\par
+javascript\par
+\cf3\i const idades = [15, 21, 30, 17, 18, 44, 12, 50];\par
+const maiores = idades.filter(idade => idade >= 18);\par
+console.log(maiores); \cf2 // [21, 30, 18, 44, 50]\par
+\cf0\i0\f3\u10004?\u-497?\f1  \f0 Use sem \{\} quando a fun\'e7\'e3o for curta e tiver s\'f3 um retorno.\par
+\par
+\ul\b Quando USAR chaves \{\}\par
+\ulnone\b0 Voc\'ea precisa usar chaves \{\} quando a fun\'e7\'e3o tem mais de uma linha de c\'f3digo ou a\'e7\'f5es extras dentro dela.\par
+\par
+Exemplo 1: Com return expl\'edcito\par
+javascript\par
+\cf3\i const dobrar = num => \{\par
+    return num * 2; \cf2 // Aqui, o return \'e9 necess\'e1rio\par
+\cf3\};\par
+console.log(dobrar(5)); \cf2 // 10\par
+\cf0\i0\f2\u-10179?\u-8903?\f1  \f0 Se voc\'ea usasse \{\} sem return, a fun\'e7\'e3o n\'e3o retornaria nada!\par
+\par
+Exemplo 2: Fun\'e7\'e3o com m\'faltiplas instru\'e7\'f5es\par
+javascript\par
+\cf3\i const verificarIdade = idade => \{\par
+    console.log("Verificando idade...");\par
+    return idade >= 18 ? "Maior de idade" : "Menor de idade";\par
+\};\cf0\i0\par
+\cf3\i console.log(verificarIdade(20)); \cf2 // "Maior de idade"\par
+\cf0\i0\f3\u10004?\u-497?\f1  \f0 Use \{\} quando a fun\'e7\'e3o precisa de mais de uma linha ou um return expl\'edcito.\par
+\par
+Conclus\'e3o\par
+\f4\u9989?\f1  \f0 Use SEM \{\} quando for um retorno simples de uma \'fanica express\'e3o.\par
+\f4\u9989?\f1  \f0 Use COM \{\} quando precisar de m\'faltiplas linhas ou return expl\'edcito.\cf3\i\par
+\par
 \cf0\ul\b\i0\fs28 Fun\'e7\'f5es geradoras\par
 \ulnone\b0\fs24 As fun\'e7\'f5es geradoras (ou generators) em JavaScript s\'e3o um tipo especial de fun\'e7\'e3o que podem ser pausadas e retomadas. Elas retornam um objeto que implementa o protocolo de iterador, permitindo gerar valores conforme necess\'e1rio, ao inv\'e9s de calcul\'e1-los todos de uma vez. Isso as torna poderosas para trabalhar com grandes conjuntos de dados, sequ\'eancias infinitas ou cen\'e1rios onde voc\'ea quer gerar valores sob demanda.\par
 \par
@@ -17124,9 +17170,9 @@ console.log(iterador.next().value); \cf2 // Sa\'edda: 1\par
 \cf3\});\par
 \par
 \cf0\ul\b\i0 Par\'e2metros:\ulnone\b0\par
-elemento \f2\u8594?\f1  \f0 O valor atual sendo processado no array.\par
-indice \f2\u8594?\f1  \f0 (Opcional) A posi\'e7\'e3o do elemento atual.\par
-arrayCompleto \f2\u8594?\f1  \f0 (Opcional) O array original que est\'e1 sendo percorrido.\par
+elemento \f5\u8594?\f1  \f0 O valor atual sendo processado no array.\par
+indice \f5\u8594?\f1  \f0 (Opcional) A posi\'e7\'e3o do elemento atual.\par
+arrayCompleto \f5\u8594?\f1  \f0 (Opcional) O array original que est\'e1 sendo percorrido.\par
 \par
 \ul\b Retorno:\par
 \ulnone\b0 Retorna um novo array com o mesmo tamanho, mas com valores transformados.\par
@@ -17143,73 +17189,73 @@ O resultado foi um novo array: [2, 4, 6, 8, 10].\par
 Importante: O array original n\'e3o \'e9 alterado.\par
 \par
 \par
-\ul\b\fs28\lang1046 Operador\f3  \f0 this\f3  \f0\par
-\ulnone\b0\fs24 O\f3  \f0 operador\f3  \f0 this\f3  \f0 em\f3  \f0 JavaScript\f3  \f0\'e9\f3  \f0 uma\f3  \f0 palavra\f3 -\f0 chave\f3  \f0 especial\f3  \f0 que\f3  \f0 faz\f3  \f0 refer\'eancia\f3  \f0 ao\f3  \f0 contexto\f3  \f0 de\f3  \f0 execu\'e7\'e3o\f3  \f0 em\f3  \f0 que\f3  \f0 o\f3  \f0 c\'f3digo\f3  \f0 est\'e1\f3  \f0 sendo\f3  \f0 avaliado\f3 . \f0 O\f3  \f0 valor\f3  \f0 de\f3  \f0 this\f3  \f0 muda\f3  \f0 dependendo\f3  \f0 de\f3  \f0 onde\f3  \f0 e\f3  \f0 como\f3  \f0 ele\f3  \f0\'e9\f3  \f0 usado\f3 .\f0\par
+\ul\b\fs28\lang1046 Operador\f6  \f0 this\f6  \f0\par
+\ulnone\b0\fs24 O\f6  \f0 operador\f6  \f0 this\f6  \f0 em\f6  \f0 JavaScript\f6  \f0\'e9\f6  \f0 uma\f6  \f0 palavra\f6 -\f0 chave\f6  \f0 especial\f6  \f0 que\f6  \f0 faz\f6  \f0 refer\'eancia\f6  \f0 ao\f6  \f0 contexto\f6  \f0 de\f6  \f0 execu\'e7\'e3o\f6  \f0 em\f6  \f0 que\f6  \f0 o\f6  \f0 c\'f3digo\f6  \f0 est\'e1\f6  \f0 sendo\f6  \f0 avaliado\f6 . \f0 O\f6  \f0 valor\f6  \f0 de\f6  \f0 this\f6  \f0 muda\f6  \f0 dependendo\f6  \f0 de\f6  \f0 onde\f6  \f0 e\f6  \f0 como\f6  \f0 ele\f6  \f0\'e9\f6  \f0 usado\f6 .\f0\par
 \par
-Contextos\f3  \f0 do\f3  \f0 this\par
-No\f3  \f0 Escopo\f3  \f0 Global\f3  \f0 ou\f3  \f0 Fun\'e7\'e3o\f3  \f0 Simples\par
+Contextos\f6  \f0 do\f6  \f0 this\par
+No\f6  \f0 Escopo\f6  \f0 Global\f6  \f0 ou\f6  \f0 Fun\'e7\'e3o\f6  \f0 Simples\par
 \par
-Quando\f3  \f0 usado\f3  \f0 fora\f3  \f0 de\f3  \f0 uma\f3  \f0 fun\'e7\'e3o\f3  \f0 ou\f3  \f0 dentro\f3  \f0 de\f3  \f0 uma\f3  \f0 fun\'e7\'e3o\f3  \f0 simples\f3  (\f0 n\'e3o\f3  \f0 vinculada\f3  \f0 a\f3  \f0 um\f3  \f0 objeto\f3 ), \f0 this\f3  \f0 refere\f3 -\f0 se\f3  \f0 ao\f3  \f0 objeto\f3  \f0 global\f3 :\f0\par
-Em\f3  \f0 navegadores\f3 , \f0 isso\f3  \f0 significa\f3  \f0 o\f3  \f0 objeto\f3  \f0 window\f3 .\f0\par
-No\f3  \f0 Node\f3 .\f0 js\f3 , \f0 refere\f3 -\f0 se\f3  \f0 ao\f3  \f0 objeto\f3  \f0 global\f3 .\f0\par
-\cf3\i console\f3 .\f0 log\f3 (\f0 this\f3 ); \cf2 // \f0 No\f3  \f0 navegador\f3 , \f0 exibe\f3  \f0 o\f3  \f0 objeto\f3  \f0 window\par
-\par
-\par
-\cf0\b\i0 Dentro\f3  \f0 de\f3  \f0 um\f3  \f0 Objeto\par
-\b0 Quando\f3  \f0 this\f3  \f0\'e9\f3  \f0 usado\f3  \f0 dentro\f3  \f0 de\f3  \f0 um\f3  \f0 m\'e9todo\f3  \f0 de\f3  \f0 um\f3  \f0 objeto\f3 , \f0 ele\f3  \f0 faz\f3  \f0 refer\'eancia\f3  \f0 ao\f3  \f0 pr\'f3prio\f3  \f0 objeto\f3 .\f0\par
-\cf3\i const\f3  \f0 obj\f3  = \{\f0\par
-\f3     \f0 nome\f3 : \f0 "Exemplo"\f3 ,\f0\par
-\f3     \f0 saudacao\f3 : \f0 function\f3  () \{\f0\par
-\f3         \f0 console\f3 .\f0 log\f3 (\f0 this\f3 .\f0 nome\f3 );\f0\par
-\f3     \}\f0\par
-\f3\};\f0\par
-obj\f3 .\f0 saudacao\f3 (); \cf2 // \f0 "Exemplo"\par
+Quando\f6  \f0 usado\f6  \f0 fora\f6  \f0 de\f6  \f0 uma\f6  \f0 fun\'e7\'e3o\f6  \f0 ou\f6  \f0 dentro\f6  \f0 de\f6  \f0 uma\f6  \f0 fun\'e7\'e3o\f6  \f0 simples\f6  (\f0 n\'e3o\f6  \f0 vinculada\f6  \f0 a\f6  \f0 um\f6  \f0 objeto\f6 ), \f0 this\f6  \f0 refere\f6 -\f0 se\f6  \f0 ao\f6  \f0 objeto\f6  \f0 global\f6 :\f0\par
+Em\f6  \f0 navegadores\f6 , \f0 isso\f6  \f0 significa\f6  \f0 o\f6  \f0 objeto\f6  \f0 window\f6 .\f0\par
+No\f6  \f0 Node\f6 .\f0 js\f6 , \f0 refere\f6 -\f0 se\f6  \f0 ao\f6  \f0 objeto\f6  \f0 global\f6 .\f0\par
+\cf3\i console\f6 .\f0 log\f6 (\f0 this\f6 ); \cf2 // \f0 No\f6  \f0 navegador\f6 , \f0 exibe\f6  \f0 o\f6  \f0 objeto\f6  \f0 window\par
 \par
 \par
-\cf0\b\i0 Em\f3  \f0 Fun\'e7\'f5es\f3  \f0 Construtoras\par
-\b0 Quando\f3  \f0 usado\f3  \f0 em\f3  \f0 uma\f3  \f0 fun\'e7\'e3o\f3  \f0 construtora\f3 , \f0 this\f3  \f0 se\f3  \f0 refere\f3  \f0 ao\f3  \f0 novo\f3  \f0 objeto\f3  \f0 criado\f3  \f0 pela\f3  \f0 fun\'e7\'e3o\f3 .\f0\par
-\cf3\i function\f3  \f0 Carro\f3 (\f0 marca\f3 , \f0 modelo\f3 ) \{\f0\par
-\f3     \f0 this\f3 .\f0 marca\f3  = \f0 marca\f3 ;\f0\par
-\f3     \f0 this\f3 .\f0 modelo\f3  = \f0 modelo\f3 ;\f0\par
-\f3\}\f0\par
+\cf0\b\i0 Dentro\f6  \f0 de\f6  \f0 um\f6  \f0 Objeto\par
+\b0 Quando\f6  \f0 this\f6  \f0\'e9\f6  \f0 usado\f6  \f0 dentro\f6  \f0 de\f6  \f0 um\f6  \f0 m\'e9todo\f6  \f0 de\f6  \f0 um\f6  \f0 objeto\f6 , \f0 ele\f6  \f0 faz\f6  \f0 refer\'eancia\f6  \f0 ao\f6  \f0 pr\'f3prio\f6  \f0 objeto\f6 .\f0\par
+\cf3\i const\f6  \f0 obj\f6  = \{\f0\par
+\f6     \f0 nome\f6 : \f0 "Exemplo"\f6 ,\f0\par
+\f6     \f0 saudacao\f6 : \f0 function\f6  () \{\f0\par
+\f6         \f0 console\f6 .\f0 log\f6 (\f0 this\f6 .\f0 nome\f6 );\f0\par
+\f6     \}\f0\par
+\f6\};\f0\par
+obj\f6 .\f0 saudacao\f6 (); \cf2 // \f0 "Exemplo"\par
 \par
-const\f3  \f0 meuCarro\f3  = \f0 new\f3  \f0 Carro\f3 (\f0 "Toyota"\f3 , \f0 "Corolla"\f3 );\f0\par
-console\f3 .\f0 log\f3 (\f0 meuCarro\f3 .\f0 marca\f3 ); \cf2 // \f0 "Toyota"\par
+\par
+\cf0\b\i0 Em\f6  \f0 Fun\'e7\'f5es\f6  \f0 Construtoras\par
+\b0 Quando\f6  \f0 usado\f6  \f0 em\f6  \f0 uma\f6  \f0 fun\'e7\'e3o\f6  \f0 construtora\f6 , \f0 this\f6  \f0 se\f6  \f0 refere\f6  \f0 ao\f6  \f0 novo\f6  \f0 objeto\f6  \f0 criado\f6  \f0 pela\f6  \f0 fun\'e7\'e3o\f6 .\f0\par
+\cf3\i function\f6  \f0 Carro\f6 (\f0 marca\f6 , \f0 modelo\f6 ) \{\f0\par
+\f6     \f0 this\f6 .\f0 marca\f6  = \f0 marca\f6 ;\f0\par
+\f6     \f0 this\f6 .\f0 modelo\f6  = \f0 modelo\f6 ;\f0\par
+\f6\}\f0\par
+\par
+const\f6  \f0 meuCarro\f6  = \f0 new\f6  \f0 Carro\f6 (\f0 "Toyota"\f6 , \f0 "Corolla"\f6 );\f0\par
+console\f6 .\f0 log\f6 (\f0 meuCarro\f6 .\f0 marca\f6 ); \cf2 // \f0 "Toyota"\par
 \par
 \par
-\cf0\b\i0 Em\f3  \f0 Arrow\f3  \f0 Functions\par
-\b0 As\f3  \f0 Arrow\f3  \f0 Functions\f3  \f0 n\'e3o\f3  \f0 t\'eam\f3  \f0 seu\f3  \f0 pr\'f3prio\f3  \f0 this\f3 . \f0 Elas\f3  \f0 "herdam"\f3  \f0 o\f3  \f0 valor\f3  \f0 de\f3  \f0 this\f3  \f0 do\f3  \f0 contexto\f3  \f0 onde\f3  \f0 foram\f3  \f0 definidas\f3 .\f0\par
-\cf3\i const\f3  \f0 obj\f3  = \{\f0\par
-\f3     \f0 nome\f3 : \f0 "Exemplo"\f3 ,\f0\par
-\f3     \f0 saudacao\f3 : () => \{\f0\par
-\f3         \f0 console\f3 .\f0 log\f3 (\f0 this\f3 .\f0 nome\f3 ); \cf2 // \f0 undefined\par
-\cf3\f3     \}\f0\par
-\f3\};\f0\par
-obj\f3 .\f0 saudacao\f3 (); \cf2 // \f0 undefined\f3 , \f0 pois\f3  \f0 `this`\f3  \f0 refere\f3 -\f0 se\f3  \f0 ao\f3  \f0 contexto\f3  \f0 global\par
+\cf0\b\i0 Em\f6  \f0 Arrow\f6  \f0 Functions\par
+\b0 As\f6  \f0 Arrow\f6  \f0 Functions\f6  \f0 n\'e3o\f6  \f0 t\'eam\f6  \f0 seu\f6  \f0 pr\'f3prio\f6  \f0 this\f6 . \f0 Elas\f6  \f0 "herdam"\f6  \f0 o\f6  \f0 valor\f6  \f0 de\f6  \f0 this\f6  \f0 do\f6  \f0 contexto\f6  \f0 onde\f6  \f0 foram\f6  \f0 definidas\f6 .\f0\par
+\cf3\i const\f6  \f0 obj\f6  = \{\f0\par
+\f6     \f0 nome\f6 : \f0 "Exemplo"\f6 ,\f0\par
+\f6     \f0 saudacao\f6 : () => \{\f0\par
+\f6         \f0 console\f6 .\f0 log\f6 (\f0 this\f6 .\f0 nome\f6 ); \cf2 // \f0 undefined\par
+\cf3\f6     \}\f0\par
+\f6\};\f0\par
+obj\f6 .\f0 saudacao\f6 (); \cf2 // \f0 undefined\f6 , \f0 pois\f6  \f0 `this`\f6  \f0 refere\f6 -\f0 se\f6  \f0 ao\f6  \f0 contexto\f6  \f0 global\par
 \par
 \cf3\par
-\cf0\b\i0 Dentro\f3  \f0 de\f3  \f0 Classes\par
-\b0 Dentro\f3  \f0 de\f3  \f0 uma\f3  \f0 classe\f3 , \f0 this\f3  \f0 refere\f3 -\f0 se\f3  \f0\'e0\f3  \f0 inst\'e2ncia\f3  \f0 da\f3  \f0 classe\f3  \f0 criada\f3  \f0 com\f3  \f0 new\f3 .\f0\par
-\cf3\i class\f3  \f0 Pessoa\f3  \{\f0\par
-\f3     \f0 constructor\f3 (\f0 nome\f3 ) \{\f0\par
-\f3         \f0 this\f3 .\f0 nome\f3  = \f0 nome\f3 ;\f0\par
-\f3     \}\f0\par
-\f3     \f0 falar\f3 () \{\f0\par
-\f3         \f0 console\f3 .\f0 log\f3 (\f0 "Meu\f3  \f0 nome\f3  \f0\'e9\f3  \f0 "\f3  + \f0 this\f3 .\f0 nome\f3 );\f0\par
-\f3     \}\f0\par
-\f3\}\f0\par
-const\f3  \f0 p1\f3  = \f0 new\f3  \f0 Pessoa\f3 (\f0 "Ana"\f3 );\f0\par
-p1\f3 .\f0 falar\f3 (); \cf2 // \f0 "Meu\f3  \f0 nome\f3  \f0\'e9\f3  \f0 Ana"\par
+\cf0\b\i0 Dentro\f6  \f0 de\f6  \f0 Classes\par
+\b0 Dentro\f6  \f0 de\f6  \f0 uma\f6  \f0 classe\f6 , \f0 this\f6  \f0 refere\f6 -\f0 se\f6  \f0\'e0\f6  \f0 inst\'e2ncia\f6  \f0 da\f6  \f0 classe\f6  \f0 criada\f6  \f0 com\f6  \f0 new\f6 .\f0\par
+\cf3\i class\f6  \f0 Pessoa\f6  \{\f0\par
+\f6     \f0 constructor\f6 (\f0 nome\f6 ) \{\f0\par
+\f6         \f0 this\f6 .\f0 nome\f6  = \f0 nome\f6 ;\f0\par
+\f6     \}\f0\par
+\f6     \f0 falar\f6 () \{\f0\par
+\f6         \f0 console\f6 .\f0 log\f6 (\f0 "Meu\f6  \f0 nome\f6  \f0\'e9\f6  \f0 "\f6  + \f0 this\f6 .\f0 nome\f6 );\f0\par
+\f6     \}\f0\par
+\f6\}\f0\par
+const\f6  \f0 p1\f6  = \f0 new\f6  \f0 Pessoa\f6 (\f0 "Ana"\f6 );\f0\par
+p1\f6 .\f0 falar\f6 (); \cf2 // \f0 "Meu\f6  \f0 nome\f6  \f0\'e9\f6  \f0 Ana"\par
 \par
 \par
-\cf0\b\i0 No\f3  \f0 Contexto\f3  \f0 de\f3  \f0 um\f3  \f0 Evento\b0\par
-Quando\f3  \f0 usado\f3  \f0 dentro\f3  \f0 de\f3  \f0 um\f3  \f0 manipulador\f3  \f0 de\f3  \f0 eventos\f3 , \f0 this\f3  \f0 refere\f3 -\f0 se\f3  \f0 ao\f3  \f0 elemento\f3  \f0 HTML\f3  \f0 que\f3  \f0 disparou\f3  \f0 o\f3  \f0 evento\f3 .\f0\par
-\cf3\i const\f3  \f0 btn\f3  = \f0 document\f3 .\f0 querySelector\f3 (\f0 "button"\f3 );\f0\par
-btn\f3 .\f0 addEventListener\f3 (\f0 "click"\f3 , \f0 function\f3  () \{\f0\par
-\f3     \f0 console\f3 .\f0 log\f3 (\f0 this\f3 ); \cf2 // \f0 O\f3  \f0 bot\'e3o\f3  \f0 clicado\cf3\par
-\f3\});\par
+\cf0\b\i0 No\f6  \f0 Contexto\f6  \f0 de\f6  \f0 um\f6  \f0 Evento\b0\par
+Quando\f6  \f0 usado\f6  \f0 dentro\f6  \f0 de\f6  \f0 um\f6  \f0 manipulador\f6  \f0 de\f6  \f0 eventos\f6 , \f0 this\f6  \f0 refere\f6 -\f0 se\f6  \f0 ao\f6  \f0 elemento\f6  \f0 HTML\f6  \f0 que\f6  \f0 disparou\f6  \f0 o\f6  \f0 evento\f6 .\f0\par
+\cf3\i const\f6  \f0 btn\f6  = \f0 document\f6 .\f0 querySelector\f6 (\f0 "button"\f6 );\f0\par
+btn\f6 .\f0 addEventListener\f6 (\f0 "click"\f6 , \f0 function\f6  () \{\f0\par
+\f6     \f0 console\f6 .\f0 log\f6 (\f0 this\f6 ); \cf2 // \f0 O\f6  \f0 bot\'e3o\f6  \f0 clicado\cf3\par
+\f6\});\par
 \f0\par
-\cf0\i0 Com\f3  \f0 uma\f3  \f0 Arrow\f3  \f0 Function\f3 , \f0 this\f3  \f0 n\'e3o\f3  \f0 se\f3  \f0 refere\f3  \f0 ao\f3  \f0 elemento\f3 , \f0 mas\f3  \f0 ao\f3  \f0 contexto\f3  \f0 onde\f3  \f0 a\f3  \f0 fun\'e7\'e3o\f3  \f0 foi\f3  \f0 definida\f3 .\par
+\cf0\i0 Com\f6  \f0 uma\f6  \f0 Arrow\f6  \f0 Function\f6 , \f0 this\f6  \f0 n\'e3o\f6  \f0 se\f6  \f0 refere\f6  \f0 ao\f6  \f0 elemento\f6 , \f0 mas\f6  \f0 ao\f6  \f0 contexto\f6  \f0 onde\f6  \f0 a\f6  \f0 fun\'e7\'e3o\f6  \f0 foi\f6  \f0 definida\f6 .\par
 \f0\par
 
 \pard\sa200\sl240\slmult1{\pict{\*\picprop}\wmetafile8\picw14658\pich5741\picwgoal8310\pichgoal3255 
@@ -32980,33 +33026,33 @@ ffffffffffffffffffffffffffffffffffffffffffffffffff030000000000
 }\par
 \par
 
-\pard\sa200\sl276\slmult1\b Exemplo\f3  \f0 Geral\par
-\cf3\b0 function\f3  \f0 exemploGlobal\f3 () \{\f0\par
-\f3     \f0 console\f3 .\f0 log\f3 (\f0 this\f3 ); \cf2 // \f0 Objeto\f3  \f0 global\f3  (\f0 window\f3  \f0 no\f3  \f0 navegador\f3 )\f0\par
-\cf3\f3\}\f0\par
-const\f3  \f0 obj\f3  = \{\f0\par
-\f3     \f0 nome\f3 : \f0 "Exemplo"\f3 ,\f0\par
-\f3     \f0 metodo\f3 : \f0 function\f3  () \{\f0\par
-\f3         \f0 console\f3 .\f0 log\f3 (\f0 this\f3 .\f0 nome\f3 ); \cf2 // \f0 "Exemplo"\cf3\par
-\f3     \}\f0\par
-\f3\};\f0\par
-obj\f3 .\f0 metodo\f3 ();\f0\par
-class\f3  \f0 ExemploClasse\f3  \{\f0\par
-\f3     \f0 constructor\f3 (\f0 valor\f3 ) \{\f0\par
-\f3         \f0 this\f3 .\f0 valor\f3  = \f0 valor\f3 ;\f0\par
-\f3     \}\f0\par
-\f3     \f0 mostrar\f3 () \{\f0\par
-\f3         \f0 console\f3 .\f0 log\f3 (\f0 this\f3 .\f0 valor\f3 );\f0\par
-\f3     \}\f0\par
-\f3\}\f0\par
-const\f3  \f0 exemplo\f3  = \f0 new\f3  \f0 ExemploClasse\f3 (\f0 "Classe"\f3 );\f0\par
-exemplo\f3 .\f0 mostrar\f3 (); \cf2 // \f0 "Classe"\par
+\pard\sa200\sl276\slmult1\b Exemplo\f6  \f0 Geral\par
+\cf3\b0 function\f6  \f0 exemploGlobal\f6 () \{\f0\par
+\f6     \f0 console\f6 .\f0 log\f6 (\f0 this\f6 ); \cf2 // \f0 Objeto\f6  \f0 global\f6  (\f0 window\f6  \f0 no\f6  \f0 navegador\f6 )\f0\par
+\cf3\f6\}\f0\par
+const\f6  \f0 obj\f6  = \{\f0\par
+\f6     \f0 nome\f6 : \f0 "Exemplo"\f6 ,\f0\par
+\f6     \f0 metodo\f6 : \f0 function\f6  () \{\f0\par
+\f6         \f0 console\f6 .\f0 log\f6 (\f0 this\f6 .\f0 nome\f6 ); \cf2 // \f0 "Exemplo"\cf3\par
+\f6     \}\f0\par
+\f6\};\f0\par
+obj\f6 .\f0 metodo\f6 ();\f0\par
+class\f6  \f0 ExemploClasse\f6  \{\f0\par
+\f6     \f0 constructor\f6 (\f0 valor\f6 ) \{\f0\par
+\f6         \f0 this\f6 .\f0 valor\f6  = \f0 valor\f6 ;\f0\par
+\f6     \}\f0\par
+\f6     \f0 mostrar\f6 () \{\f0\par
+\f6         \f0 console\f6 .\f0 log\f6 (\f0 this\f6 .\f0 valor\f6 );\f0\par
+\f6     \}\f0\par
+\f6\}\f0\par
+const\f6  \f0 exemplo\f6  = \f0 new\f6  \f0 ExemploClasse\f6 (\f0 "Classe"\f6 );\f0\par
+exemplo\f6 .\f0 mostrar\f6 (); \cf2 // \f0 "Classe"\par
 \cf3\par
-const\f3  \f0 btn\f3  = \f0 document\f3 .\f0 querySelector\f3 (\f0 "button"\f3 );\f0\par
-btn\f3 .\f0 addEventListener\f3 (\f0 "click"\f3 , \f0 function\f3  () \{\f0\par
-\f3     \f0 console\f3 .\f0 log\f3 (\f0 this\f3 ); \cf2 // \f0 O\f3  \f0 bot\'e3o\f3  \f0 clicado\par
-\cf3\f3\});\f0\par
-\cf0 O\f3  \f0 operador\f3  \f0 this\f3  \f0\'e9\f3  \f0 flex\'edvel\f3 , \f0 mas\f3  \f0 entender\f3  \f0 seu\f3  \f0 comportamento\f3  \f0 requer\f3  \f0 aten\'e7\'e3o\f3  \f0 ao\f3  \f0 contexto\f3  \f0 de\f3  \f0 execu\'e7\'e3o\f3 .\par
+const\f6  \f0 btn\f6  = \f0 document\f6 .\f0 querySelector\f6 (\f0 "button"\f6 );\f0\par
+btn\f6 .\f0 addEventListener\f6 (\f0 "click"\f6 , \f0 function\f6  () \{\f0\par
+\f6     \f0 console\f6 .\f0 log\f6 (\f0 this\f6 ); \cf2 // \f0 O\f6  \f0 bot\'e3o\f6  \f0 clicado\par
+\cf3\f6\});\f0\par
+\cf0 O\f6  \f0 operador\f6  \f0 this\f6  \f0\'e9\f6  \f0 flex\'edvel\f6 , \f0 mas\f6  \f0 entender\f6  \f0 seu\f6  \f0 comportamento\f6  \f0 requer\f6  \f0 aten\'e7\'e3o\f6  \f0 ao\f6  \f0 contexto\f6  \f0 de\f6  \f0 execu\'e7\'e3o\f6 .\par
 \par
 \par
 \ul\b\fs28 getElementById \ulnone\b0\fs24\par
@@ -33264,13 +33310,13 @@ valor: O valor que voc\'ea deseja atribuir ao atributo.\par
 \cf4\i0\par
 \ul\b Exemplo 2: Alterar um atributo existente\par
 \cf3\ulnone\b0\i const link = document.querySelector("a"); \cf2 // Seleciona um link no DOM\cf3\par
-link.setAttribute("href", "{{\field{\*\fldinst{HYPERLINK https://example.com }}{\fldrslt{https://example.com\ul0\cf0}}}}\f0\fs24 "); \cf2 // Modifica o atributo "href"\par
+link.setAttribute("href", "{\cf0{\field{\*\fldinst{HYPERLINK https://example.com }}{\fldrslt{https://example.com\ul0\cf0}}}}\f0\fs24 "); \cf2 // Modifica o atributo "href"\par
 \cf4\i0\par
 Se o link original fosse:\par
-\cf3\i <a href="https://oldsite.com">Clique aqui</a>\par
+\cf3\i <a href="{{\field{\*\fldinst{HYPERLINK https://oldsite.com }}{\fldrslt{https://oldsite.com\ul0\cf0}}}}\f0\fs24 ">Clique aqui</a>\par
 \cf4\i0\par
 Ap\'f3s o c\'f3digo, ele se tornar\'e1:\par
-\cf3\i <a href="https://example.com">Clique aqui</a>\par
+\cf3\i <a href="{{\field{\*\fldinst{HYPERLINK https://example.com }}{\fldrslt{https://example.com\ul0\cf0}}}}\f0\fs24 ">Clique aqui</a>\par
 \cf4\i0\par
 \ul\b Exemplo 3: Adicionar classes dinamicamente\par
 \cf3\ulnone\b0\i const div = document.querySelector("div"); \cf2 // Seleciona uma div\par
@@ -33398,6 +33444,82 @@ Dica: Combinar com outros m\'e9todos\par
 Use setAttribute() para adicionar atributos.\par
 Combine com createTextNode() se preferir criar texto manualmente.\par
 Combine com querySelector() ou querySelectorAll() para inserir elementos em locais espec\'edficos.\par
+\par
+\ul\b\fs28 removeChild() \par
+\ulnone\b0\fs24 O m\'e9todo removeChild() \'e9 usado para remover um elemento filho de um elemento pai no DOM (Document Object Model).\par
+\par
+Sintaxe\par
+pai.removeChild(filho);\par
+pai: O elemento que cont\'e9m o filho que ser\'e1 removido.\par
+filho: O elemento que ser\'e1 removido.\par
+\par
+\ul\b Exemplo Pr\'e1tico\par
+\ulnone\b0 Imagine que temos o seguinte HTML:\par
+\cf3\i <ul id="lista">\par
+    <li id="item1">Item 1</li>\par
+    <li id="item2">Item 2</li>\par
+    <li id="item3">Item 3</li>\par
+</ul>\par
+\par
+\cf4\i0 Agora, vamos remover o segundo item (<li id="item2">):\par
+javascript\par
+\cf3\i const lista = document.getElementById("lista"); // Pegamos o elemento pai (ul)\par
+const item2 = document.getElementById("item2"); // Pegamos o elemento filho (li)\par
+\par
+lista.removeChild(item2); \cf2 // Removemos o item2 da lista\par
+\par
+\cf4\i0 O que acontece?\par
+Ap\'f3s a remo\'e7\'e3o, a lista fica assim:\par
+html\par
+<ul id="lista">\par
+    <li id="item1">Item 1</li>\par
+    <li id="item3">Item 3</li>\par
+</ul>\par
+\par
+\par
+\par
+\ul\b\fs28 metodo filter\par
+\ulnone\b0\fs24 O m\'e9todo filter() em JavaScript \'e9 usado para criar um novo array contendo apenas os elementos que passam em um teste espec\'edfico definido por uma fun\'e7\'e3o de callback.\par
+\par
+Sintaxe\par
+const novoArray = arrayOriginal.filter(callback);\par
+callback: Uma fun\'e7\'e3o que retorna true para manter o elemento e false para remov\'ea-lo.\par
+novoArray: Um novo array apenas com os elementos que passaram no teste.\par
+\par
+\ul\b Exemplo 1 \f1\endash  Filtrar n\f0\'fameros maiores que 10\par
+\ulnone\b0 javascript\par
+\cf3\i const numeros = [5, 12, 8, 130, 44];\par
+const maioresQue10 = numeros.filter(num => num > 10);\par
+console.log(maioresQue10); \cf2 // [12, 130, 44]\par
+\cf4\i0\par
+\par
+\ul\b Exemplo 2 \f1\endash  Filtrar nomes com mais de 5 letras\par
+\ulnone\b0 javascript\par
+\cf3\i const nomes = ["Ana", "Roberto", "Maria", "Jo\f0\'e3o"];\par
+const nomesGrandes = nomes.filter(nome => nome.length > 5);\par
+console.log(nomesGrandes); \cf2 // ["Roberto", "Maria"]\par
+\cf4\i0\par
+\par
+\ul\b Exemplo 3 \f1\endash  Filtrar objetos dentro de um array\par
+\ulnone\b0 Se tivermos um array de objetos, podemos filtrar os que atendem a um crit\f0\'e9rio:\par
+\par
+javascript\par
+\cf3\i const pessoas = [\par
+  \{ nome: "Carlos", idade: 25 \},\par
+  \{ nome: "Ana", idade: 17 \},\par
+  \{ nome: "Pedro", idade: 30 \}\par
+];\par
+const maioresDeIdade = pessoas.filter(pessoa => pessoa.idade >= 18);\par
+\par
+console.log(maioresDeIdade);\par
+\cf2 // [\{ nome: "Carlos", idade: 25 \}, \{ nome: "Pedro", idade: 30 \}]\par
+\par
+\cf4\i0 Pontos importantes sobre filter()\par
+\f4\u9989?\f1  \f0 Ele n\'e3o modifica o array original \f1\endash  sempre retorna um novo array.\par
+\f4\u9989?\f1  \f0 Funciona apenas para arrays.\par
+\f4\u9989?\f1  \f0 A fun\'e7\'e3o de callback recebe at\'e9 tr\'eas par\'e2metros:\par
+array.filter((elemento, indice, arrayCompleto) => \{...\});\par
+\par
 \par
 }
  
