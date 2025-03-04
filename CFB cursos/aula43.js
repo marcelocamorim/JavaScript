@@ -31,7 +31,7 @@ btnCursoSelecionado.addEventListener("click", (evt)=>{
     })
     radioSelecionado=radioSelecionado[0]
     //const cursoSelecionado=radioSelecionado.parentNode.parentNode.firstChild.textConyent
-    const cursoSelecionado=radioSelecionado.previousSibling.textContent
+    const cursoSelecionado=radioSelecionado.parentNode.previousSibling.textContent
     alert("curso selecionado: "+ cursoSelecionado)
 })
 
