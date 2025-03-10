@@ -33559,8 +33559,53 @@ filter() retorna todos os elementos que satisfazem a condi\'e7\'e3o.\par
 \par
 \cf3\i const numeros = [10, 20, 30, 40, 50];\par
 console.log(numeros.find(num => num > 25));  \cf2 // 30 (apenas o primeiro)\par
-\cf3 console.log(numeros.filter(num => num > 25)); \cf2 // [30, 40, 50] (todos os maiores)\lang22\par
-\cf4\i0\par
+\cf3 console.log(numeros.filter(num => num > 25)); \cf2 // [30, 40, 50] (todos os maiores)\par
+\par
+\par
+\par
+\cf0\ul\b\i0\fs28 metodo every\ulnone\b0\par
+\fs24 O m\'e9todo .every() em JavaScript \'e9 usado para testar se todos os elementos de um array passam por uma condi\'e7\'e3o especificada. Ele retorna true se todos os elementos atenderem \'e0 condi\'e7\'e3o, caso contr\'e1rio, retorna false.\par
+\par
+\ul\b Sintaxe\par
+\cf3\ulnone\b0\i array.every(callback(elemento, \'edndice, array), thisArg);\par
+\cf0\i0 callback \f5\u8594?\f1  \f0 Fun\'e7\'e3o que testa cada elemento.\par
+elemento \f1\u8594? \f0 O item atual do array.\par
+\'edndice (opcional) \f1\u8594? \f0 A posi\'e7\'e3o do item no array.\par
+array (opcional) \f1\u8594? \f0 O pr\'f3prio array sendo percorrido.\par
+thisArg (opcional) \f1\u8594? \f0 Valor usado como this na fun\'e7\'e3o callback.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Exemplo 1: Verificar se todos os n\'fameros s\'e3o positivos\par
+\ulnone\b0 javascript\par
+\cf3\i const numeros = [10, 20, 30, 40, 50];\par
+const todosPositivos = numeros.every(num => num > 0);\par
+console.log(todosPositivos); \cf2 // true (todos os n\'fameros s\'e3o maiores que 0)\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Exemplo 2: Verificar se todos os elementos s\'e3o strings\par
+\ulnone\b0 javascript\par
+\cf3\i const nomes = ["Ana", "Carlos", "Jo\'e3o", "Maria"];\par
+const todosStrings = nomes.every(nome => typeof nome === "string");\par
+console.log(todosStrings); \cf2 // true (todos os elementos s\'e3o strings)\par
+\cf0\i0\par
+\f2\u-10179?\u-9012?\f1  \f0 Exemplo 3: Verificar se todos os n\'fameros s\'e3o menores que um valor\par
+javascript\par
+\cf3\i const numeros = [5, 8, 12, 7, 4];\par
+const todosMenoresQue10 = numeros.every(num => num < 10);\par
+console.log(todosMenoresQue10); \cf2 // false (12 n\'e3o \'e9 menor que 10)\par
+\cf0\i0\par
+\f2\u-10179?\u-9012?\f1  \f0 Exemplo 4: Trabalhando com Objetos\par
+javascript\par
+\cf3\i const usuarios = [\par
+    \{ nome: "Ana", ativo: true \},\par
+    \{ nome: "Carlos", ativo: true \},\par
+    \{ nome: "Jo\'e3o", ativo: false \}\par
+];\par
+const todosAtivos = usuarios.every(usuario => usuario.ativo);\par
+console.log(todosAtivos); \cf2 // false (Jo\'e3o n\'e3o est\'e1 ativo)\par
+\cf0\i0\par
+\f2\u-10179?\u-8947?\f1  \f0 Quando Usar .every()?\par
+Quando voc\'ea quer garantir que todos os elementos de um array cumpram uma condi\'e7\'e3o.\par
+Para validar formul\'e1rios, listas de dados, ou verificar requisitos m\'ednimos em arrays.\lang22\par
+\par
 \par
 }
  
