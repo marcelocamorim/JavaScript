@@ -33313,10 +33313,10 @@ valor: O valor que voc\'ea deseja atribuir ao atributo.\par
 link.setAttribute("href", "{\cf0{\field{\*\fldinst{HYPERLINK https://example.com }}{\fldrslt{https://example.com\ul0\cf0}}}}\f0\fs24 "); \cf2 // Modifica o atributo "href"\par
 \cf4\i0\par
 Se o link original fosse:\par
-\cf3\i <a href="{{\field{\*\fldinst{HYPERLINK https://oldsite.com }}{\fldrslt{https://oldsite.com\ul0\cf0}}}}\f0\fs24 ">Clique aqui</a>\par
+\cf3\i <a href="{\cf0{\field{\*\fldinst{HYPERLINK https://oldsite.com }}{\fldrslt{https://oldsite.com\ul0\cf0}}}}\f0\fs24 ">Clique aqui</a>\par
 \cf4\i0\par
 Ap\'f3s o c\'f3digo, ele se tornar\'e1:\par
-\cf3\i <a href="{{\field{\*\fldinst{HYPERLINK https://example.com }}{\fldrslt{https://example.com\ul0\cf0}}}}\f0\fs24 ">Clique aqui</a>\par
+\cf3\i <a href="{\cf0{\field{\*\fldinst{HYPERLINK https://example.com }}{\fldrslt{https://example.com\ul0\cf0}}}}\f0\fs24 ">Clique aqui</a>\par
 \cf4\i0\par
 \ul\b Exemplo 3: Adicionar classes dinamicamente\par
 \cf3\ulnone\b0\i const div = document.querySelector("div"); \cf2 // Seleciona uma div\par
@@ -33520,6 +33520,47 @@ console.log(maioresDeIdade);\par
 \f4\u9989?\f1  \f0 A fun\'e7\'e3o de callback recebe at\'e9 tr\'eas par\'e2metros:\par
 array.filter((elemento, indice, arrayCompleto) => \{...\});\par
 \par
+\par
+\par
+\par
+\par
+\par
+\par
+\ul\b\fs28 O m\'e9todo .find() \par
+\ulnone\b0\fs24 O m\'e9todo .find() em JavaScript \'e9 usado para encontrar o primeiro elemento de um array que satisfa\'e7a uma condi\'e7\'e3o espec\'edfica. Ele retorna o pr\'f3prio elemento encontrado ou undefined caso nenhum elemento corresponda ao crit\'e9rio.\par
+\par
+Sintaxe\par
+\cf3\i array.find(callback(elemento, \'edndice, array), thisArg);\par
+\cf4\i0 callback \f5\u8594?\f1  \f0 Fun\'e7\'e3o que testa cada elemento.\par
+elemento \f5\u8594?\f1  \f0 O item atual do array.\par
+\'edndice (opcional) \f5\u8594?\f1  \f0 A posi\'e7\'e3o do item no array.\par
+array (opcional) \f5\u8594?\f1  \f0 O pr\'f3prio array sendo percorrido.\par
+thisArg (opcional) \f5\u8594?\f1  \f0 Um valor que pode ser usado como this dentro do callback.\par
+\par
+\par
+\b Exemplo 1: Encontrar um n\'famero espec\'edfico\par
+\cf3\b0\i const numeros = [10, 20, 30, 40, 50];\par
+const resultado = numeros.find(num => num > 25);\par
+console.log(resultado); \cf2 // 30 (porque \'e9 o primeiro maior que 25)\par
+\cf4\i0\par
+\b Exemplo 2: Encontrar um objeto dentro de um array\par
+\cf3\b0\i const pessoas = [\par
+    \{ nome: "Ana", idade: 25 \},\par
+    \{ nome: "Carlos", idade: 30 \},\par
+    \{ nome: "Jo\'e3o", idade: 40 \}\par
+];\par
+const pessoa = pessoas.find(p => p.idade > 29);\par
+console.log(pessoa); \cf2 // \{ nome: "Carlos", idade: 30 \}\par
+\cf4\i0\par
+\par
+\b Diferen\'e7a entre find() e filter()\par
+\b0 find() retorna somente o primeiro elemento que satisfaz a condi\'e7\'e3o.\par
+filter() retorna todos os elementos que satisfazem a condi\'e7\'e3o.\par
+\par
+\cf3\i const numeros = [10, 20, 30, 40, 50];\par
+console.log(numeros.find(num => num > 25));  \cf2 // 30 (apenas o primeiro)\par
+\cf3 console.log(numeros.filter(num => num > 25)); \cf2 // [30, 40, 50] (todos os maiores)\lang22\par
+\cf4\i0\par
 \par
 }
  
