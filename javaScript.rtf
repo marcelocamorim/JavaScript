@@ -1,4 +1,4 @@
-{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil\fcharset1 Segoe UI Emoji;}{\f4\fnil\fcharset1 Segoe UI Symbol;}{\f5\fnil\fcharset1 Cambria Math;}{\f6\fnil\fcharset0 Cambria Math;}{\f7\fnil Cambria Math;}{\f8\fnil\fcharset0 Segoe UI Symbol;}}
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil\fcharset1 Segoe UI Emoji;}{\f4\fnil\fcharset1 Segoe UI Symbol;}{\f5\fnil\fcharset1 Cambria Math;}{\f6\fnil\fcharset0 Cambria Math;}{\f7\fnil Cambria Math;}{\f8\fnil Segoe UI Symbol;}{\f9\fnil\fcharset0 Segoe UI Symbol;}}
 {\colortbl ;\red255\green0\blue0;\red155\green187\blue89;\red128\green100\blue162;\red0\green0\blue0;\red0\green0\blue255;}
 {\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont5\mwrapIndent1440 }\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\b\f0\fs32\lang22 JavaScript\par
@@ -33569,10 +33569,10 @@ console.log(numeros.find(num => num > 25));  \cf2 // 30 (apenas o primeiro)\par
 \ul\b Sintaxe\par
 \cf3\ulnone\b0\i array.every(callback(elemento, \'edndice, array), thisArg);\par
 \cf0\i0 callback \f5\u8594?\f1  \f0 Fun\'e7\'e3o que testa cada elemento.\par
-elemento \f1\u8594? \f0 O item atual do array.\par
-\'edndice (opcional) \f1\u8594? \f0 A posi\'e7\'e3o do item no array.\par
-array (opcional) \f1\u8594? \f0 O pr\'f3prio array sendo percorrido.\par
-thisArg (opcional) \f1\u8594? \f0 Valor usado como this na fun\'e7\'e3o callback.\par
+elemento \f5\u8594?\f1  \f0 O item atual do array.\par
+\'edndice (opcional) \f5\u8594?\f1  \f0 A posi\'e7\'e3o do item no array.\par
+array (opcional) \f5\u8594?\f1  \f0 O pr\'f3prio array sendo percorrido.\par
+thisArg (opcional) \f5\u8594?\f1  \f0 Valor usado como this na fun\'e7\'e3o callback.\par
 \par
 \ul\b\f2\u-10179?\u-9012?\f1  \f0 Exemplo 1: Verificar se todos os n\'fameros s\'e3o positivos\par
 \ulnone\b0 javascript\par
@@ -33612,8 +33612,8 @@ Para validar formul\'e1rios, listas de dados, ou verificar requisitos m\'ednimos
 \ul\b\fs28 metodo some\ulnone\b0\fs24\par
 O\f6  \f0 m\'e9todo\f6  .\f0 some\f6 () \f0 em\f6  \f0 JavaScript\f6  \f0\'e9\f6  \f0 usado\f6  \f0 para\f6  \f0 verificar\f6  \f0 se\f6  \f0 pelo\f6  \f0 menos\f6  \f0 um\f6  \f0 elemento\f6  \f0 de\f6  \f0 um\f6  \f0 array\f6  \f0 passa\f6  \f0 em\f6  \f0 um\f6  \f0 teste\f6  \f0 espec\'edfico\f6 . \f0 Ao\f6  \f0 contr\'e1rio\f6  \f0 do\f6  .\f0 every\f6 (), \f0 que\f6  \f0 exige\f6  \f0 que\f6  \f0 todos\f6  \f0 os\f6  \f0 elementos\f6  \f0 passem\f6  \f0 no\f6  \f0 teste\f6 , \f0 o\f6  .\f0 some\f6 () \f0 s\'f3\f6  \f0 precisa\f6  \f0 de\f6  \f0 um\f6  \f0\'fanico\f6  \f0 elemento\f6  \f0 que\f6  \f0 satisfa\'e7a\f6  \f0 a\f6  \f0 condi\'e7\'e3o\f6 .\f0\par
 \par
-\f2\u-10179?\u-9012?\f7  \f2 Sintaxe\f6 :\f2\par
-\cf3\i array\f6 .\f2 some\f6 (\f2 callback\f6 (\f2 elemento\f6 , \f8\'edndice\f6 , \f8 array\f6 ), \f8 thisArg\f6 )\f8\par
+\f2\u-10179?\u-9012?\f7  \f8 Sintaxe\f6 :\f8\par
+\cf3\i array\f6 .\f8 some\f6 (\f8 callback\f6 (\f8 elemento\f6 , \f9\'edndice\f6 , \f9 array\f6 ), \f9 thisArg\f6 )\f9\par
 \cf0\i0\f2\u-10179?\u-8947?\f1  \f0 Par\'e2metros:\par
 callback (obrigat\'f3rio): Fun\'e7\'e3o que \'e9 executada para cada elemento do array.\par
 elemento: O elemento atual sendo processado.\par
@@ -33719,6 +33719,94 @@ const maiorNumero = numeros.reduce((acumulador, numeroAtual) => \{\par
 \}, numeros[0]);\par
 console.log(maiorNumero); \cf2 // 21\cf3\par
 \cf0\i0\lang22\par
+\par
+\par
+\par
+\ul\b\fs28 metodo push\par
+\ulnone\b0\fs24 O m\'e9todo .push() em JavaScript \'e9 usado para adicionar um ou mais elementos ao final de um array. \'c9 muito \'fatil quando voc\'ea quer expandir um array dinamicamente sem precisar recri\'e1-lo.\par
+\par
+\f2\u-10179?\u-9012?\f1  \f0 Sintaxe:\par
+\cf3\i array.push(elemento1, elemento2, ..., elementoN)\par
+\par
+\cf0\i0\f2\u-10179?\u-8947?\f1  \f0 Par\'e2metros:\par
+elemento1, elemento2, ..., elementoN \f1\emdash  \f0 Um ou mais elementos que voc\'ea deseja adicionar ao final do array.\par
+\par
+\f2\u-10179?\u-9012?\f1  \f0 O que o m\'e9todo retorna?\par
+Retorna o novo comprimento do array ap\'f3s a adi\'e7\'e3o do(s) elemento(s).\par
+\par
+\ul\b\f2\u-10179?\u-8998?\f1  \f0 Exemplo 1: Adicionando um \'fanico elemento ao array\par
+\cf3\ulnone\b0\i const frutas = ["Ma\'e7\'e3", "Banana"];\par
+const novaQuantidade = frutas.push("Laranja");\par
+\par
+console.log(frutas);           \cf2 // ["Ma\'e7\'e3", "Banana", "Laranja"]\par
+\cf3 console.log(novaQuantidade);    \cf2 // 3\par
+\cf0\i0\f4\u9989?\f1  \f0 O array agora possui tr\'eas elementos, e o .push() retorna o novo comprimento (3).\par
+\par
+\par
+\ul\b\fs28 metodo pop\par
+\ulnone\b0\fs24 O m\'e9todo .pop() em JavaScript \'e9 usado para remover o \'faltimo elemento de um array e retornar esse elemento. \'c9 \'fatil quando voc\'ea quer pegar o \'faltimo item de um array e, ao mesmo tempo, remov\'ea-lo dele.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Sintaxe:\par
+\ulnone\b0 array.pop()\par
+\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 Par\'e2metros:\par
+\ulnone\b0 Nenhum. O .pop() n\'e3o recebe argumentos.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 O que o m\'e9todo retorna?\par
+\ulnone\b0 Retorna o \'faltimo elemento removido do array.\par
+Se o array estiver vazio, retorna undefined.\par
+\par
+\ul\b\f2\u-10179?\u-8998?\f1  \f0 Exemplo 1: Removendo o \'faltimo elemento de um array\par
+\cf3\ulnone\b0\i const frutas = ["Ma\'e7\'e3", "Banana", "Laranja"];\par
+const frutaRemovida = frutas.pop();\par
+\par
+console.log(frutas);        \cf2 // ["Ma\'e7\'e3", "Banana"]\cf3\par
+console.log(frutaRemovida);  \cf2 // "Laranja"\par
+\cf0\i0\f4\u9989?\f1  \f0 O m\'e9todo .pop() removeu "Laranja" e o retornou. O array original foi modificado.\par
+\par
+\par
+\ul\b\fs28 metodo unshift\par
+\ulnone\b0\fs24\par
+O m\'e9todo .unshift() em JavaScript \'e9 usado para adicionar um ou mais elementos no in\'edcio de um array. Diferente do .push(), que adiciona ao final, o .unshift() faz a adi\'e7\'e3o na primeira posi\'e7\'e3o e desloca todos os outros elementos para frente.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Sintaxe:\par
+\cf3\ulnone\b0\i array.unshift(elemento1, elemento2, ..., elementoN)\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 Par\'e2metros:\par
+\ulnone\b0 elemento1, elemento2, ..., elementoN \f1\emdash  \f0 Um ou mais elementos que voc\'ea deseja adicionar no in\'edcio do array.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 O que o m\'e9todo retorna?\par
+\ulnone\b0 Retorna o novo comprimento do array ap\'f3s a adi\'e7\'e3o do(s) elemento(s).\par
+\par
+\ul\b\f2\u-10179?\u-8998?\f1  \f0 Exemplo 1: Adicionando um \'fanico elemento ao in\'edcio do array\par
+\cf3\ulnone\b0\i const numeros = [2, 3, 4];\par
+const novoComprimento = numeros.unshift(1);\par
+\par
+console.log(numeros);           \cf2 // [1, 2, 3, 4]\par
+\cf3 console.log(novoComprimento);    \cf2 // 4\par
+\cf0\i0\f4\u9989?\f1  \f0 O n\'famero 1 foi adicionado no in\'edcio e o array agora tem comprimento 4.\par
+\par
+\par
+\ul\b\fs28 metodo shift\par
+\ulnone\b0\fs24 O m\'e9todo .shift() em JavaScript \'e9 usado para remover o primeiro elemento de um array e retornar esse elemento. \'c9 o oposto do m\'e9todo .pop(), que remove o \'faltimo elemento.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Sintaxe:\par
+\ulnone\b0 array.shift()\par
+\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 Par\'e2metros:\par
+\ulnone\b0 Nenhum. O .shift() n\'e3o recebe argumentos.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 O que o m\'e9todo retorna?\par
+\ulnone\b0 Retorna o primeiro elemento removido do array.\par
+Se o array estiver vazio, retorna undefined.\par
+\par
+\ul\b\f2\u-10179?\u-8998?\f1  \f0 Exemplo 1: Removendo o primeiro elemento de um array\par
+\cf3\ulnone\b0\i const frutas = ["Ma\'e7\'e3", "Banana", "Laranja"];\par
+const frutaRemovida = frutas.shift();\par
+\par
+console.log(frutas);        \cf2 // ["Banana", "Laranja"]\par
+\cf3 console.log(frutaRemovida);  \cf2 // "Ma\'e7\'e3"\par
+\cf0\i0\f4\u9989?\f1  \f0 O m\'e9todo .shift() removeu "Ma\'e7\'e3" e o retornou. O array original foi modificado.\par
 \par
 }
  
