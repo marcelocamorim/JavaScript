@@ -33674,6 +33674,50 @@ btnVerificar.addEventListener("click", () => \{    \par
         resultado.innerHTML = "Todos os n\'fameros s\'e3o v\'e1lidos!";\par
     \}\par
 \});\par
+\par
+\par
+\par
+\par
+\par
+\cf0\ul\b\i0\fs28 metodo Reduce\par
+\ulnone\b0\fs24\par
+O m\'e9todo .reduce() em JavaScript \'e9 usado para reduzir um array a um \'fanico valor, aplicando uma fun\'e7\'e3o que acumula o resultado ao longo de todos os elementos do array.\par
+\par
+\ul\b Sintaxe:\par
+\ulnone\b0 array.reduce(callback(acumulador, elementoAtual, \'edndice, array), valorInicial)\par
+\par
+\f2\u-10179?\u-8947?\f1  \f0 Par\'e2metros:\par
+callback (obrigat\'f3rio): Fun\'e7\'e3o que \'e9 executada para cada elemento do array.\par
+acumulador: O valor acumulado retornado na \'faltima chamada do callback.\par
+elementoAtual: O elemento atual sendo processado.\par
+\'edndice: (Opcional) O \'edndice do elemento atual.\par
+array: (Opcional) O array original.\par
+valorInicial (opcional): Um valor inicial opcional para o acumulador. Se n\'e3o for fornecido, o primeiro elemento do array ser\'e1 usado como acumulador e o loop come\'e7ar\'e1 do segundo elemento.\par
+\par
+\ul\b O que o m\'e9todo retorna?\par
+\ulnone\b0 O valor final acumulado ap\'f3s o processamento de todos os elementos.\par
+\par
+\ul\b Exemplo 1: Somar todos os n\'fameros de um array\par
+\ulnone\b0 javascript\par
+\cf3\i const numeros = [10, 20, 30, 40];\par
+const soma = numeros.reduce((acumulador, numeroAtual) => acumulador + numeroAtual, 0);\par
+console.log(soma); \cf2 // 100\par
+\cf0\i0\f4\u9989?\f1  \f0 Aqui, o acumulador come\'e7a em 0 (valorInicial) e vai somando cada n\'famero do array at\'e9 o final.\par
+\par
+\ul\b Exemplo 2: Multiplicando todos os n\'fameros de um array\par
+\ulnone\b0 javascript\par
+\cf3\i const numeros = [1, 2, 3, 4];\par
+const produto = numeros.reduce((acumulador, numeroAtual) => acumulador * numeroAtual, 1);\par
+console.log(produto); \cf2 // 24 (1 * 2 * 3 * 4)\par
+\cf0\i0\f4\u9989?\f1  \f0 Come\'e7a com 1 e vai multiplicando os elementos do array um por um.\par
+\par
+\ul\b Exemplo 3: Encontrar o maior n\'famero de um array\par
+\ulnone\b0 javascript\par
+\cf3\i const numeros = [5, 12, 9, 21, 6];\par
+const maiorNumero = numeros.reduce((acumulador, numeroAtual) => \{\par
+    return numeroAtual > acumulador ? numeroAtual : acumulador;\par
+\}, numeros[0]);\par
+console.log(maiorNumero); \cf2 // 21\cf3\par
 \cf0\i0\lang22\par
 \par
 }
