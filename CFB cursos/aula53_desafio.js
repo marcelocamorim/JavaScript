@@ -1,27 +1,32 @@
-const btn_soma=document.querySelector("#btn_Soma")
-const btn_subtracao=document.querySelector("btn_subtracao")
-const btn_Multiplicacao=document.querySelector("btn_Multiplicacao")
-const btn_Divisao=document.querySelector("btn_Divisao")
+const btn_soma=document.querySelector("#btn_soma")
+const btn_subtracao=document.querySelector("#btn_subtracao")
+const btn_Multiplicacao=document.querySelector("#btn_multiplicacao")
+const btn_Divisao=document.querySelector("#btn_divisao")
+
+const valor1=document.getElementById("valor1")
+const valor2=document.getElementById("valor2")
 const res=document.querySelector("#res")
 
-let op=[
+
+const op=[
     ()=>{
-        const val=[document.getElementById("valor1").value,document.getElementById("valor2").value]
-        res.value=Number(val[0]+Number(val[1]))
+        const val=[Number(valor1.value),Number(valor2.value)]
+        res.value=val[0]+val[1]
     },
     ()=>{
-        const val=[document.getElementById("valor1").value,document.getElementById("valor2").value]
-        res.value=Number(val[0]-Number(val[1]))
+        const val=[Number(valor1.value),Number(valor2.value)]
+        res.value=val[0]-val[1]
     },
     ()=>{
-        const val=[document.getElementById("valor1").value,document.getElementById("valor2").value]
-        res.value=Number(val[0]*Number(val[1]))
+        const val=[Number(valor1.value),Number(valor2.value)]
+        res.value=val[0]*val[1]
     },
     ()=>{
-        const val=[document.getElementById("valor1").value,document.getElementById("valor2").value]
-        res.value=Number(val[0]/Number(val[1]))
+        const val=[Number(valor1.value),Number(valor2.value)]
+        res.value=val[0]/val[1]
     }
 ]
+
 
 btn_soma.addEventListener("click",op[0])
 btn_subtracao.addEventListener("click",op[1])
