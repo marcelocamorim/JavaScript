@@ -33808,5 +33808,53 @@ console.log(frutas);        \cf2 // ["Banana", "Laranja"]\par
 \cf3 console.log(frutaRemovida);  \cf2 // "Ma\'e7\'e3"\par
 \cf0\i0\f4\u9989?\f1  \f0 O m\'e9todo .shift() removeu "Ma\'e7\'e3" e o retornou. O array original foi modificado.\par
 \par
+\par
+\par
+\ul\b\fs28 Cole\'e7\'e3o MAP\par
+\ulnone\b0\fs24 O Map \'e9 uma cole\'e7\'e3o no JavaScript que permite armazenar pares de chave-valor, onde qualquer tipo de dado pode ser usado como chave, diferente dos objetos comuns que aceitam apenas strings ou s\'edmbolos como chaves.\par
+\par
+\ul\b\f4\u9989?\f1  \f0 Principais caracter\'edsticas do Map:\par
+\ulnone\b0 Permite qualquer tipo de dado como chave (n\'fameros, objetos, fun\'e7\'f5es, etc.).\par
+Mant\'e9m a ordem de inser\'e7\'e3o dos elementos.\par
+\'c9 iter\'e1vel, o que facilita percorrer seus elementos.\par
+Possui m\'e9todos \'fateis para manipula\'e7\'e3o e consulta.\par
+\par
+\ul\b Criando um Map\par
+\ulnone\b0 Voc\'ea cria um Map usando o construtor Map().\par
+\cf3\i const meuMapa = new Map();\par
+\cf0\i0\par
+Ou inicializando com pares de chave-valor:\par
+\cf3\i const meuMapa = new Map([\par
+    ['nome', 'Jo\'e3o'],\par
+    ['idade', 30],\par
+    [true, '\'c9 verdade!']\par
+]);\par
+\par
+\cf0\ul\b\i0\f2\u-10179?\u-9012?\f1  \f0 M\'e9todos Principais do Map\par
+\ulnone\b0\f2\u-10179?\u-8947?\f1  \f0 set(chave, valor) - Adiciona ou atualiza um elemento no Map.\par
+\cf3\i meuMapa.set('profissao', 'Desenvolvedor');\par
+meuMapa.set(1, 'N\'famero Um');\par
+console.log(meuMapa); \par
+\cf2 // Sa\'edda: Map(5) \{'nome' => 'Jo\'e3o', 'idade' => 30, true => '\'c9 verdade!', 'profissao' => 'Desenvolvedor', 1 => 'N\'famero Um'\}\par
+\cf3\par
+\cf0\ul\b\i0\f2\u-10179?\u-8947?\f1  \f0 get(chave) - Retorna o valor associado a uma chave.\par
+\cf3\ulnone\b0\i console.log(meuMapa.get('nome')); \cf2 // Sa\'edda: Jo\'e3o\par
+\cf3 console.log(meuMapa.get(1));      \cf2 // Sa\'edda: N\'famero Um\cf3\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 has(chave) - Retorna true se a chave existe, ou false se n\'e3o existe.\par
+\cf3\ulnone\b0\i console.log(meuMapa.has('idade'));  \cf2 // Sa\'edda: true\cf3\par
+console.log(meuMapa.has('altura')); \cf2 // Sa\'edda: false\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 delete(chave) - Remove um elemento por chave.\par
+\cf3\ulnone\b0\i meuMapa.delete('profissao');\par
+console.log(meuMapa.has('profissao')); \cf2 // Sa\'edda: false\par
+\cf3\par
+\cf0\ul\b\i0\f2\u-10179?\u-8947?\f1  \f0 size - Retorna o n\'famero de elementos do Map.\ulnone\b0\par
+\cf3\i console.log(meuMapa.size); \cf2 // Sa\'edda: 4\par
+\par
+\cf0\ul\b\i0\f2\u-10179?\u-8947?\f1  \f0 clear() - Remove todos os elementos do Map.\ulnone\b0\par
+\cf3\i meuMapa.clear();\par
+console.log(meuMapa.size); \cf2 // Sa\'edda: 0\cf3\par
+\par
 }
  
