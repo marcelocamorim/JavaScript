@@ -15,7 +15,9 @@ console.log(mapa)
 
 caixa.innerHTML=mapa.get("curso")
 
-if (mapa.has("canal")){
+
+
+if (mapa.has(10)){
     caixa.innerHTML="Achave está na coleção"
 }else{
     caixa.innerHTML="A chave não está na coleção"
