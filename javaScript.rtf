@@ -1,4 +1,4 @@
-{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil\fcharset1 Segoe UI Emoji;}{\f4\fnil\fcharset1 Segoe UI Symbol;}{\f5\fnil\fcharset1 Cambria Math;}{\f6\fnil\fcharset0 Cambria Math;}{\f7\fnil Cambria Math;}{\f8\fnil Segoe UI Symbol;}{\f9\fnil\fcharset0 Segoe UI Symbol;}}
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil\fcharset1 Segoe UI Emoji;}{\f4\fnil\fcharset1 Segoe UI Symbol;}{\f5\fnil\fcharset1 Cambria Math;}{\f6\fnil\fcharset0 Cambria Math;}{\f7\fnil Cambria Math;}{\f8\fnil Segoe UI Symbol;}{\f9\fnil\fcharset0 Segoe UI Symbol;}{\f10\fnil Segoe UI Emoji;}}
 {\colortbl ;\red255\green0\blue0;\red155\green187\blue89;\red128\green100\blue162;\red0\green0\blue0;\red0\green0\blue255;}
 {\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont5\mwrapIndent1440 }\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\b\f0\fs32\lang22 JavaScript\par
@@ -33917,12 +33917,12 @@ numeros.forEach((valor) => \{\par
 \}\par
 \cf0\i0\par
 \ul\b\f2\u-10179?\u-9012?\f1  \f0 Convers\'f5es de Set\par
-\f3\u10145?\u-497? \f0 Para Array:\par
+\f3\u10145?\u-497?\f10  \f0 Para Array:\par
 \cf3\ulnone\b0\i const arrayDeNumeros = Array.from(numeros);\par
 console.log(arrayDeNumeros); \par
 \cf2 // Sa\'edda: [1, 2, 3]\par
 \cf0\i0\par
-\ul\b\f3\u10145?\u-497? \f0 De Array para Set:\par
+\ul\b\f3\u10145?\u-497?\f10  \f0 De Array para Set:\par
 \cf3\ulnone\b0\i const numerosDuplicados = [1, 2, 2, 3, 4, 4, 5];\par
 const setSemDuplicatas = new Set(numerosDuplicados);\par
 console.log(setSemDuplicatas); \par
@@ -33963,5 +33963,72 @@ adicionarNome("Jo\'e3o"); \cf2 // Nome repetido\par
 // Set(2) \{ 'Jo\'e3o', 'Maria' \}\par
 \par
 \par
+\par
+\cf0\ul\b\i0\fs28 tamplate string \par
+\ulnone\b0\fs24 Template Strings em JavaScript s\'e3o uma forma moderna de criar strings que permite interpola\'e7\'e3o de vari\'e1veis, quebras de linha sem complica\'e7\'e3o e escrita mais leg\'edvel. Elas foram introduzidas no ES6 (ECMAScript 2015) e s\'e3o delimitadas por crases (``) em vez de aspas (' ' ou " ").\par
+\par
+\ul\b\f4\u9989?\f1  \f0 Principais Caracter\'edsticas:\par
+\ulnone\b0 Interpola\'e7\'e3o de Vari\'e1veis usando $\{\}.\par
+Suporte a m\'faltiplas linhas sem precisar usar \\n.\par
+F\'e1cil inclus\'e3o de express\'f5es JavaScript dentro das strings.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Exemplo Simples de Template String\par
+\cf3\ulnone\b0\i const nome = "Carlos";\par
+const idade = 30;\par
+const mensagem = `Ol\'e1, meu nome \'e9 $\{nome\} e eu tenho $\{idade\} anos.`;\par
+console.log(mensagem);  \par
+\cf2 // Sa\'edda: Ol\'e1, meu nome \'e9 Carlos e eu tenho 30 anos.\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Compara\'e7\'e3o com String Tradicional\par
+\f2\u-10179?\u-9002?\f1  \f0 Sem Template String:\par
+\cf3\ulnone\b0\i const nome = "Carlos";\par
+const idade = 30;\par
+const mensagem = "Ol\'e1, meu nome \'e9 " + nome + " e eu tenho " + idade + " anos.";\par
+console.log(mensagem);\par
+\cf2 // Sa\'edda: Ol\'e1, meu nome \'e9 Carlos e eu tenho 30 anos.\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Quebras de Linha Simplificadas:\par
+\ulnone\b0 Com Template Strings, n\'e3o precisamos usar \\n para criar m\'faltiplas linhas.\par
+\cf3\i const mensagem = `Esta \'e9 uma mensagem\par
+que pode ocupar v\'e1rias linhas\par
+sem problema algum.`;\par
+\par
+console.log(mensagem);\par
+\cf2 // Sa\'edda:\par
+// Esta \'e9 uma mensagem\par
+// que pode ocupar v\'e1rias linhas\par
+// sem problema algum.\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Inserindo C\'e1lculos e Fun\'e7\'f5es:\par
+\ulnone\b0 Voc\'ea pode incluir express\'f5es JavaScript dentro do $\{\}.\par
+\cf3\i const a = 5;\par
+const b = 3;\par
+\par
+console.log(`A soma de $\{a\} e $\{b\} \'e9 $\{a + b\}.`);  \par
+\cf2 // Sa\'edda: A soma de 5 e 3 \'e9 8.\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Usando Fun\'e7\'f5es dentro da Template String:\par
+\cf3\ulnone\b0\i function saudacao(nome) \{\par
+    return `Ol\'e1, $\{nome\}!`;\par
+\}\par
+\par
+console.log(`$\{saudacao("Jo\'e3o")\} Como voc\'ea est\'e1 hoje?`);  \par
+\cf2 // Sa\'edda: Ol\'e1, Jo\'e3o! Como voc\'ea est\'e1 hoje?\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Incluindo Objetos:\par
+\cf3\ulnone\b0\i const pessoa = \{\par
+    nome: "Maria",\par
+    idade: 28\par
+\};\par
+console.log(`Nome: $\{pessoa.nome\}, Idade: $\{pessoa.idade\}`);  \par
+\cf2 // Sa\'edda: Nome: Maria, Idade: 28\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Template String dentro de Fun\'e7\'f5es:\par
+\cf3\ulnone\b0\i function criarMensagem(nome, idade) \{\par
+    return `Ol\'e1, $\{nome\}! Voc\'ea tem $\{idade\} anos.`;\par
+\}\par
+\par
+console.log(criarMensagem("Ana", 22));  \par
+\cf2 // Sa\'edda: Ol\'e1, Ana! Voc\'ea tem 22 anos.\par
 }
  
