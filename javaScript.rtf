@@ -33856,5 +33856,112 @@ console.log(meuMapa.has('profissao')); \cf2 // Sa\'edda: false\par
 \cf3\i meuMapa.clear();\par
 console.log(meuMapa.size); \cf2 // Sa\'edda: 0\cf3\par
 \par
+\par
+\cf0\ul\b\i0\fs28 Cole\'e7\'e3o SET \par
+\ulnone\b0\fs24 O Set \'e9 uma cole\'e7\'e3o no JavaScript que armazena valores \'fanicos, ou seja, n\'e3o permite duplicatas. Ele \'e9 \'fatil quando voc\'ea quer garantir que uma lista de valores n\'e3o tenha repeti\'e7\'f5es.\par
+\par
+\ul\b\f4\u9989?\f1  \f0 Principais caracter\'edsticas do Set:\par
+\ulnone\b0 Armazena valores \'fanicos, descartando duplicatas automaticamente.\par
+Pode armazenar qualquer tipo de dado (n\'fameros, strings, objetos, etc.).\par
+\'c9 iter\'e1vel e mant\'e9m a ordem de inser\'e7\'e3o dos valores.\par
+Possui m\'e9todos \'fateis para adicionar, remover e consultar valores.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Criando um Set\par
+\ulnone\b0 Voc\'ea cria um Set usando o construtor Set().\par
+\ul\b Exemplo de cria\'e7\'e3o vazia:\par
+\cf3\ulnone\b0\i const meuSet = new Set();\par
+\cf0\i0\par
+\ul\b Exemplo de cria\'e7\'e3o com valores:\par
+\cf3\ulnone\b0\i const numeros = new Set([1, 2, 3, 4, 5, 5, 4, 3]);\par
+console.log(numeros); \par
+\cf2 // Sa\'edda: Set(5) \{ 1, 2, 3, 4, 5 \}\par
+\cf0\i0\f2\u-10179?\u-8943?\f1  \f0 Os valores duplicados (5, 4 e 3) foram automaticamente ignorados!\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Principais m\'e9todos do Set\par
+\f2\u-10179?\u-8947?\f1  \f0 add(valor) - Adiciona um novo valor ao Set.\par
+\cf3\ulnone\b0\i numeros.add(6);\par
+numeros.add(3); \cf2 // J\'e1 existe, ent\'e3o ser\'e1 ignorado.\par
+\cf3 console.log(numeros); \par
+\cf2 // Sa\'edda: Set(6) \{ 1, 2, 3, 4, 5, 6 \}\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 has(valor) - Verifica se o Set cont\'e9m um valor espec\'edfico.\par
+\cf3\ulnone\b0\i console.log(numeros.has(4)); \cf2 // Sa\'edda: true\cf3\par
+console.log(numeros.has(10)); \cf2 // Sa\'edda: false\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 delete(valor) - Remove um valor do Set.\par
+\cf3\ulnone\b0\i numeros.delete(4);\par
+console.log(numeros); \par
+\cf2 // Sa\'edda: Set(5) \{ 1, 2, 3, 5, 6 \}\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 size - Retorna o n\'famero de elementos no Set.\par
+\cf3\ulnone\b0\i console.log(numeros.size); \cf2 // Sa\'edda: 5\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 clear() - Remove todos os valores do Set.\par
+\cf3\ulnone\b0\i numeros.clear();\par
+console.log(numeros.size); \cf2 // Sa\'edda: 0\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Percorrendo um Set\par
+\f2\u-10179?\u-8956?\f1  \f0 forEach()\par
+\cf3\ulnone\b0\i numeros.add(1).add(2).add(3);\par
+numeros.forEach((valor) => \{\par
+    console.log(valor);\par
+\});\par
+\cf2 // Sa\'edda:\par
+// 1\par
+// 2\par
+// 3\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8956?\f1  \f0 for...of Loop (Mais comum)\par
+\cf3\ulnone\b0\i for (const valor of numeros) \{\par
+    console.log(valor);\par
+\}\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Convers\'f5es de Set\par
+\f3\u10145?\u-497? \f0 Para Array:\par
+\cf3\ulnone\b0\i const arrayDeNumeros = Array.from(numeros);\par
+console.log(arrayDeNumeros); \par
+\cf2 // Sa\'edda: [1, 2, 3]\par
+\cf0\i0\par
+\ul\b\f3\u10145?\u-497? \f0 De Array para Set:\par
+\cf3\ulnone\b0\i const numerosDuplicados = [1, 2, 2, 3, 4, 4, 5];\par
+const setSemDuplicatas = new Set(numerosDuplicados);\par
+console.log(setSemDuplicatas); \par
+\cf2 // Sa\'edda: Set(5) \{ 1, 2, 3, 4, 5 \}\par
+\cf3\par
+\cf0\ul\b\i0\f3\u-10179?\u-9012?\f1  \f0 Exemplo Pr\'e1tico - Remover Duplicatas de um Array\par
+\cf3\ulnone\b0\i Imagine que voc\'ea tem uma lista de n\'fameros com valores repetidos e quer criar uma lista s\'f3 com valores \'fanicos:\par
+\par
+const numerosComDuplicatas = [1, 2, 3, 4, 4, 3, 2, 1, 5, 6, 6];\par
+const numerosUnicos = [...new Set(numerosComDuplicatas)];\par
+\par
+console.log(numerosUnicos);\par
+\cf2 // Sa\'edda: [1, 2, 3, 4, 5, 6]\par
+\cf0\i0\par
+\ul\b\f3\u-10179?\u-9012?\f1  \f0 Exemplo Pr\'e1tico - Verificar Dados Unicos em um Formul\'e1rio\par
+\cf3\ulnone\b0\i Vamos criar um sistema que impede nomes repetidos ao serem cadastrados:\par
+\par
+const nomes = new Set();\par
+\par
+function adicionarNome(nome) \{\par
+    if (nomes.has(nome)) \{\par
+        console.log(`O nome "$\{nome\}" j\'e1 est\'e1 na lista.`);\par
+    \} else \{\par
+        nomes.add(nome);\par
+        console.log(`O nome "$\{nome\}" foi adicionado com sucesso!`);\par
+    \}\par
+\}\par
+\par
+\cf2 // Testando o c\'f3digo\par
+\cf3 adicionarNome("Jo\'e3o");\par
+adicionarNome("Maria");\par
+adicionarNome("Jo\'e3o"); \cf2 // Nome repetido\par
+\cf3 console.log(nomes); \par
+\cf2 // Sa\'edda:\par
+// O nome "Jo\'e3o" foi adicionado com sucesso!\par
+// O nome "Maria" foi adicionado com sucesso!\par
+// O nome "Jo\'e3o" j\'e1 est\'e1 na lista.\par
+// Set(2) \{ 'Jo\'e3o', 'Maria' \}\par
+\par
+\par
 }
  
