@@ -60,6 +60,7 @@ let c4=new Carro("Carrego Tudo",3)
 
 
 c1.setNome("Super Veloz")
+c1.setTipo()
 
 c1.setVelMax(500)
 c1.info()
