@@ -34030,5 +34030,51 @@ console.log(`Nome: $\{pessoa.nome\}, Idade: $\{pessoa.idade\}`);  \par
 \par
 console.log(criarMensagem("Ana", 22));  \par
 \cf2 // Sa\'edda: Ol\'e1, Ana! Voc\'ea tem 22 anos.\par
+\par
+\cf0\i0\par
+\ul\b\fs28 Tipos de M\'e9todos em Classes\par
+\fs24 Construtor (constructor())\par
+\ulnone\b0\'c9 o m\'e9todo especial que \'e9 chamado quando voc\'ea cria um novo objeto da classe. \'c9 usado para inicializar as propriedades.\par
+\par
+\cf3\i constructor(nome, idade) \{\par
+    this.nome = nome;\par
+    this.idade = idade;\par
+\}\par
+\cf0\i0\par
+\ul\b M\'e9todos get (Acessores)\par
+\ulnone\b0 Usados para obter o valor de uma propriedade de forma mais controlada.\par
+\par
+\cf3\i get nomeCompleto() \{\par
+    return `$\{this.nome\} $\{this.sobrenome\}`;\par
+\}\par
+\cf0\i0\par
+\ul\b M\'e9todos set (Modificadores)\par
+\ulnone\b0 Usados para definir ou modificar o valor de uma propriedade.\par
+\par
+\cf3\i set nomeCompleto(nome) \{\par
+    [this.nome, this.sobrenome] = nome.split(' ');\par
+\}\par
+\cf0\i0\par
+\ul\b M\'e9todos Comuns (Fun\'e7\'f5es normais na classe)\par
+\ulnone\b0 Qualquer fun\'e7\'e3o que voc\'ea cria dentro da classe que n\'e3o \'e9 um get, set ou constructor.\par
+\par
+\cf3\i falar() \{\par
+    console.log(`Ol\'e1, eu sou o $\{this.nome\}!`);\par
+\}\par
+\cf0\i0\par
+\ul\b M\'e9todos static (Est\'e1ticos)\par
+\ulnone\b0 S\'e3o m\'e9todos que pertencem \'e0 classe e n\'e3o a um objeto espec\'edfico. Eles s\'e3o chamados diretamente pela classe.\par
+\par
+\cf3\i static mensagem() \{\par
+    return "Mensagem est\'e1tica da classe.";\par
+\}\par
+\cf0\i0\par
+\ul\b M\'e9todos async (Ass\'edncronos)\par
+\ulnone\b0 Fun\'e7\'f5es que permitem o uso de await dentro delas, geralmente para lidar com opera\'e7\'f5es ass\'edncronas.\par
+\par
+\cf3\i async buscarDados() \{\par
+    const dados = await fetch("https://api.exemplo.com/dados");\par
+    return await dados.json();\par
+\}\par
 }
  
