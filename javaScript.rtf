@@ -34073,8 +34073,101 @@ console.log(criarMensagem("Ana", 22));  \par
 \ulnone\b0 Fun\'e7\'f5es que permitem o uso de await dentro delas, geralmente para lidar com opera\'e7\'f5es ass\'edncronas.\par
 \par
 \cf3\i async buscarDados() \{\par
-    const dados = await fetch("https://api.exemplo.com/dados");\par
+    const dados = await fetch("{{\field{\*\fldinst{HYPERLINK https://api.exemplo.com/dados }}{\fldrslt{https://api.exemplo.com/dados\ul0\cf0}}}}\f0\fs24 ");\par
     return await dados.json();\par
 \}\par
+\par
+\cf0\ul\b\i0\fs28 O que \'e9 Heran\'e7a?\par
+\ulnone\b0\fs24 Na Programa\'e7\'e3o Orientada a Objetos (POO), heran\'e7a \'e9 um mecanismo que permite criar uma nova classe com base em uma classe existente. Isso significa que a nova classe herda as caracter\'edsticas (propriedades) e comportamentos (m\'e9todos) da classe original.\par
+\cf3\i\par
+\cf0\i0 Por que usar heran\'e7a?\par
+\f4\u10004?\f1  \f0 Evita repeti\'e7\'e3o de c\'f3digo.\par
+\f4\u10004?\f1  \f0 Facilita a manuten\'e7\'e3o e organiza\'e7\'e3o.\par
+\f4\u10004?\f1  \f0 Permite reusar funcionalidades existentes.\par
+\par
+\ul\b\f2\u-10179?\u-8903?\f1  \f0 Como funciona a heran\'e7a em JavaScript?\par
+\ulnone\b0 Em JavaScript, usamos a palavra-chave \cf3\ul\i\fs32 extends\ulnone  \cf0\i0\fs24 para criar uma classe que herda outra. Quando uma classe herda outra, ela pode:\par
+\par
+Usar os m\'e9todos e propriedades da classe "pai" sem precisar reescrev\'ea-los.\par
+Criar novos m\'e9todos e propriedades exclusivos.\par
+Modificar (sobrescrever) m\'e9todos herdados.\par
+\par
+\ul\b\f2\u-10179?\u-8903?\f1  \f0 Exemplo Passo a Passo\par
+\ulnone\b0 1\u-497?\f4\u8419?\f0  Criando uma Classe Base (Superclasse)\par
+Vamos come\'e7ar criando uma classe chamada Animal.\par
+\par
+\cf3\i class Animal \{\par
+    constructor(nome) \{\par
+        this.nome = nome; // Atributo nome\par
+    \}\par
+\par
+    emitirSom() \{\par
+        console.log("O animal faz um som.");\par
+    \}\par
+\}\par
+\cf0\i0\f4\u9989?\f1  \f0 Criamos a classe Animal.\par
+\f4\u9989?\f1  \f0 Ela tem um atributo nome.\par
+\f4\u9989?\f1  \f0 Ela tem um m\'e9todo emitirSom(), que apenas imprime um texto.\par
+\par
+\ul\b 2\u-497?\f4\u8419?\f0  Criando uma Classe que Herda de Animal (Subclasse)\par
+\ulnone\b0 Agora vamos criar uma nova classe chamada Cachorro, que herda (extends) de Animal:\par
+\par
+\cf3\i class Cachorro extends Animal \{\par
+    constructor(nome, raca) \{\par
+        super(nome); \cf2 // Chama o construtor da classe pai (Animal)\par
+\cf3         this.raca = raca; \cf2 // Novo atributo espec\'edfico da subclasse\par
+\cf3     \}\par
+\par
+    emitirSom() \{\par
+        console.log("Au au!"); \cf2 // Sobrescrevendo o m\'e9todo da classe pai\cf3\par
+    \}\par
+\}\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 O que aconteceu aqui?\par
+\ulnone\b0\f4\u10004?\f1  \f0 class Cachorro extends Animal \f5\u8594?\f1  \f0 Cachorro agora herda tudo de Animal.\par
+\f4\u10004?\f1  \f0 super(nome) \f5\u8594?\f1  \f0 Chama o construtor da classe Animal para garantir que o nome seja definido corretamente.\par
+\f4\u10004?\f1  \f0 this.raca = raca \f5\u8594?\f1  \f0 Criamos um novo atributo exclusivo da classe Cachorro.\par
+\f4\u10004?\f1  \f0 emitirSom() \f5\u8594?\f1  \f0 Substitu\'edmos o m\'e9todo original para que o cachorro diga "Au au!".\par
+\par
+\ul\b 3\u-497?\f4\u8419?\f0  Criando um Objeto e Testando\par
+\ulnone\b0 Agora vamos criar um cachorro e testar os m\'e9todos:\par
+\par
+\cf3\i const meuCachorro = new Cachorro("Rex", "Labrador");\par
+\par
+console.log(meuCachorro.nome); \cf2 // Rex (herdado de Animal)\par
+\cf3 console.log(meuCachorro.raca); \cf2 // Labrador (exclusivo de Cachorro)\par
+\cf3 meuCachorro.emitirSom(); \cf2 // Au au! (substitu\'edmos o m\'e9todo original)\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8923?\f1  \f0 O que aconteceu?\par
+\ulnone\b0 Criamos um cachorro chamado "Rex" da ra\'e7a "Labrador".\par
+nome foi herdado da classe Animal.\par
+raca \'e9 exclusivo da classe Cachorro.\par
+emitirSom() foi modificado para "Au au!".\par
+\par
+\ul\b\f2\u-10179?\u-8903?\f1  \f0 Chamando M\'e9todos da Classe Pai (super)\par
+\ulnone\b0 Mesmo que sobrescrevamos (emitirSom()), ainda podemos chamar o m\'e9todo original usando super.\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Exemplo:\par
+\cf3\ulnone\b0\i class Gato extends Animal \{\par
+    emitirSom() \{\par
+        super.emitirSom(); \cf2 // Chama o m\'e9todo da classe pai\par
+\cf3         console.log("Miau!");\par
+    \}\par
+\}\par
+\par
+const meuGato = new Gato("Mingau");\par
+meuGato.emitirSom();\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8903?\f1  \f0 Sa\'edda no console:\par
+\ulnone\b0\par
+O animal faz um som.\par
+Miau!\par
+\f4\u9989?\f1  \f0 O super.emitirSom() chamou o m\'e9todo emitirSom() da classe Animal, e depois imprimimos "Miau!".\par
+\par
+\f2\u-10179?\u-8903?\f1  \f0 Resumo do que Aprendemos\par
+\f4\u10004?\f1  \f0 Heran\'e7a permite que uma classe reutilize c\'f3digo de outra.\par
+\f4\u10004?\f1  \f0 Usamos extends para criar uma classe que herda de outra.\par
+\f4\u10004?\f1  \f0 O m\'e9todo super() chama o construtor da classe pai.\par
+\f4\u10004?\f1  \f0 Podemos sobrescrever m\'e9todos, mas ainda acessar os antigos com super.metodo().\lang22\par
 }
  

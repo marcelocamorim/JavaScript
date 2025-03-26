@@ -1,6 +1,6 @@
 //Entendendo sobre Herança em POO com Javascript - Objetos #P6 - Aula 62
 
-class Carro{ //class Pai / base
+class Carro{ //class Pai / base / super class
     constructor(nome,portas){
         this.nome=nome
         this.portas=portas
