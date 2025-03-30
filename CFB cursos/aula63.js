@@ -1,3 +1,31 @@
 const f_tipoNormal=document.querySelector("#f_tipoNormal")
 const f_tipoMilitar=document.querySelector("#f_tipoMilitar")
+const f_blindagem=document.querySelector("#f_blindagem")
+const f_municao=document.querySelector("#f_municao")
+const carros=document.querySelector("#carros")
 
+let a_carros=[]
+
+f_tipoMilitar.addEventListener("click",(evt)=>{   
+    f_blindagem.removeAttribute("disabled")
+    f_municao.removeAttribute("disabled")
+})
+
+f_tipoNormal.addEventListener("click",(evt)=>{   
+    f_blindagem.value=0
+    f_municao.value=0
+    f_blindagem.setAttribute("disabled","disabled")
+    f_municao.setAttribute("disabled","disabled")
+
+})
+
+const gerenciarExibicaoCarros=()=>{
+    carros.innerHTML=""
+    a_carros.forEach((c)=>{
+        const div=document.createElement("div")
+        div.setAttribute("class","carro")
+        div.innerHTML=c.nome
+        carros.appendChild(div)
+
+    })
+}
