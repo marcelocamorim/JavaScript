@@ -10,7 +10,7 @@
 
 
 class Carro{
-    constructor(nome, portas){
+    constructor(nome,portas){
         this.nome=nome
         this.portas=portas
         this.ligado=false
@@ -24,11 +24,9 @@ class Carro{
     desligar=function(){
         this.ligado=false
     }
-
     setCor=function(cor){
         this.cor=cor
     }
-
 }
 
 class Militar extends Carro{
@@ -39,15 +37,18 @@ class Militar extends Carro{
         this.setCor("verde")
     }
 
-   atirar=function(){
-    if(this.municao>0){
-        this.municao--
+    atirar=function(){
+        if(this.municao>0)
+            this.municao--
     }
-   }
 }
 
-const c1=new Carro("normal",4)
+const c1=new Carro("fox",4)
 c1.ligar()
 c1.setCor("preto")
 
-const c2=new Militar("Tanque",1,100,500)
+const c2=new Militar("tanque",1,100,50)
+c2.atirar()
+c2.atirar()
+c2.atirar()
+c2.atirar()
