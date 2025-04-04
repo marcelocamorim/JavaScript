@@ -17,33 +17,42 @@ class Carro{
     constructor(nome,portas){
         this.nome=nome
         this.portas=portas
-        this.ligar=false
+        this.ligado=false
         this.vel=0
         this.cor=undefined
     }
 
-    ligado=function(){
-        this.ligar=true
+    ligar=function(){
+        this.ligado=true
     }
-    desligado=function(){
-        this.ligar=false
+    desligar=function(){
+        this.ligado=false
     }
     setCor=function(cor){
         this.cor=cor
     }
 }
 
-class Militar extends Carro{
+class Mililitar extends Carro{
     constructor(nome,portas,blindagem,municao){
+        super(nome,portas)
         this.blindagem=blindagem
         this.municao=municao
         this.setCor("verde")
     }
 
     atirar=function(){
-        if(municao>0){
+        if(this.municao>0){
             municao--
         }
     }
+
+    
 }
 
+const c1=new Carro("palio", 4)
+
+const c2=new Mililitar("tanque",1,100,80)
+c2.setCor("Azul Camuflado")
+c2.ligar()
+c2.atirar()
