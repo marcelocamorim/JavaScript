@@ -1,7 +1,10 @@
 //pegar valores dos campos para criar os carros
-//criar carros com botão
+//pegars os tipos radios
+//pegar botao
+// pegar div onde vai os carros
+//criar carros com botão dependendo do tipo selecionado
 // add os carros em um array
-//iterar array para criar objs html
+//iterar array para criar objs html- nome, portas, blindagem, municao
 //adicionar carros na div a baixo
 //normal bloqueia blindagem e municao
 //ao trocar o tipo limpa os campos
@@ -15,40 +18,56 @@ const f_municao=document.querySelector("#f_municao")
 const f_tipoMilitar=document.querySelector("#f_tipoMilitar")
 const f_tipoNormal=document.querySelector("#f_tipoNormal")
 
-
 const btn_addCarro=document.querySelector("#btn_addCarro")
+const carros=document.querySelector("#carros")
 
 
+f_tipoNormal.addEventListener("click",(evt)=>{
+    f_nome.value=""
+    f_portas.value=0
+    f_blindagem.value=0
+    f_municao.value=0
+    f_blindagem.disabled = true
+    f_municao.disabled = true
+})
 
-const carros=[]
-
-btn_addCarro.addEventListener("click",(evt)=>{
-    if(f_tipoNormal.checked){
-        const c=new Carro (f_nome.value, f_portas.value)
-    }else{
-        
-    }
+f_tipoMilitar.addEventListener("click",(evt)=>{
+    f_nome.value=""
+    f_portas.value=0
+    f_blindagem.value=0
+    f_municao.value=0
+    f_blindagem.disabled = false
+    f_municao.disabled = false
 })
 
 
 
+const a_carros=[]
 
+const gerenciarExibicaoCarros=()=>{
+    carros.innerHTML=""
+    a_carros.map((c)=>{
+        const div=document.createElement("div")
+        div.setAttribute("class", "carro")
+        div.innerHTML=`Nome: ${c.nome}<br>`
+        div.innerHTML+=`Portas: ${c.portas}<br>`
+        div.innerHTML+=`Cor: ${c.cor}<br>`
+        div.innerHTML+=`Blindagem: ${c.blindagem}<br>`
+        div.innerHTML+=`Municao: ${c.municao}<br>`
+        carros.appendChild(div)
+    })
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+btn_addCarro.addEventListener("click",(evt)=>{
+    if(f_tipoNormal.checked){
+        const c=new Carro (f_nome.value, f_portas.value)
+        a_carros.push(c)
+    }else{
+        const c=new Militar(f_nome.value, f_portas.value, f_blindagem.value, f_municao.value)
+        a_carros.push(c)
+    }
+    gerenciarExibicaoCarros()
+})
 
 
 
