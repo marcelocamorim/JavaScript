@@ -48,12 +48,16 @@ const gerenciarExibicaoCarros=()=>{
     carros.innerHTML=""
     a_carros.map((c)=>{
         const div=document.createElement("div")
-        div.setAttribute("class", "carro")
+        div.setAttribute("class", "carro")        
         div.innerHTML=`Nome: ${c.nome}<br>`
         div.innerHTML+=`Portas: ${c.portas}<br>`
         div.innerHTML+=`Cor: ${c.cor}<br>`
-        div.innerHTML+=`Blindagem: ${c.blindagem}<br>`
-        div.innerHTML+=`Municao: ${c.municao}<br>`
+
+        if(c instanceof Militar){
+            div.innerHTML+=`Blindagem: ${c.blindagem}<br>`
+            div.innerHTML+=`Municao: ${c.municao}<br>`
+        }
+        
         carros.appendChild(div)
     })
 }
@@ -79,6 +83,7 @@ class Carro{ //Classe PAI / BASE
         this.ligado=false
         this.vel=0
         this.cor=undefined
+        this.setCor("Preto")
     }
     ligar=function(){
         this.ligado=true
