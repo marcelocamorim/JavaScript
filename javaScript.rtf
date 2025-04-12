@@ -34073,7 +34073,7 @@ console.log(criarMensagem("Ana", 22));  \par
 \ulnone\b0 Fun\'e7\'f5es que permitem o uso de await dentro delas, geralmente para lidar com opera\'e7\'f5es ass\'edncronas.\par
 \par
 \cf3\i async buscarDados() \{\par
-    const dados = await fetch("{{\field{\*\fldinst{HYPERLINK https://api.exemplo.com/dados }}{\fldrslt{https://api.exemplo.com/dados\ul0\cf0}}}}\f0\fs24 ");\par
+    const dados = await fetch("{\cf0{\field{\*\fldinst{HYPERLINK https://api.exemplo.com/dados }}{\fldrslt{https://api.exemplo.com/dados\ul0\cf0}}}}\f0\fs24 ");\par
     return await dados.json();\par
 \}\par
 \par
@@ -34093,7 +34093,7 @@ Criar novos m\'e9todos e propriedades exclusivos.\par
 Modificar (sobrescrever) m\'e9todos herdados.\par
 \par
 \ul\b\f2\u-10179?\u-8903?\f1  \f0 Exemplo Passo a Passo\par
-\ulnone\b0 1\u-497?\f4\u8419?\f0  Criando uma Classe Base (Superclasse)\par
+\ulnone\b0\f2\u-497?\u8419?\f0  Criando uma Classe Base (Superclasse)\par
 Vamos come\'e7ar criando uma classe chamada Animal.\par
 \par
 \cf3\i class Animal \{\par
@@ -34109,7 +34109,7 @@ Vamos come\'e7ar criando uma classe chamada Animal.\par
 \f4\u9989?\f1  \f0 Ela tem um atributo nome.\par
 \f4\u9989?\f1  \f0 Ela tem um m\'e9todo emitirSom(), que apenas imprime um texto.\par
 \par
-\ul\b 2\u-497?\f4\u8419?\f0  Criando uma Classe que Herda de Animal (Subclasse)\par
+\ul\b\f2\u-497?\u8419?\f0  Criando uma Classe que Herda de Animal (Subclasse)\par
 \ulnone\b0 Agora vamos criar uma nova classe chamada Cachorro, que herda (extends) de Animal:\par
 \par
 \cf3\i class Cachorro extends Animal \{\par
@@ -34129,7 +34129,7 @@ Vamos come\'e7ar criando uma classe chamada Animal.\par
 \f4\u10004?\f1  \f0 this.raca = raca \f5\u8594?\f1  \f0 Criamos um novo atributo exclusivo da classe Cachorro.\par
 \f4\u10004?\f1  \f0 emitirSom() \f5\u8594?\f1  \f0 Substitu\'edmos o m\'e9todo original para que o cachorro diga "Au au!".\par
 \par
-\ul\b 3\u-497?\f4\u8419?\f0  Criando um Objeto e Testando\par
+\ul\b\f2\u-497?\u8419?\f0  Criando um Objeto e Testando\par
 \ulnone\b0 Agora vamos criar um cachorro e testar os m\'e9todos:\par
 \par
 \cf3\i const meuCachorro = new Cachorro("Rex", "Labrador");\par
@@ -34168,6 +34168,50 @@ Miau!\par
 \f4\u10004?\f1  \f0 Heran\'e7a permite que uma classe reutilize c\'f3digo de outra.\par
 \f4\u10004?\f1  \f0 Usamos extends para criar uma classe que herda de outra.\par
 \f4\u10004?\f1  \f0 O m\'e9todo super() chama o construtor da classe pai.\par
-\f4\u10004?\f1  \f0 Podemos sobrescrever m\'e9todos, mas ainda acessar os antigos com super.metodo().\lang22\par
+\f4\u10004?\f1  \f0 Podemos sobrescrever m\'e9todos, mas ainda acessar os antigos com super.metodo().\par
+\par
+\ul\b\fs32 instanceof\par
+\ulnone\b0\fs24 instanceof \'e9 um operador que verifica se um objeto \'e9 uma inst\'e2ncia (foi criado a partir) de uma determinada classe ou fun\'e7\'e3o construtora.\par
+\par
+\ul\b Sintaxe:\par
+\cf3\ulnone\b0\i objeto instanceof Classe\par
+\cf0\i0 Retorna true se o objeto foi criado com new Classe()\par
+Retorna false se n\'e3o foi\par
+\par
+\ul\b Exemplo simples:\par
+\cf3\ulnone\b0\i class Carro \{\par
+    constructor(nome) \{\par
+        this.nome = nome\par
+    \}\par
+\}\par
+\par
+class Militar extends Carro \{\par
+    constructor(nome, blindagem) \{\par
+        super(nome)\par
+        this.blindagem = blindagem\par
+    \}\par
+\}\par
+\par
+const carro1 = new Carro("Fusca")\par
+const carro2 = new Militar("Tanque", 100)\par
+\par
+console.log(carro1 instanceof Carro)   \cf2 // true\par
+\cf3 console.log(carro1 instanceof Militar) \cf2 // false\par
+\cf3\par
+console.log(carro2 instanceof Carro)   \cf2 // true (porque Militar herda de Carro)\par
+\cf3 console.log(carro2 instanceof Militar) \cf2 // true\par
+\par
+\cf0\ul\b\i0 Dica importante:\par
+\ulnone\b0 Quando uma classe herda de outra (como Militar herda de Carro), o objeto tamb\'e9m ser\'e1 inst\'e2ncia da classe-pai.\par
+Por isso:\par
+\cf3\i carro2 instanceof Carro // true\par
+carro2 instanceof Militar // true\par
+\par
+\cf0\ul\b\i0 Usos comuns do instanceof:\par
+\ulnone\b0 Saber se um objeto \'e9 de um tipo espec\'edfico antes de acessar propriedades que s\'f3 existem naquele tipo.\par
+Filtrar uma lista de objetos (ex: mostrar s\'f3 militares).\par
+Controlar a l\'f3gica de forma segura, evitando erros como undefined.blindagem.\par
+\ul\b\f3\u9888?\u-497?\f1  \f0 Cuidado:\par
+\ulnone\b0 instanceof s\'f3 funciona bem com classes criadas via class ou function com new. Se estiver usando objetos literais (\{\}), ele n\'e3o serve.\lang22\par
 }
  
