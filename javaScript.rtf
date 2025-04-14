@@ -34212,6 +34212,63 @@ carro2 instanceof Militar // true\par
 Filtrar uma lista de objetos (ex: mostrar s\'f3 militares).\par
 Controlar a l\'f3gica de forma segura, evitando erros como undefined.blindagem.\par
 \ul\b\f3\u9888?\u-497?\f1  \f0 Cuidado:\par
-\ulnone\b0 instanceof s\'f3 funciona bem com classes criadas via class ou function com new. Se estiver usando objetos literais (\{\}), ele n\'e3o serve.\lang22\par
+\ulnone\b0 instanceof s\'f3 funciona bem com classes criadas via class ou function com new. Se estiver usando objetos literais (\{\}), ele n\'e3o serve.\par
+\par
+\par
+\ul\b\fs28\lang1046 splice():\par
+\ulnone\b0\fs24\par
+\ul\b\f3\u-10179?\u-9012?\f1  \f0 SINTAXE do splice():\par
+\cf3\ulnone\b0\i array.splice(in\'edcio, quantosRemover, item1, item2, ...)\par
+\cf0\i0\par
+Par\'e2metro\tab                             O que faz \par
+in\'edcio\tab                                          \'cdndice onde vai come\'e7ar a mexer no array\par
+quantosRemover\tab                 Quantos elementos voc\'ea quer remover a partir dali\par
+item1, item2...                             (Opcional) Elementos que voc\'ea quer adicionar\par
+\par
+\ul\b\f4\u9989?\f1  \f0 EXEMPLOS PR\'c1TICOS\par
+1. Remover elementos\par
+\cf3\ulnone\b0\i const lista = ["a", "b", "c", "d"]\par
+lista.splice(1, 2)\par
+console.log(lista)\par
+\cf0\i0 Come\'e7a no \'edndice 1 (ou seja, "b")\par
+Remove 2 elementos \f5\u8594?\f1  \f0 "b" e "c"\par
+\par
+Resultado:\par
+\cf3\i ["a", "d"]\par
+\cf0\i0\par
+\ul\b 2. Adicionar elementos\par
+\cf3\ulnone\b0\i const lista = ["a", "b", "c"]\par
+lista.splice(1, 0, "x", "y")\par
+console.log(lista)\par
+\cf0\i0 Come\'e7a no \'edndice 1\par
+Remove 0 elementos\par
+Adiciona "x" e "y" nessa posi\'e7\'e3o\par
+\par
+\ul Resultado:\par
+\cf3\ulnone\i ["a", "x", "y", "b", "c"]\par
+\cf0\i0\par
+\ul\b 3. Substituir elementos\par
+\cf3\ulnone\b0\i const lista = ["a", "b", "c"]\par
+lista.splice(1, 1, "z")\par
+console.log(lista)\par
+\cf0\i0 Come\'e7a no \'edndice 1 (que \'e9 "b")\par
+Remove 1 elemento\par
+Adiciona "z" no lugar\par
+\par
+\ul Resultado:\par
+\cf3\ulnone\i ["a", "z", "c"]\par
+\cf0\i0\par
+\ul\b\f3\u-10180?\u-8273?\f1  \f0 COMO SABER QUE EST\'c1 REMOVENDO?\par
+\ulnone\b0 Voc\'ea sabe que est\'e1 apenas removendo quando usa os dois primeiros argumentos:\par
+\par
+splice(\'edndice, quantosRemover)\par
+Se voc\'ea n\'e3o passa nenhum item depois disso, ele s\'f3 remove.\par
+\par
+\f4\u9989?\f1  \f0 No seu caso:\par
+\cf3\i a_carros.splice(index, 1)\par
+index: de onde remover\par
+\cf0\i0\par
+1: remove 1 item\par
+(Nada mais) \f5\u8658?\f1  \f0 S\'f3 remove!\lang22\par
 }
  

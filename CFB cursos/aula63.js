@@ -26,21 +26,22 @@ const btn_addCarro=document.querySelector("#btn_addCarro")
 //div
 const carros=document.querySelector("#carros")
 
-//bloqueia, desbloqueia e limpa os campos
-f_tipoMilitar.addEventListener("click",(evt)=>{
+//limpa os campos
+const limparCampos=()=>{
     f_nome.value=""
     f_portas.value=0
     f_blindagem.value=0
-    f_municao.value=0
+    f_municao.value=0  
+}
+//bloqueia, desbloqueia
+f_tipoMilitar.addEventListener("click",(evt)=>{
+    limparCampos()
     f_blindagem.disabled=false
     f_municao.disabled=false
 })
 
 f_tipoNormal.addEventListener("click",(evt)=>{
-    f_nome.value=""
-    f_portas.value=0
-    f_blindagem.value=0
-    f_municao.value=0
+    limparCampos()
     f_blindagem.disabled=true
     f_municao.disabled=true
 })
@@ -50,7 +51,7 @@ const a_carros=[]
 
 const gerenciarExibicaoCarros=()=>{
     carros.innerHTML=""
-    a_carros.map((c)=>{
+    a_carros.map((c,i)=>{
         const div=document.createElement("div")
         div.setAttribute("class", "carro")
         div.innerHTML=`Nome: ${c.nome}<br>`
@@ -60,30 +61,30 @@ const gerenciarExibicaoCarros=()=>{
         if(c instanceof Militar){
             div.innerHTML+=`Blindagem: ${c.blindagem}`
             div.innerHTML+=`Munição: ${c.municao}`
-        }
-
+        } 
+        
         carros.appendChild(div)
     })
 }
 
-const limparCampos=()=>{
-    f_nome.value=""
-    f_portas.value=0
-    f_blindagem.value=0
-    f_municao.value=0  
-}
 
 //cria os carros com o button
 btn_addCarro.addEventListener("click",()=>{  
 
-    if (f_nome.value === "") {
+    const nome =f_nome.value.trim()
+    const portas = parseInt(f_portas.value)
+    const blindagem= parseInt(f_blindagem.value)
+    const municao= parseInt(f_municao.value)
+
+
+    if (nome === "") {
         alert("Por favor, digite o nome do carro.")
         limparCampos()
         return
     }
 
 
-    if (f_portas.value < 0 || f_blindagem.value < 0 || f_municao.value < 0) {
+    if (portas < 0 || blindagem < 0 || municao < 0) {
         alert("Os valores não podem ser negativos!")
         limparCampos()
         return      
@@ -91,10 +92,10 @@ btn_addCarro.addEventListener("click",()=>{
 
 
     if(f_tipoNormal.checked){
-        const c=new Carro(f_nome.value, f_portas.value)
+        const c=new Carro(nome, portas)
         a_carros.push(c)
     }else{
-        const c=new Militar(f_nome.value, f_portas.value, f_blindagem.value, f_municao.value)
+        const c=new Militar(nome, portas, blindagem, municao)
         a_carros.push(c)
     } 
     gerenciarExibicaoCarros()
