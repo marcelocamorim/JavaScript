@@ -68,7 +68,7 @@ const gerenciarExibicaoCarros=()=>{
         
         
         if(c instanceof Militar){
-            div.innerHTML+=`Blindagem: ${c.blindagem}`
+            div.innerHTML+=`Blindagem: ${c.blindagem}<br>`
             div.innerHTML+=`Munição: ${c.municao}`
         } 
         
