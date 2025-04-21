@@ -34269,6 +34269,40 @@ Se voc\'ea n\'e3o passa nenhum item depois disso, ele s\'f3 remove.\par
 index: de onde remover\par
 \cf0\i0\par
 1: remove 1 item\par
-(Nada mais) \f5\u8658?\f1  \f0 S\'f3 remove!\lang22\par
+(Nada mais) \f5\u8658?\f1  \f0 S\'f3 remove!\par
+\par
+\par
+\ul\b\fs28 convertendo objetos em json e json em objetos em javascript\ulnone\b0\fs24\par
+\par
+Em JavaScript, voc\'ea pode converter objetos em JSON e JSON em objetos usando os m\'e9todos:\par
+JSON.stringify() \f5\endash\f1  \f0 para converter objeto \f5\u8594?\f1  \f0 JSON\par
+JSON.parse() \f5\endash\f1  \f0 para converter JSON \f5\u8594?\f1  \f0 objeto\par
+\par
+\ul\b\f2\u-10179?\u-8959?\f1  \f0 Objeto \f5\u8594?\f1  \f0 JSON (string)\par
+\ulnone\b0 Use JSON.stringify(objeto)\par
+\cf3\i const pessoa = \{\par
+  nome: "Ana",\par
+  idade: 30,\par
+  ativo: true\par
+\};\par
+\par
+const json = JSON.stringify(pessoa);\par
+console.log(json); // \{"nome":"Ana","idade":30,"ativo":true\}\par
+console.log(typeof json); // string\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8959?\f1  \f0 JSON (string) \f5\u8594?\f1  \f0 Objeto\par
+\ulnone\b0 Use JSON.parse(jsonString)\par
+const jsonString = '\{"nome":"Carlos","idade":25,"ativo":false\}';\par
+\par
+\cf3\i const objeto = JSON.parse(jsonString);\par
+console.log(objeto.nome); // Carlos\par
+console.log(typeof objeto); // object\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8995?\f1  \f0 Observa\'e7\'f5es importantes:\par
+\ulnone\b0 O JSON \'e9 sempre uma string no formato correto (aspas duplas nas chaves e valores de texto).\par
+Objetos com m\'e9todos (fun\'e7\'f5es) n\'e3o s\'e3o convertidos pelo JSON.stringify.\par
+\par
+\par
+\lang22\par
 }
  
