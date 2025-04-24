@@ -13,7 +13,7 @@ const pessoa={
 
 const string_pessoa='{"nome":"Bruno","canal":"CFB Cursos","curso":"JavaScript","aulas":{"aula01":"Introdução","aula02":"Variáveis","aula03":"Condicional"}}'
 
-const s_json_pessoa=JSON.stringify(pessoa) // converte objeto em string fson
+const s_json_pessoa=JSON.stringify(pessoa) // converte objeto em string json
 const o_json_pessoa=JSON.parse(s_json_pessoa)//converte jsonem objeto
 
 
