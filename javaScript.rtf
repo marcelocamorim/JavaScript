@@ -34354,7 +34354,7 @@ console.log(Matematica.dobro(5)); \cf2 // 10\par
 No seu exemplo, Npc.alerta \'e9 um estado global (todos os NPCs sabem se o alerta foi ativado).\par
 \par
 \ul\b\fs28 O que \'e9 prototype?\par
-\ulnone\b0\fs24 No JavaScript, todo objeto tem um \f1\ldblquote\f0 prot\'f3tipo\f1\rdblquote  \f5\emdash\f1  \f0 que \'e9 outro objeto do qual ele herda propriedades e m\'e9todos.\par
+\ulnone\b0\fs24 No JavaScript, todo objeto tem um \f1\ldblquote\f0 prot\'f3tipo\f1\rdblquote  \f7\emdash\f1  \f0 que \'e9 outro objeto do qual ele herda propriedades e m\'e9todos.\par
 \par
 \'c9 o jeito do JavaScript de fazer heran\'e7a (tipo \f1\ldblquote\f0 pai e filho\f1\rdblquote\f0 ): se voc\'ea tentar acessar uma propriedade que n\'e3o est\'e1 no objeto, ele vai procurar no prot\'f3tipo.\par
 \par
@@ -34380,6 +34380,45 @@ p2.dizerOi(); \cf2 // Oi, eu sou Ana\cf3\par
 O m\'e9todo dizerOi n\'e3o est\'e1 diretamente dentro do objeto p1.\par
 Ele est\'e1 no prot\'f3tipo da fun\'e7\'e3o Pessoa.\par
 Mesmo assim, p1 consegue usar esse m\'e9todo, porque ele herda esse m\'e9todo atrav\'e9s do prototype.\par
+\par
+\ul\b\f3\fs28\u-10178?\u-8724?\f1  \f0 O que \'e9 Polimorfismo?\par
+\ulnone\b0\fs24 A palavra polimorfismo vem do grego e significa "muitas formas".\par
+\par
+\f4\u9989?\f1  \f0 Em POO, polimorfismo \'e9 a capacidade de objetos diferentes responderem de maneira diferente ao mesmo m\'e9todo.\par
+\f3\u-10178?\u-8736?\f1  \f0 Traduzindo:\par
+Voc\'ea usa o mesmo nome de m\'e9todo, mas cada classe implementa seu pr\'f3prio comportamento.\par
+\par
+\ul\b\f3\u-10179?\u-9154?\f1  \f0 Exemplo simples:\par
+\ulnone\b0 Vamos supor que temos uma classe Animal e v\'e1rias subclasses (Cachorro, Gato), cada uma com um m\'e9todo chamado falar.\par
+\cf3\i class Animal \{\par
+  falar() \{\par
+    console.log("Algum som...");\par
+  \}\par
+\}\par
+\par
+class Cachorro extends Animal \{\par
+  falar() \{\par
+    console.log("Latido: Au au!");\par
+  \}\par
+\}\par
+\par
+class Gato extends Animal \{\par
+  falar() \{\par
+    console.log("Miado: Miau!");\par
+  \}\par
+\}\par
+\cf0\b\i0 Agora vamos criar os objetos:\par
+\cf3\b0\i const a = new Animal();\par
+const c = new Cachorro();\par
+const g = new Gato();\par
+\par
+a.falar(); \cf2 // Algum som...\par
+\cf3 c.falar(); \cf2 // Latido: Au au!\par
+\cf3 g.falar(); \cf2 // Miado: Miau!\par
+\cf0\i0\par
+\f3\u-10179?\u-8959?\f1  \f0 Veja que o mesmo m\'e9todo falar() \'e9 chamado em todos os objetos, mas cada um responde de uma forma diferente.\par
+\par
+Isso \'e9 polimorfismo em a\'e7\'e3o!\par
 \par
 \par
 \par
