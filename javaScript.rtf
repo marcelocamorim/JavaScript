@@ -34275,8 +34275,8 @@ index: de onde remover\par
 \ul\b\fs28 convertendo objetos em json e json em objetos em javascript\ulnone\b0\fs24\par
 \par
 Em JavaScript, voc\'ea pode converter objetos em JSON e JSON em objetos usando os m\'e9todos:\par
-JSON.stringify() \f5\endash\f1  \f0 para converter objeto \f5\u8594?\f1  \f0 JSON\par
-JSON.parse() \f5\endash\f1  \f0 para converter JSON \f5\u8594?\f1  \f0 objeto\par
+JSON.stringify() \f7\endash\f1  \f0 para converter objeto \f5\u8594?\f1  \f0 JSON\par
+JSON.parse() \f7\endash\f1  \f0 para converter JSON \f5\u8594?\f1  \f0 objeto\par
 \par
 \ul\b\f2\u-10179?\u-8959?\f1  \f0 Objeto \f5\u8594?\f1  \f0 JSON (string)\par
 \ulnone\b0 Use JSON.stringify(objeto)\par
@@ -34301,6 +34301,86 @@ console.log(typeof objeto); // object\par
 \ul\b\f2\u-10179?\u-8995?\f1  \f0 Observa\'e7\'f5es importantes:\par
 \ulnone\b0 O JSON \'e9 sempre uma string no formato correto (aspas duplas nas chaves e valores de texto).\par
 Objetos com m\'e9todos (fun\'e7\'f5es) n\'e3o s\'e3o convertidos pelo JSON.stringify.\par
+\par
+\par
+\par
+\ul\b\f2\fs28\u-10179?\u-8903?\f1  \f0 O que \'e9 static em JavaScript?\par
+\ulnone\b0\fs24 Quando voc\'ea coloca a palavra static antes de uma propriedade ou m\'e9todo dentro de uma classe, voc\'ea est\'e1 dizendo:\par
+\f1\ldblquote\f0 Isso pertence \'e0 classe em si, e n\'e3o aos objetos criados a partir dela.\f1\rdblquote\f0\par
+\par
+\ul\b\f3\u-10178?\u-8736?\f1  \f0 Pense assim:\par
+\ulnone\b0 Sem static \f5\u8594?\f1  \f0 pertence ao objeto individual.\par
+Com static \f5\u8594?\f1  \f0 pertence \'e0 classe inteira.\par
+\par
+\ul\b\f2\u-10179?\u-9055?\f1  \f0 Exemplo comparativo:\par
+\cf3\ulnone\b0\i class Exemplo \{\par
+  static tipo = "Geral"; \cf2 // propriedade da CLASSE\cf3\par
+  nome = "Jo\'e3o";         \cf2 // propriedade do OBJETO\cf3\par
+\}\par
+\par
+const e1 = new Exemplo();\par
+const e2 = new Exemplo();\par
+\par
+console.log(e1.nome);        \cf2 // Jo\'e3o  \f5\u8592?\f1  \f0 pertence ao objeto\par
+\cf3 console.log(Exemplo.tipo);   \cf2 // Geral \f5\u8592?\f1  \f0 pertence \'e0 classe\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Aplicando no seu exemplo do Npc\par
+\cf3\ulnone\b0\i class Npc \{\par
+  static alerta = false; \cf2 // propriedade da CLASSE\par
+\cf3   constructor(energia) \{\par
+    this.energia = energia; \cf2 // propriedade do OBJETO\cf3\par
+  \}\par
+\}\par
+Npc.alerta \f5\u8594?\f1  \f0 todo mundo compartilha o mesmo valor\par
+npc1.energia, npc2.energia \f5\u8594?\f1  \f0 cada NPC tem sua energia individual\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-8940?\f1  \f0 Por que usar static?\par
+\ulnone\b0 Porque nem tudo precisa estar em cada objeto. \'c0s vezes, voc\'ea quer guardar uma informa\'e7\'e3o global, como:\par
+Um contador de quantos objetos foram criados\par
+Um modo de alerta, como no seu exemplo\par
+Uma fun\'e7\'e3o utilit\'e1ria que n\'e3o depende dos dados do objeto\par
+\par
+\ul\b\f2\u-10179?\u-9145?\f1  \f0 Exemplo pr\'e1tico de fun\'e7\'e3o static:\par
+\cf3\ulnone\b0\i class Matematica \{\par
+  static dobro(x) \{\par
+    return x * 2;\par
+  \}\par
+\}\par
+console.log(Matematica.dobro(5)); \cf2 // 10\par
+\cf0\i0 Aqui n\'e3o faz sentido criar um objeto tipo new Matematica() s\'f3 para usar uma conta.\par
+\par
+\ul\b\f4\u9989?\f1  \f0 Conclus\'e3o\par
+\ulnone\b0 Use static quando n\'e3o for algo espec\'edfico de cada objeto, e sim uma informa\'e7\'e3o ou fun\'e7\'e3o global da classe.\par
+No seu exemplo, Npc.alerta \'e9 um estado global (todos os NPCs sabem se o alerta foi ativado).\par
+\par
+\ul\b\fs28 O que \'e9 prototype?\par
+\ulnone\b0\fs24 No JavaScript, todo objeto tem um \f1\ldblquote\f0 prot\'f3tipo\f1\rdblquote  \f5\emdash\f1  \f0 que \'e9 outro objeto do qual ele herda propriedades e m\'e9todos.\par
+\par
+\'c9 o jeito do JavaScript de fazer heran\'e7a (tipo \f1\ldblquote\f0 pai e filho\f1\rdblquote\f0 ): se voc\'ea tentar acessar uma propriedade que n\'e3o est\'e1 no objeto, ele vai procurar no prot\'f3tipo.\par
+\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 Como funciona na pr\'e1tica?\par
+\ulnone\b0 Vamos ver com um exemplo:\par
+\par
+\cf3\i function Pessoa(nome) \{\par
+  this.nome = nome;\par
+\}\par
+\cf2 // adicionando m\'e9todo ao prot\'f3tipo\par
+\cf3 Pessoa.prototype.dizerOi = function () \{\par
+  console.log(`Oi, eu sou $\{this.nome\}`);\par
+\};\par
+\par
+const p1 = new Pessoa("Jo\'e3o");\par
+const p2 = new Pessoa("Ana");\par
+\par
+p1.dizerOi(); \cf2 // Oi, eu sou Jo\'e3o\cf3\par
+p2.dizerOi(); \cf2 // Oi, eu sou Ana\cf3\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9055?\f1  \f0 Explicando:\par
+\ulnone\b0\par
+O m\'e9todo dizerOi n\'e3o est\'e1 diretamente dentro do objeto p1.\par
+Ele est\'e1 no prot\'f3tipo da fun\'e7\'e3o Pessoa.\par
+Mesmo assim, p1 consegue usar esse m\'e9todo, porque ele herda esse m\'e9todo atrav\'e9s do prototype.\par
+\par
 \par
 \par
 \lang22\par
