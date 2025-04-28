@@ -7,17 +7,87 @@
 }
 
 .calc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #eee;
+    border: 3px solid #bbb;
+    width: 230px;
+    border-radius: 5px;
 
 }
+
 .div_nome{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
 }
+
 .div_display{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .div_teclas{
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    flex-wrap: wrap;
+   
 }
-.tecla{
 
+.tecla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #aaa;
+    border: 3px solid #888;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    margin: 2px;
+}
+.tecla:hover{
+    transform: scale(1.05);
+    background-color: rgb(114, 112, 112);
+}
+.tecla:active{
+    background-color: aqua;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+.teclaOp{
+    background-color: #f44 !important;
+    border-color: #800 !important;
+}
+.teclaOp:hover{
+    transform: scale(1.05);
+    background-color: rgb(160, 35, 35) !important;
+}
+.teclaOp:active{
+    background-color: aqua !important;
+    border: 3px solid rgb(255, 255, 255) !important;
+}
+
+/*display*/
+.div_display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 220px;
+}
+
+.display{
+    width: 220px;
+    background-color: #8a8;
+    text-align: right;
+    padding: 5px;
+    font-weight: bold;
 }
