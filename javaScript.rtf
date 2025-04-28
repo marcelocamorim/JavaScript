@@ -1,4 +1,4 @@
-{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil\fcharset1 Segoe UI Emoji;}{\f4\fnil\fcharset1 Segoe UI Symbol;}{\f5\fnil\fcharset1 Cambria Math;}{\f6\fnil\fcharset0 Cambria Math;}{\f7\fnil Cambria Math;}{\f8\fnil Segoe UI Symbol;}{\f9\fnil\fcharset0 Segoe UI Symbol;}{\f10\fnil Segoe UI Emoji;}}
+{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil\fcharset1 Segoe UI Emoji;}{\f4\fnil\fcharset1 Segoe UI Symbol;}{\f5\fnil\fcharset1 Cambria Math;}{\f6\fnil\fcharset0 Cambria Math;}{\f7\fnil Cambria Math;}{\f8\fnil Segoe UI Symbol;}{\f9\fnil\fcharset0 Segoe UI Symbol;}{\f10\fnil Segoe UI Emoji;}{\f11\fnil\fcharset1 Segoe UI Emoji;}}
 {\colortbl ;\red255\green0\blue0;\red155\green187\blue89;\red128\green100\blue162;\red0\green0\blue0;\red0\green0\blue255;}
 {\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont5\mwrapIndent1440 }\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\b\f0\fs32\lang22 JavaScript\par
@@ -34417,8 +34417,71 @@ a.falar(); \cf2 // Algum som...\par
 \cf3 g.falar(); \cf2 // Miado: Miau!\par
 \cf0\i0\par
 \f3\u-10179?\u-8959?\f1  \f0 Veja que o mesmo m\'e9todo falar() \'e9 chamado em todos os objetos, mas cada um responde de uma forma diferente.\par
-\par
 Isso \'e9 polimorfismo em a\'e7\'e3o!\par
+\par
+\par
+\par
+\par
+\ul\b\fs28 O que \'e9 uma Classe Abstrata?\par
+\ulnone\b0\fs24 Uma classe abstrata \'e9 uma classe que n\'e3o pode ser instanciada diretamente e serve apenas como modelo para outras classes.\par
+Ela define a estrutura, mas delega a implementa\'e7\'e3o para as classes filhas (subclasses).\par
+\f3\u9888?\u-497?\f1  \f0 Em JavaScript puro (ES6+), n\'e3o existe palavra-chave abstract, como em outras linguagens (Java, C#, etc).\par
+Mas a gente simula esse comportamento usando algumas estrat\'e9gias.\par
+\par
+\ul\b\f3\u-10178?\u-8726?\f1  \f0 Exemplo de Classe Abstrata Simulada:\par
+\cf3\ulnone\b0\i class Forma \{\par
+  constructor() \{\par
+    if (this.constructor === Forma) \{\par
+      throw new Error("Classe abstrata 'Forma' n\'e3o pode ser instanciada diretamente.");\par
+    \}\par
+  \}\par
+  calcularArea() \{\par
+    throw new Error("M\'e9todo abstrato 'calcularArea' deve ser implementado.");\par
+  \}\par
+\}\par
+\cf0\i0\par
+Forma \'e9 uma classe abstrata.\par
+Se voc\'ea tentar new Forma(), vai dar erro.\par
+O m\'e9todo calcularArea() \'e9 um m\'e9todo abstrato, ou seja, precisa ser implementado nas subclasses.\par
+\par
+\ul\b\f11\u-10179?\u-8222?\f1  \f0 Agora criamos classes que herdam e implementam:\par
+\cf3\ulnone\b0\i class Retangulo extends Forma \{\par
+  constructor(largura, altura) \{\par
+    super();\par
+    this.largura = largura;\par
+    this.altura = altura;\par
+  \}\par
+  calcularArea() \{\par
+    return this.largura * this.altura;\par
+  \}\par
+\}\par
+class Circulo extends Forma \{\par
+  constructor(raio) \{\par
+    super();\par
+    this.raio = raio;\par
+  \}\par
+  calcularArea() \{\par
+    return Math.PI * this.raio * this.raio;\par
+  \}\par
+\}\par
+\cf0\ul\b\i0\f11\u9989?\f1  \f0 Uso:\par
+\cf3\ulnone\b0\i const r = new Retangulo(10, 5);\par
+console.log(r.calcularArea()); \cf2 // 50\par
+\cf3\par
+const c = new Circulo(3);\par
+console.log(c.calcularArea()); \cf2 // ~28.27\cf3\par
+\par
+const f = new Forma(); \cf2 // \f11\u10060?\f1  \f0 Erro: Classe abstrata 'Forma' n\'e3o pode ser instanciada diretamente.\par
+\cf0\i0\par
+\ul\b\f3\u-10178?\u-8736?\f1  \f0 Por que usar classes abstratas?\par
+\ulnone\b0 Para definir uma interface comum para v\'e1rias classes filhas.\par
+Para for\'e7ar que subclasses implementem certos m\'e9todos.\par
+Para organizar melhor o c\'f3digo e evitar repeti\'e7\'e3o.\par
+\par
+\par
+\par
+\par
+\par
 \par
 \par
 \par
