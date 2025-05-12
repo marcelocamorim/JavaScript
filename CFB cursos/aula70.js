@@ -16,6 +16,6 @@ teclasOp.map((el)=>{
     })
 })
 
-limpar.addEventListener("click",()=>{
-    display.innerHTML=""
+limpar.addEventListener("click",(evt)=>{
+    display.innerHTML="0"
 })
