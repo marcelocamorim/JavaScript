@@ -17,5 +17,5 @@ teclasOp.map((el)=>{
 })
 
 limpar.addEventListener("click",()=>{
-    display.innerHTML="0"
+    display.innerHTML=""
 })
