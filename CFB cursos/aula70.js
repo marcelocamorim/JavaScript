@@ -5,6 +5,8 @@ const display=document.querySelector(".display")
 const teclaOn=document.querySelector("#ton")
 const limpar=document.querySelector("#tlimpar")
 
+let sinal=false
+
 teclasNum.map((el)=>{
     el.addEventListener("click",(evt)=>{
         display.innerHTML+=evt.target.innerHTML
@@ -12,7 +14,18 @@ teclasNum.map((el)=>{
 })
 teclasOp.map((el)=>{
     el.addEventListener("click",(evt)=>{
-        display.innerHTML+=evt.target.innerHTML
+        if(!sinal){
+            sinal=true
+            if(display.innerHTML=="0"){
+                display.innerHTML=""
+            }
+            if(evt.target.innerHTML=="x"){
+                display.innerHTML+="*"
+            }else{
+                display.innerHTML+=evt.target.innerHTML
+            }
+        
+        }
     })
 })
 
