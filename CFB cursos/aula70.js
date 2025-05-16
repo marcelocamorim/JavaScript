@@ -6,13 +6,32 @@ const teclaOn=document.querySelector("#ton")
 const limpar=document.querySelector("#tlimpar")
 
 let sinal=false
+let decimal=false
 
-teclasNum.map((el)=>{
+teclasNum.map((el)=>{//numeros
     el.addEventListener("click",(evt)=>{
-        display.innerHTML+=evt.target.innerHTML
+        sinal=false      
+        if(evt.target.innerHTML==","){
+            if(!decimal){
+                decimal=true
+                if(display.innerHTML=="0"){
+                    display.innerHTML="0,"
+                }else{
+                    display.innerHTML+=evt.target.innerHTML
+                }
+                
+            }
+        }else{
+            if(display.innerHTML=="0"){
+                display.innerHTML=""
+            }
+
+            display.innerHTML+=evt.target.innerHTML
+        }
     })
 })
-teclasOp.map((el)=>{
+
+teclasOp.map((el)=>{//operadores
     el.addEventListener("click",(evt)=>{
         if(!sinal){
             sinal=true
@@ -30,5 +49,14 @@ teclasOp.map((el)=>{
 })
 
 limpar.addEventListener("click",(evt)=>{
+    sinal=false
+    decimal=false
     display.innerHTML="0"
+})
+
+teclaRes.addEventListener("click",(evt)=>{
+    sinal=false
+    decimal=false
+    const res=eval(display.innerHTML)
+    display.innerHTML=res
 })
