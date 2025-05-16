@@ -34464,20 +34464,39 @@ class Circulo extends Forma \{\par
     return Math.PI * this.raio * this.raio;\par
   \}\par
 \}\par
-\cf0\ul\b\i0\f11\u9989?\f1  \f0 Uso:\par
+\cf0\ul\b\i0\f4\u9989?\f1  \f0 Uso:\par
 \cf3\ulnone\b0\i const r = new Retangulo(10, 5);\par
 console.log(r.calcularArea()); \cf2 // 50\par
 \cf3\par
 const c = new Circulo(3);\par
 console.log(c.calcularArea()); \cf2 // ~28.27\cf3\par
 \par
-const f = new Forma(); \cf2 // \f11\u10060?\f1  \f0 Erro: Classe abstrata 'Forma' n\'e3o pode ser instanciada diretamente.\par
+const f = new Forma(); \cf2 // \f4\u10060?\f1  \f0 Erro: Classe abstrata 'Forma' n\'e3o pode ser instanciada diretamente.\par
 \cf0\i0\par
 \ul\b\f3\u-10178?\u-8736?\f1  \f0 Por que usar classes abstratas?\par
 \ulnone\b0 Para definir uma interface comum para v\'e1rias classes filhas.\par
 Para for\'e7ar que subclasses implementem certos m\'e9todos.\par
 Para organizar melhor o c\'f3digo e evitar repeti\'e7\'e3o.\par
 \par
+\par
+\ul\b\fs28 Copiar para \'e1rea de transferencia\par
+\cf3\ulnone\b0\i navigator.clipboard.writeText()\par
+\cf0\i0\fs24 serve para copiar o conte\'fado do display da calculadora para a \'e1rea de transfer\'eancia do computador \f5\emdash\f1  \f0 ou seja, "copiar o resultado", como se voc\'ea tivesse dado Ctrl+C.\par
+\ul\b\f3\u-10178?\u-8736?\f1  \f0 Quebra da linha:\par
+\ulnone navigator.clipboard \f5\u8594?\f1  \b0\f0 acessa o sistema de \'e1rea de transfer\'eancia do navegador (funciona em navegadores modernos).\par
+\b .writeText(...) \f5\u8594?\f1  \b0\f0 escreve um texto na \'e1rea de transfer\'eancia.\par
+\b display.innerHTML \f5\u8594?\f1  \b0\f0\'e9 o texto que est\'e1 aparecendo no visor da calculadora.\par
+\ul\b\f4\u9989?\f1  \f0 Exemplo pr\'e1tico:\par
+\ulnone\b0 Se o display estiver com 123,45, ent\'e3o essa linha:\par
+\cf3\i navigator.clipboard.writeText(display.innerHTML);\par
+\cf0\i0 vai fazer com que 123,45 seja copiado, e o usu\'e1rio pode colar onde quiser (Ctrl+V).\par
+\ul\b Para mobile\par
+\cf3\ulnone\b0\i tcpy\f6 .\f0 addEventListener\f6 (\f0 "click"\f6 ,(\f0 evt\f6 )=>\{\f0\par
+\f6    \f0 teste\f6 .\f0 select\f6 () \cf2 // seleciona o texto antes da c\'f3pia\cf3\f0\par
+\f6    \f0 teste\f6 .\f0 setSelectionRange\f6 (\f0 0\f6 ,\f0 99999\f6 ) \cf2 // garante a quantidade de 0 a 999999 caracteres copiados\f0\par
+\cf3\f6    \f0 navigator\f6 .\f0 clipboard\f6 .\f0 writeText\f6 (\f0 teste\f6 .\f0 value\f6 ) \cf2 // copia para \'e1rea de transferencia\f0\par
+\cf3\f6\})\f0\par
+\cf0\i0\par
 \par
 \par
 \par
