@@ -20,21 +20,23 @@ let decimal=false
 
 teclaNum.map((el)=>{
     el.addEventListener("click",(evt)=>{
+        sinal=false
         if(display.innerHTML=="0"){
             display.innerHTML=""
-        }
-        if(display.innerHTML==","){
-            display.innerHTML="0,"
-        }
-        display.innerHTML+=evt.target.innerHTML
+        }         
         
+        display.innerHTML+=evt.target.innerHTML
+    
     })
 })
 
 
+
 teclaOp.map((el)=>{
     el.addEventListener("click",(evt)=>{
-        if()
+        if(!decimal){
+            
+        }
 
     })
 })
