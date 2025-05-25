@@ -34481,7 +34481,7 @@ Para organizar melhor o c\'f3digo e evitar repeti\'e7\'e3o.\par
 \par
 \ul\b\fs28 Copiar para \'e1rea de transferencia\par
 \cf3\ulnone\b0\i navigator.clipboard.writeText()\par
-\cf0\i0\fs24 serve para copiar o conte\'fado do display da calculadora para a \'e1rea de transfer\'eancia do computador \f5\emdash\f1  \f0 ou seja, "copiar o resultado", como se voc\'ea tivesse dado Ctrl+C.\par
+\cf0\i0\fs24 serve para copiar o conte\'fado do display da calculadora para a \'e1rea de transfer\'eancia do computador \f7\emdash\f1  \f0 ou seja, "copiar o resultado", como se voc\'ea tivesse dado Ctrl+C.\par
 \ul\b\f3\u-10178?\u-8736?\f1  \f0 Quebra da linha:\par
 \ulnone navigator.clipboard \f5\u8594?\f1  \b0\f0 acessa o sistema de \'e1rea de transfer\'eancia do navegador (funciona em navegadores modernos).\par
 \b .writeText(...) \f5\u8594?\f1  \b0\f0 escreve um texto na \'e1rea de transfer\'eancia.\par
@@ -34495,7 +34495,19 @@ Para organizar melhor o c\'f3digo e evitar repeti\'e7\'e3o.\par
 \f6    \f0 teste\f6 .\f0 select\f6 () \cf2 // seleciona o texto antes da c\'f3pia\cf3\f0\par
 \f6    \f0 teste\f6 .\f0 setSelectionRange\f6 (\f0 0\f6 ,\f0 99999\f6 ) \cf2 // garante a quantidade de 0 a 999999 caracteres copiados\f0\par
 \cf3\f6    \f0 navigator\f6 .\f0 clipboard\f6 .\f0 writeText\f6 (\f0 teste\f6 .\f0 value\f6 ) \cf2 // copia para \'e1rea de transferencia\f0\par
-\cf3\f6\})\f0\par
+\cf3\f6\})\par
+\par
+\cf0\ul\b\i0\f0\fs32\lang1046 endsWith\cf3\i\f6\par
+\cf0\ulnone\b0\i0\f0\fs24 endsWith \'e9 um m\'e9todo de strings em JavaScript que verifica se uma string termina com um determinado texto.\par
+Sintaxe:\par
+\cf3\i minhaString.endsWith("texto")\par
+\cf0\i0 Retorna true se a string termina com "texto".\par
+Retorna false caso contr\'e1rio.\par
+\par
+\ul\b Exemplo:\par
+\cf3\ulnone\b0\i let expressao = "4+";\par
+console.log(expressao.endsWith("+")); \cf2 // true\cf3\par
+console.log(expressao.endsWith("-")); \cf2 // false\cf3\par
 \cf0\i0\par
 \par
 \par
