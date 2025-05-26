@@ -34507,7 +34507,72 @@ Retorna false caso contr\'e1rio.\par
 \ul\b Exemplo:\par
 \cf3\ulnone\b0\i let expressao = "4+";\par
 console.log(expressao.endsWith("+")); \cf2 // true\cf3\par
-console.log(expressao.endsWith("-")); \cf2 // false\cf3\par
+console.log(expressao.endsWith("-")); \cf2 // false\par
+\par
+\cf0\ul\b\i0\fs32 O que faz .includes()?\par
+\ulnone\b0\fs24 O m\'e9todo \b .includes() \b0 verifica se um valor existe dentro de um array (ou uma string).\par
+\par
+\f2\u-10179?\u-9012?\f1  \f0 No seu exemplo:\par
+\cf3\i if (["+","-","*","/"].includes(fim)) \{\i0\par
+\cf0\ul\b Isso significa:\par
+\ulnone\b0 "Se o valor de fim for igual a qualquer um desses: "+", "-", "*", "/"\f2\'85\f1  \f0 ent\'e3o fa\'e7a alguma coisa."\par
+\par
+\ul\b\f2\u-10179?\u-8947?\f1  \f0 Como funciona:\par
+\ulnone\b0 O que est\'e1 entre colchetes ([]) \'e9 um array com os operadores.\par
+\par
+E .includes(fim) pergunta:\par
+"O valor da vari\'e1vel fim est\'e1 dentro desse array?"\par
+\par
+\ul\b\f3\u-10178?\u-8736?\f1  \f0 Exemplo pr\'e1tico:\par
+\cf3\ulnone\b0\i let frutas = ["ma\'e7\'e3", "banana", "laranja"]\par
+\par
+frutas.includes("banana")  \cf2 // true\cf3\par
+frutas.includes("melancia") \cf2 // false\par
+\par
+\cf0\ul\b\i0 O m\'e9todo .includes() pode ser usado em dois tipos de dados principais:\par
+1. Array\par
+\ulnone\b0 Sim, funciona com arrays para verificar se um item existe dentro da lista:\par
+\cf3\i const frutas = ["ma\'e7\'e3", "banana", "laranja"]\par
+console.log(frutas.includes("banana")) \cf2 // true\par
+\cf3 console.log(frutas.includes("uva"))    \cf2 // false\cf3\par
+\cf0\i0\par
+\ul\b 2. String\par
+\ulnone\b0 Tamb\'e9m funciona com strings, mas a\'ed ele verifica se um trecho de texto existe dentro de uma string:\par
+\cf3\i const frase = "Hoje est\'e1 um dia lindo"\par
+\par
+console.log(frase.includes("dia"))     \cf2 // true\cf3\par
+console.log(frase.includes("noite"))   \cf2 // false\par
+\cf3\par
+\cf0\ul\b\i0\f3\u9888?\u-497? \f0 Aten\'e7\'e3o:\par
+\ulnone\b0 Em arrays, ele procura um item exato (n\'e3o parcial).\par
+Em strings, ele procura por trechos (pode ser parcial).\par
+\par
+\ul\b\f4\u10060?\f1  \f0 Onde n\'e3o funciona diretamente:\par
+\ulnone\b0 N\'e3o funciona em objetos, n\'fameros ou outros tipos que n\'e3o sejam array ou string. Por exemplo:\par
+\cf3\i const obj = \{ nome: "Lucas" \}\par
+console.log(obj.includes("Lucas")) \cf2 // \f4\u10060?\f1  \f0 ERRO\cf3\par
+\cf0\i0 Se quiser fazer isso em objetos, seria necess\'e1rio usar outras formas como Object.values(obj).includes("Lucas").\par
+\par
+\par
+\ul\b\f4\fs32\u9989?\f1  \f0 Como o slice() funciona\par
+\ulnone\b0\fs24 A sintaxe \'e9:\par
+string.slice(in\'edcio, fim)\par
+in\'edcio: \'edndice onde come\'e7a o corte (inclusivo)\par
+fim: \'edndice onde termina o corte (exclusivo)\par
+Mas se voc\'ea usar \'edndices negativos, ele come\'e7a de tr\'e1s pra frente!\par
+\par
+\ul\b\f2\u-10179?\u-9055?\f1  \f0 Exemplos simples com string:\par
+\cf3\ulnone\b0\i const texto = "JavaScript"\par
+console.log(texto.slice(0, 4))      \cf2 // "Java"\par
+\cf3 console.log(texto.slice(-1))        \cf2 // "t"  \f5\u8594?\f1  \f0\'faltimo caractere\par
+\cf3 console.log(texto.slice(-3))        \cf2 // "ipt" \f1\u8594? \f0\'faltimos 3 caracteres\cf3\par
+console.log(texto.slice(-4, -1))    \cf2 // "rip"\par
+\cf0\i0\par
+\ul\b\f2\u-10179?\u-9055?\f1  \f0 Exemplos simples com array:\par
+\cf3\ulnone\b0\i const numeros = [10, 20, 30, 40, 50]\par
+console.log(numeros.slice(-1))      \cf2 // [50] \f5\u8594?\f1  \f0\'faltimo elemento\cf3\par
+console.log(numeros.slice(-2))      \cf2 // [40, 50]\par
+\cf3 console.log(numeros.slice(1, 4))    \cf2 // [20, 30, 40]\lang1046\par
 \cf0\i0\par
 \par
 \par

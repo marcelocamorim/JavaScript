@@ -12,9 +12,12 @@ const teclaNum=[...document.querySelectorAll(".teclaNum")]
 const teclaOp=[...document.querySelectorAll(".teclaOp")]
 
 const display=document.getElementById('display')
+const tigual=document.getElementById('tigual')
+const limpar=document.getElementById('limpar')
 
 let sinal=false
 let decimal=false
+let resultado=false
 
 //se click numero mostra visor
 //se click virgula mostar 0,
@@ -26,10 +29,28 @@ teclaNum.map((el)=>{
     el.addEventListener("click",(evt)=>{
         const valor=evt.target.innerHTML
         sinal=false
+
+        if(resultado){ 
+            const fim=display.innerHTML.slice(-1)
+            if(["+","-","*","/"].includes(fim)){
+                resultado=false
+            }else{
+                resultado=false
+                sinal=false
+                decimal=false
+                display.innerHTML=""
+
+            }
+            
+
+           
+        }
+
         if(valor==","){
             if(!decimal){
                 decimal=true
-                if(display.innerHTML.endsWith("+") || display.innerHTML.endsWith("-") || display.innerHTML.endsWith("*") || display.innerHTML.endsWith("/")){
+                const fim=display.innerHTML.slice(-1)
+                if(["+","-","*","/"].includes(fim)){
                     display.innerHTML+="0,"
                 }else if(display.innerHTML=="0"){
                     display.innerHTML="0,"
@@ -38,7 +59,7 @@ teclaNum.map((el)=>{
                 }
             }
         }else{
-            if(display.innerHTML=="0"){
+            if(display.innerHTML=="0" ){
                 display.innerHTML=valor
             }else{
                 display.innerHTML+=valor
@@ -57,10 +78,28 @@ teclaOp.map((el)=>{
         if(!sinal){
             sinal=true
             const op=evt.target.innerHTML
-            if(op=="x") op="*"                    
-            display.innerHTML+=op
+            if(op=="x"){
+                display.innerHTML+="*"              
+            }else{
+                display.innerHTML+=op
+
+            }
         }
 
 
     })
+})
+
+tigual.addEventListener("click",(evt)=>{
+    decimal=false
+    sinal=false
+    const res=eval(display.innerHTML)
+    display.innerHTML=res
+    resultado=true
+})
+
+limpar.addEventListener("click",(evt)=>{
+    decimal=false
+    sinal=false
+    display.innerHTML="0"
 })
