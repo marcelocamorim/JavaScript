@@ -1,5 +1,35 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
 #calc{
     display: flex;
     justify-content: ;
     width: 10px;
 }
+
+.tecla{
+    width: 60px;
+    height: 40px;
+    padding: 10px;
+    margin: 2px;
+}
+
+.ligar{ 
+    margin: 10px; 
+    padding: 15px;  
+    background-color: rgb(190, 190, 190);
+    color: black;
+}
+
+.ligadoOk{
+    background-color: rgb(151, 199, 78);
+    color: white;
+}
+.desligadoOk{
+    background-color: rgb(255, 99, 99);
+    color: white;
+}
+
