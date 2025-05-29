@@ -4,32 +4,102 @@
     
 }
 
-#calc{
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1e1e2f;
     display: flex;
-    justify-content: ;
-    width: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
 }
+
+#calc{
+    display: grid;
+    grid-template-columns: repeat(4,70px);
+    gap: 10px;
+    background: #2c2c3e;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0000.5);
+
+}
+
+#display{
+    grid-column: span 4;
+    height: 60px;
+    background: #000;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    color: #0f0;
+    box-shadow: inset 0 0 5px #0f0;
+
+}
+
+
+
 
 .tecla{
-    width: 60px;
-    height: 40px;
-    padding: 10px;
-    margin: 2px;
-}
-
-.ligar{ 
-    margin: 10px; 
-    padding: 15px;  
-    background-color: rgb(190, 190, 190);
-    color: black;
-}
-
-.ligadoOk{
-    background-color: rgb(151, 199, 78);
+    background: #444;
     color: white;
+    font-size: 24px;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.tecla:hover{
+    background: #555;
+}
+
+.teclaOp{
+    background: #f57c00;
+    color: white;
+}
+.teclaOp:hover{
+    background: #ff9800;
+}
+#tigual{
+    background: #388e3c;
+    color: white;
+    grid-column: span 2;
+}
+#tigual:hover{
+    background: #4caf50;
+}
+#limpar{
+    background: #d32f2f;
+    color: white;
+    grid-column: span 2;
+}
+#limpar:hover{
+    background: #e53935;
+}
+
+.ligar{
+    font-weight: bold;
+    background: #777;
+    color: white;
+}
+.ligadoOk{
+    background: #00c853 !important;
 }
 .desligadoOk{
-    background-color: rgb(255, 99, 99);
-    color: white;
+    background: #d50000 !important;
 }
 
+
+.estado_display_on{
+    color: #0f0 !important;
+    box-shadow: inset 0 0 5px #0f0 !important;
+}
+.estado_display_of{
+    color: rgb(255, 0, 0) !important;
+    box-shadow: inset 0 0 5px rgb(255, 0, 0) !important;
+}

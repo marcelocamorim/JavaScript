@@ -36,14 +36,17 @@ let ligado=false
 
 if(!ligado){
     display.innerHTML="Desligado"
-}
+    display.classList.add("estado_display_of")
 
+}
 
 ligar.addEventListener("click",(evt)=>{
     if(!ligado){
         ligado=true  
         ligar.classList.add("ligadoOk")
-        desligar.classList.remove("desligadoOk")                 
+        desligar.classList.remove("desligadoOk")  
+        display.classList.add("estado_display_on")               
+        display.classList.remove("estado_display_of")               
     }
     display.innerHTML="0"
 })
@@ -53,6 +56,8 @@ desligar.addEventListener("click",(evt)=>{
         ligado=false
         desligar.classList.add("desligadoOk")
         ligar.classList.remove("ligadoOk")
+        display.classList.add("estado_display_of")
+        display.classList.remove("estado_display_on")
     }
     display.innerHTML="Desligado"
 })
