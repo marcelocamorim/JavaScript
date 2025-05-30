@@ -12,7 +12,7 @@ Ao clicar em ON/OFF, troque o valor de ligado com ligado = !ligado
 
 Se estiver false, ignore os cliques nos outros botões
 */
-
+const calc=document.getElementById('calc')
 const teclaNum=[...document.querySelectorAll(".teclaNum")]
 const teclaOp=[...document.querySelectorAll(".teclaOp")]
 
@@ -22,6 +22,8 @@ const limpar=document.getElementById('limpar')
 
 const ligar=document.getElementById('on')
 const desligar=document.getElementById('of')
+
+const btn_calc=document.getElementById('btn_calc')
 
 let sinal=false
 let decimal=false
@@ -33,6 +35,21 @@ let ligado=false
 //se visor== 0 recebe numero clicado
 //se ultimo digito for op recebe 0,
 //se clicar em numero libera ops
+
+btn_calc.addEventListener("click",(evt)=>{
+    if(calc.classList.contains("mostrar_calc")){
+        calc.classList.remove("mostrar_calc")
+        calc.classList.add("esconder_calc")
+        btn_calc.innerHTML="<Mostrar Calculadora"
+        
+    }else{
+        calc.classList.add("mostrar_calc")
+        calc.classList.remove("esconder_calc")
+        btn_calc.innerHTML="Esconder Calculadora"
+    }
+})
+
+
 
 if(!ligado){
     display.innerHTML="Desligado"
