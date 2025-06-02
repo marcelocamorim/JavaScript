@@ -34515,7 +34515,7 @@ console.log(expressao.endsWith("-")); \cf2 // false\par
 \f2\u-10179?\u-9012?\f1  \f0 No seu exemplo:\par
 \cf3\i if (["+","-","*","/"].includes(fim)) \{\i0\par
 \cf0\ul\b Isso significa:\par
-\ulnone\b0 "Se o valor de fim for igual a qualquer um desses: "+", "-", "*", "/"\f2\'85\f1  \f0 ent\'e3o fa\'e7a alguma coisa."\par
+\ulnone\b0 "Se o valor de fim for igual a qualquer um desses: "+", "-", "*", "/"\f8\'85\f1  \f0 ent\'e3o fa\'e7a alguma coisa."\par
 \par
 \ul\b\f2\u-10179?\u-8947?\f1  \f0 Como funciona:\par
 \ulnone\b0 O que est\'e1 entre colchetes ([]) \'e9 um array com os operadores.\par
@@ -34543,7 +34543,7 @@ console.log(frutas.includes("banana")) \cf2 // true\par
 console.log(frase.includes("dia"))     \cf2 // true\cf3\par
 console.log(frase.includes("noite"))   \cf2 // false\par
 \cf3\par
-\cf0\ul\b\i0\f3\u9888?\u-497? \f0 Aten\'e7\'e3o:\par
+\cf0\ul\b\i0\f3\u9888?\u-497?\f10  \f0 Aten\'e7\'e3o:\par
 \ulnone\b0 Em arrays, ele procura um item exato (n\'e3o parcial).\par
 Em strings, ele procura por trechos (pode ser parcial).\par
 \par
@@ -34565,15 +34565,70 @@ Mas se voc\'ea usar \'edndices negativos, ele come\'e7a de tr\'e1s pra frente!\p
 \cf3\ulnone\b0\i const texto = "JavaScript"\par
 console.log(texto.slice(0, 4))      \cf2 // "Java"\par
 \cf3 console.log(texto.slice(-1))        \cf2 // "t"  \f5\u8594?\f1  \f0\'faltimo caractere\par
-\cf3 console.log(texto.slice(-3))        \cf2 // "ipt" \f1\u8594? \f0\'faltimos 3 caracteres\cf3\par
+\cf3 console.log(texto.slice(-3))        \cf2 // "ipt" \f5\u8594?\f1  \f0\'faltimos 3 caracteres\cf3\par
 console.log(texto.slice(-4, -1))    \cf2 // "rip"\par
 \cf0\i0\par
 \ul\b\f2\u-10179?\u-9055?\f1  \f0 Exemplos simples com array:\par
 \cf3\ulnone\b0\i const numeros = [10, 20, 30, 40, 50]\par
 console.log(numeros.slice(-1))      \cf2 // [50] \f5\u8594?\f1  \f0\'faltimo elemento\cf3\par
 console.log(numeros.slice(-2))      \cf2 // [40, 50]\par
-\cf3 console.log(numeros.slice(1, 4))    \cf2 // [20, 30, 40]\lang1046\par
+\cf3 console.log(numeros.slice(1, 4))    \cf2 // [20, 30, 40]\par
+\par
+\par
+\cf0\ul\b\i0\fs32 O que \'e9 uma Promise?\par
+\ulnone\b0\fs24 Uma Promise \'e9 um objeto que representa o resultado eventual de uma opera\'e7\'e3o ass\'edncrona. Pode estar em 3 estados:\par
+\b Pendente (pending) \f5\endash\f1  \f0 a opera\'e7\'e3o ainda n\'e3o foi conclu\'edda.\par
+Resolvida (fulfilled) \f1\endash  \f0 a opera\'e7\'e3o foi conclu\'edda com sucesso.\par
+Rejeitada (rejected) \f1\endash  \f0 a opera\'e7\'e3o falhou.\par
+\b0\par
+\ul\b Exemplo b\'e1sico de Promise em JavaScript:\par
+\cf3\ulnone\b0\i const minhaPromise = new Promise((resolve, reject) => \{\par
+  const sucesso = true;\par
+  if (sucesso) \{\par
+    resolve("Deu certo!");\par
+  \} else \{\par
+    reject("Deu errado.");\par
+  \}\par
+\});\par
+\par
+minhaPromise\par
+  .then((mensagem) => \{\par
+    console.log("Sucesso:", mensagem);\par
+  \})\par
+  .catch((erro) => \{\par
+    console.log("Erro:", erro);\par
+  \});\par
 \cf0\i0\par
+\ul\b\f2\u-10179?\u-8995?\f1  \f0 Explica\'e7\'e3o detalhada:\par
+\ulnone 1. new Promise((resolve, reject) => \{ ... \})\par
+\b0 Aqui estamos criando uma nova Promise.\par
+Ela recebe uma fun\'e7\'e3o com dois par\'e2metros:\par
+resolve: chamamos isso quando a opera\'e7\'e3o der certo.\par
+reject: chamamos isso quando a opera\'e7\'e3o der errado.\par
+\par
+\b 2. const sucesso = true;\par
+\b0 Simulamos um teste: se a opera\'e7\'e3o "deu certo" ou n\'e3o.\par
+Isso pode representar, por exemplo, se uma requisi\'e7\'e3o ao servidor teve sucesso.\par
+\par
+\b 3. if (sucesso) \{ resolve("Deu certo!"); \} else \{ reject("Deu errado."); \}\par
+\b0 Se sucesso for true, chamamos resolve(), indicando que a Promise foi resolvida com sucesso.\par
+Se sucesso for false, chamamos reject(), indicando que a Promise foi rejeitada com erro.\par
+\par
+\b 4. .then((mensagem) => \{ ... \})\par
+\b0 O m\'e9todo .then() \'e9 executado quando a Promise \'e9 resolvida com sucesso.\par
+O par\'e2metro mensagem recebe o valor passado dentro de resolve() \f5\emdash\f1  \f0 neste caso, "Deu certo!".\par
+\par
+\b 5. .catch((erro) => \{ ... \})\par
+\b0 O m\'e9todo .catch() \'e9 executado quando a Promise \'e9 rejeitada.\par
+O par\'e2metro erro recebe o valor passado dentro de reject() \f1\emdash  \f0 neste caso, "Deu errado.".\par
+\par
+\ul\b\f2\u-10179?\u-9012?\f1  \f0 Sa\'edda esperada (neste caso):\par
+\ulnone\b0 Como sucesso = true, o c\'f3digo imprime:\par
+Sucesso: Deu certo!\par
+\par
+Se voc\'ea trocar const sucesso = false;, a sa\'edda ser\'e1:\par
+Erro: Deu errado.\lang1046\par
+\par
 \par
 \par
 \par
