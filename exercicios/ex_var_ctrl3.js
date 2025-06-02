@@ -37,16 +37,9 @@ let ligado=false
 //se clicar em numero libera ops
 
 btn_calc.addEventListener("click",(evt)=>{
-    if(calc.classList.contains("mostrar_calc")){
-        calc.classList.remove("mostrar_calc")
-        calc.classList.add("esconder_calc")
-        btn_calc.innerHTML="<Mostrar Calculadora"
-        
-    }else{
-        calc.classList.add("mostrar_calc")
-        calc.classList.remove("esconder_calc")
-        btn_calc.innerHTML="Esconder Calculadora"
-    }
+    const estaMostrando=calc.classList.toggle("mostrar_calc")
+    calc.classList.toggle("esconder_calc")
+    btn_calc.innerHTML = estaMostrando?"Esconder":"Mostrar"
 })
 
 
