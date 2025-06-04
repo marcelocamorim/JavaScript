@@ -12,7 +12,7 @@ Rejeitada (rejected) – a operação falhou.
 const numero = document.getElementById("numero")
 
 let promise = new Promise((resolve, reject) => {//res=resolvido ok, rej =rejeitado 
-    let resultado = false
+    let resultado = true
     let tempo = 3000
 
     setTimeout(() => {
