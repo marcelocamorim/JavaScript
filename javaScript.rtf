@@ -34630,7 +34630,7 @@ Se voc\'ea trocar const sucesso = false;, a sa\'edda ser\'e1:\par
 Erro: Deu errado.\par
 \par
 \ul\b\fs28 Qual a utilidade de uma Promise?\par
-\ulnone\b0\fs24 A principal utilidade da Promise \'e9 lidar com opera\'e7\'f5es ass\'edncronas \f5\emdash\f1  \f0 ou seja, tarefas que demoram para serem conclu\'eddas e n\'e3o travam o restante do c\'f3digo enquanto rodam.\par
+\ulnone\b0\fs24 A principal utilidade da Promise \'e9 lidar com opera\'e7\'f5es ass\'edncronas \f7\emdash\f1  \f0 ou seja, tarefas que demoram para serem conclu\'eddas e n\'e3o travam o restante do c\'f3digo enquanto rodam.\par
 \par
 \ul\b\f3\u10145?\u-497?\f1  \f0 Exemplos de opera\'e7\'f5es ass\'edncronas:\ulnone\b0\par
 Requisi\'e7\'f5es HTTP (buscar dados de uma API)\par
@@ -34649,7 +34649,7 @@ Pode usar com async/await, deixando o c\'f3digo ainda mais simples\par
 \par
 \ul\b\f3\u-10180?\u-8273?\f1  \f0 Situa\'e7\'f5es em que Promises s\'e3o mais usadas:\par
 1. Requisi\'e7\'f5es para APIs\par
-\cf3\ulnone\b0\i fetch("https://api.exemplo.com/dados")\par
+\cf3\ulnone\b0\i fetch("{{\field{\*\fldinst{HYPERLINK https://api.exemplo.com/dados }}{\fldrslt{https://api.exemplo.com/dados\ul0\cf0}}}}\f0\fs24 ")\par
   .then((resposta) => resposta.json())\par
   .then((dados) => console.log(dados))\par
   .catch((erro) => console.error("Erro ao buscar dados:", erro));\par
@@ -34675,13 +34675,77 @@ const lerArquivo = (arquivo) => \{\par
 \ul\b 4. Fun\'e7\'f5es ass\'edncronas com async/await\par
 \cf3\ulnone\b0\i async function carregarDados() \{\par
   try \{\par
-    const resposta = await fetch("https://api.exemplo.com");\par
+    const resposta = await fetch("{{\field{\*\fldinst{HYPERLINK https://api.exemplo.com }}{\fldrslt{https://api.exemplo.com\ul0\cf0}}}}\f0\fs24 ");\par
     const dados = await resposta.json();\par
     console.log(dados);\par
   \} catch (erro) \{\par
     console.error("Erro ao carregar:", erro);\par
   \}\par
-\}\lang1046\par
+\}\par
+\par
+\par
+\par
+\cf0\ul\b\i0\fs32 SetTimeOut()\i\par
+\ulnone\b0\i0\fs24 Sintaxe b\'e1sica:\par
+setTimeout(funcao, tempoEmMilissegundos)\par
+funcao: o que voc\'ea quer que seja executado depois do tempo (pode ser uma fun\'e7\'e3o comum ou uma arrow function).\par
+tempoEmMilissegundos: quanto tempo esperar antes de executar (1 segundo = 1000 milissegundos).\par
+\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 1 \f5\endash\f1  \f0 Usando arrow function:\par
+\ulnone\b0 setTimeout(() => \{\par
+  console.log("Executou depois de 2 segundos");\par
+\}, 2000);\par
+\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 2 \f5\endash\f1  \f0 Usando fun\'e7\'e3o nomeada:\par
+\ulnone\b0 function mostrarMensagem() \{\par
+  console.log("Ol\'e1! Isso foi atrasado.");\par
+\}\par
+setTimeout(mostrarMensagem, 3000); // Executa ap\'f3s 3 segundos\par
+\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 3 \f5\endash\f1  \f0 Com par\'e2metros (usando fun\'e7\'e3o an\'f4nima ou arrow):\par
+\ulnone\b0 setTimeout((nome) => \{\par
+  console.log("Ol\'e1, " + nome);\par
+\}, 1000, "Lucas"); // O "Lucas" \'e9 passado como argumento\par
+\par
+\ul\b\f3\u9888?\u-497?\f1  \f0 Aten\'e7\'e3o:\par
+\ulnone\b0 O setTimeout executa apenas uma vez depois do tempo definido.\par
+Se quiser executar v\'e1rias vezes, use \cf3\i\fs32 setInterval\cf0\i0\fs24 .\par
+\par
+\par
+\ul\b\fs32\lang1046 setInterval:\ulnone\b0\fs24\par
+\ul\b Sintaxe b\'e1sica do setInterval:\par
+\cf3\ulnone\b0\i\fs28 setInterval(funcao, tempoEmMilissegundos)\par
+\cf0\i0\fs24 funcao: o que ser\'e1 executado.\par
+tempoEmMilissegundos: intervalo de repeti\'e7\'e3o (por exemplo, 1000 = 1 segundo).\par
+\par
+\f3\u-10179?\u-8959?\f1  \f0 Ele executa a fun\'e7\'e3o repetidamente, de tempos em tempos, at\'e9 que voc\'ea pare com clearInterval.\par
+\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 1 \f5\endash\f1  \f0 Repetir a cada 2 segundos:\par
+\cf3\ulnone\b0\i setInterval(() => \{\par
+  console.log("Executando a cada 2 segundos...");\par
+\}, 2000);\par
+\cf0\i0 Esse c\'f3digo nunca para sozinho. Vai repetir para sempre a cada 2 segundos.\par
+\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 2 \f5\endash\f1  \f0 Contador com setInterval + clearInterval:\par
+\cf3\ulnone\b0\i let contador = 0;\par
+\par
+let intervalo = setInterval(() => \{\par
+  contador++;\par
+  console.log("Contador:", contador);\par
+\par
+  if (contador === 5) \{\par
+    clearInterval(intervalo); // Para o intervalo\par
+    console.log("Fim do contador");\par
+  \}\par
+\}, 1000);\par
+\cf0\i0 Esse exemplo conta de 1 at\'e9 5, mostrando um n\'famero por segundo, e depois para.\par
+\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 3 \f5\endash\f1  \f0 Com fun\'e7\'e3o nomeada:\par
+\cf3\ulnone\b0\i function mostrarHora() \{\par
+  let agora = new Date();\par
+  console.log("Agora s\'e3o:", agora.toLocaleTimeString());\par
+\}\par
+let id = setInterval(mostrarHora, 1000);\lang1046\par
 \cf0\i0\par
 \par
 \par
