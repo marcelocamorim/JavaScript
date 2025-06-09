@@ -34649,7 +34649,7 @@ Pode usar com async/await, deixando o c\'f3digo ainda mais simples\par
 \par
 \ul\b\f3\u-10180?\u-8273?\f1  \f0 Situa\'e7\'f5es em que Promises s\'e3o mais usadas:\par
 1. Requisi\'e7\'f5es para APIs\par
-\cf3\ulnone\b0\i fetch("{{\field{\*\fldinst{HYPERLINK https://api.exemplo.com/dados }}{\fldrslt{https://api.exemplo.com/dados\ul0\cf0}}}}\f0\fs24 ")\par
+\cf3\ulnone\b0\i fetch("{\cf0{\field{\*\fldinst{HYPERLINK https://api.exemplo.com/dados }}{\fldrslt{https://api.exemplo.com/dados\ul0\cf0}}}}\f0\fs24 ")\par
   .then((resposta) => resposta.json())\par
   .then((dados) => console.log(dados))\par
   .catch((erro) => console.error("Erro ao buscar dados:", erro));\par
@@ -34675,7 +34675,7 @@ const lerArquivo = (arquivo) => \{\par
 \ul\b 4. Fun\'e7\'f5es ass\'edncronas com async/await\par
 \cf3\ulnone\b0\i async function carregarDados() \{\par
   try \{\par
-    const resposta = await fetch("{{\field{\*\fldinst{HYPERLINK https://api.exemplo.com }}{\fldrslt{https://api.exemplo.com\ul0\cf0}}}}\f0\fs24 ");\par
+    const resposta = await fetch("{\cf0{\field{\*\fldinst{HYPERLINK https://api.exemplo.com }}{\fldrslt{https://api.exemplo.com\ul0\cf0}}}}\f0\fs24 ");\par
     const dados = await resposta.json();\par
     console.log(dados);\par
   \} catch (erro) \{\par
@@ -34691,18 +34691,18 @@ setTimeout(funcao, tempoEmMilissegundos)\par
 funcao: o que voc\'ea quer que seja executado depois do tempo (pode ser uma fun\'e7\'e3o comum ou uma arrow function).\par
 tempoEmMilissegundos: quanto tempo esperar antes de executar (1 segundo = 1000 milissegundos).\par
 \par
-\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 1 \f5\endash\f1  \f0 Usando arrow function:\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 1 \f7\endash\f1  \f0 Usando arrow function:\par
 \ulnone\b0 setTimeout(() => \{\par
   console.log("Executou depois de 2 segundos");\par
 \}, 2000);\par
 \par
-\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 2 \f5\endash\f1  \f0 Usando fun\'e7\'e3o nomeada:\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 2 \f7\endash\f1  \f0 Usando fun\'e7\'e3o nomeada:\par
 \ulnone\b0 function mostrarMensagem() \{\par
   console.log("Ol\'e1! Isso foi atrasado.");\par
 \}\par
 setTimeout(mostrarMensagem, 3000); // Executa ap\'f3s 3 segundos\par
 \par
-\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 3 \f5\endash\f1  \f0 Com par\'e2metros (usando fun\'e7\'e3o an\'f4nima ou arrow):\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 3 \f7\endash\f1  \f0 Com par\'e2metros (usando fun\'e7\'e3o an\'f4nima ou arrow):\par
 \ulnone\b0 setTimeout((nome) => \{\par
   console.log("Ol\'e1, " + nome);\par
 \}, 1000, "Lucas"); // O "Lucas" \'e9 passado como argumento\par
@@ -34720,13 +34720,13 @@ tempoEmMilissegundos: intervalo de repeti\'e7\'e3o (por exemplo, 1000 = 1 segund
 \par
 \f3\u-10179?\u-8959?\f1  \f0 Ele executa a fun\'e7\'e3o repetidamente, de tempos em tempos, at\'e9 que voc\'ea pare com clearInterval.\par
 \par
-\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 1 \f5\endash\f1  \f0 Repetir a cada 2 segundos:\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 1 \f7\endash\f1  \f0 Repetir a cada 2 segundos:\par
 \cf3\ulnone\b0\i setInterval(() => \{\par
   console.log("Executando a cada 2 segundos...");\par
 \}, 2000);\par
 \cf0\i0 Esse c\'f3digo nunca para sozinho. Vai repetir para sempre a cada 2 segundos.\par
 \par
-\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 2 \f5\endash\f1  \f0 Contador com setInterval + clearInterval:\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 2 \f7\endash\f1  \f0 Contador com setInterval + clearInterval:\par
 \cf3\ulnone\b0\i let contador = 0;\par
 \par
 let intervalo = setInterval(() => \{\par
@@ -34740,15 +34740,57 @@ let intervalo = setInterval(() => \{\par
 \}, 1000);\par
 \cf0\i0 Esse exemplo conta de 1 at\'e9 5, mostrando um n\'famero por segundo, e depois para.\par
 \par
-\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 3 \f5\endash\f1  \f0 Com fun\'e7\'e3o nomeada:\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 Exemplo 3 \f7\endash\f1  \f0 Com fun\'e7\'e3o nomeada:\par
 \cf3\ulnone\b0\i function mostrarHora() \{\par
   let agora = new Date();\par
   console.log("Agora s\'e3o:", agora.toLocaleTimeString());\par
 \}\par
-let id = setInterval(mostrarHora, 1000);\lang1046\par
+let id = setInterval(mostrarHora, 1000);\par
+\par
+\par
+\cf0\ul\b\i0\fs32 Date\par
+\ulnone\b0\fs24  Vamos ver como usar o Date em JavaScript, que serve para trabalhar com datas e horas.\par
+\par
+\ul\b\f3\u-10179?\u-9019?\f1  \f0 Criando uma data\par
+\ulnone\f4\u9989?\f1  \f0 Data atual:\par
+\cf3\b0\i let agora = new Date();\par
+console.log(agora);\par
 \cf0\i0\par
+\ul\b\f4\u9989?\f1  \f0 Data espec\'edfica (ano, m\'eas, dia):\par
+\cf3\ulnone\b0\i let data = new Date(2024, 5, 4); // Ano, m\'eas (0 = janeiro), dia\par
+console.log(data); // 4 de junho de 2024\par
+\cf0\i0\par
+\ul\b\f3\u-10179?\u-8878?\f1  \f0 Pegando partes da data/hora\par
+\cf3\ulnone\b0\i let data = new Date();\par
+\par
+console.log("Ano:", data.getFullYear());\par
+console.log("M\'eas:", data.getMonth() + 1);     // Janeiro = 0, por isso soma 1\par
+console.log("Dia:", data.getDate());\par
+console.log("Hora:", data.getHours());\par
+console.log("Minutos:", data.getMinutes());\par
+console.log("Segundos:", data.getSeconds());\par
+\cf0\i0\par
+\ul\b\f3\u-10179?\u-9012?\f1  \f0 Formatando como texto\par
+\f3\u-10179?\u-8903?\f1  \f0 toLocaleDateString() \f1\endash  \f0 s\'f3 a data:\par
+\cf3\ulnone\b0\i console.log(data.toLocaleDateString()); // Ex: 06/04/2025\par
+\cf0\i0\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 toLocaleTimeString() \f1\endash  \f0 s\'f3 a hora:\par
+\cf3\ulnone\b0\i console.log(data.toLocaleTimeString()); // Ex: 14:32:45\par
+\cf0\i0\par
+\ul\b\f3\u-10179?\u-8903?\f1  \f0 toLocaleString() \f1\endash  \f0 data + hora:\par
+\cf3\ulnone\b0\i console.log(data.toLocaleString()); // Ex: 06/04/2025, 14:32:45\par
+\cf0\i0\par
+\ul\b\f3\u-10178?\u-8726?\f1  \f0 Exemplo completo:\par
+\cf3\ulnone\b0\i let agora = new Date();\par
+\par
+console.log("Data e hora completas:", agora.toLocaleString());\par
+console.log("Dia:", agora.getDate());\par
+console.log("M\'eas:", agora.getMonth() + 1);\par
+console.log("Ano:", agora.getFullYear());\par
+console.log("Hora atual:", agora.getHours() + "h");\par
 \par
 \par
+\cf0\i0\par
 \par
 \par
 \par
