@@ -16,7 +16,7 @@ let computador = {
 
 computador["monitor"]="22pol"//cria nova propriedade para o objeto
 computador.placaVideo="RTX"//cria nova propriedade para o objeto
-delete(computador.hd)
+delete(computador.hd)//deleta uma propriedade
 
 const c1=Object.assign({},computador)
 console.log(computador)
