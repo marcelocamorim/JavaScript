@@ -1,8 +1,9 @@
-//para importar com "Export Default" necessário ficar fora das "{}" chaves
-import getTodosCursos, { cursos, getCurso } from "./aula94-cursos.js";
-//function fora das chaves, array dentro das chaves
+//importar o modulo todo e renomea-lo
 
+import * as m_cursos from './aula94-cursos.js'
+//importa o módulo da "aula94-cursos" inteiro e renomeia ele com "as" m_cursos(novo nome)
 
-console.log(cursos)
-console.log(getTodosCursos())
-console.log(getCurso(1))
+//agora basta chamar (m_curso."qualquer coisa do modulo")
+console.log(m_cursos.cursos)
+console.log(m_cursos.getCurso(1))
+console.log(m_cursos.default())
