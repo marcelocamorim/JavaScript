@@ -18,5 +18,5 @@ class Cursos{
     }
 }
 
-export{Cursos}
+export default Cursos
 
