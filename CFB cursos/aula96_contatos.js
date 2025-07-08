@@ -6,7 +6,7 @@ let contato = {
     },
 
     getContato: function (i_cont) {
-        return contato[i_cont]
+        return contatos[i_cont]
     },
 
     addContato: function (novoContato, destinoDOM) {
@@ -17,23 +17,41 @@ let contato = {
         }
         contatos.push(cont)
 
-        const div = document.createElement("div")
-        div.setAttribute("class", "contato")
+        destinoDOM.innerHTML = ""
 
-        const p_nome = document.createElement("p")
-        p_nome.innerHTML = novoContato.nome
+        const btn_remove = document.createElement("button")
+        btn_remove.innerHTML = "Excluir"
+        btn_remove.addEventListener("click", (evt) => {
 
-        const p_telefone = document.createElement("p")
-        p_telefone.innerHTML = novoContato.telefone
+        })
 
-        const p_mail = document.createElement("p")
-        p_mail.innerHTML = novoContato.email
+        contatos.forEach((c, i) => {
+            const div = document.createElement("div")
+            div.setAttribute("class", "contato")
 
-        div.appendChild(p_nome)
-        div.appendChild(p_telefone)
-        div.appendChild(p_mail)
+            const p_nome = document.createElement("p")
+            p_nome.innerHTML = c.nome
 
-        destinoDOM.appendChild(div)
+            const p_telefone = document.createElement("p")
+            p_telefone.innerHTML = c.telefone
+
+            const p_mail = document.createElement("p")
+            p_mail.innerHTML = c.email
+
+            div.appendChild(p_nome)
+            div.appendChild(p_telefone)
+            div.appendChild(p_mail)
+
+            destinoDOM.appendChild(div)
+
+            const btn_remove = document.createElement("button")
+            btn_remove.innerHTML = "Excluir"
+            div.appendChild(btn_remove)
+            btn_remove.addEventListener("click", (evt) => {
+                
+            })
+        })
+
     }
 }
 
