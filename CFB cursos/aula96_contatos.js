@@ -19,12 +19,7 @@ let contato = {
 
         destinoDOM.innerHTML = ""
 
-        const btn_remove = document.createElement("button")
-        btn_remove.innerHTML = "Excluir"
-        btn_remove.addEventListener("click", (evt) => {
-
-        })
-
+        
         contatos.forEach((c, i) => {
             const div = document.createElement("div")
             div.setAttribute("class", "contato")
@@ -48,7 +43,7 @@ let contato = {
             btn_remove.innerHTML = "Excluir"
             div.appendChild(btn_remove)
             btn_remove.addEventListener("click", (evt) => {
-                
+                contatos.splice(i,1)
             })
         })
 
