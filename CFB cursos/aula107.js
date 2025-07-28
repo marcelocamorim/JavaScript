@@ -16,4 +16,5 @@ btn_direita.addEventListener("click",()=>{
     carro.style=`position:relative;left:${pos}px`
 })
 
-window.onload=init
+
+window.addEventListener("load",init)
