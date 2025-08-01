@@ -27,5 +27,5 @@ btn_direita.addEventListener("click",()=>{
     anima=setInterval(move,20,1)
 })
 
-window.onload=init
-//window.addEventListener("load",init())
+
+window.addEventListener("load",init)
