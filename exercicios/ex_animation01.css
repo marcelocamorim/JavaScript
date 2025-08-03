@@ -25,3 +25,7 @@ button{
     width: 100px;
     height: 40px;
 }
+#estrada{
+    width: 100vw;
+    height: 100vh;
+}
