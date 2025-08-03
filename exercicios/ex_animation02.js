@@ -9,6 +9,7 @@ const btn_parar = document.getElementById("btn_parar")
 const btn_esquerda = document.getElementById("btn_esquerda")
 const btn_direita = document.getElementById("btn_direita")
 const painel = document.getElementById("painel")
+const estrada=document.getElementById("estrada")
 
 const btn_cima=document.createElement('button')
 const btn_baixo=document.createElement('button')
@@ -30,26 +31,27 @@ const move=(horizon,vert)=>{
 
 }
 
+const startMove=(h,v)=>{
+    clearInterval(anima)
+    anima=setInterval(move,20,h,v)
+}
+
 let anima=null
 
 btn_direita.addEventListener("click",()=>{//direita
-    clearInterval(anima)
-    anima=setInterval(move,20,1,0)
+    startMove(1,0)
 })
 
 btn_esquerda.addEventListener("click",()=>{//esquerda
-    clearInterval(anima)
-    anima=setInterval(move,20,-1,0)
+    startMove(-1,0)
 })
 
 btn_cima.addEventListener("click",()=>{//para cima
-    clearInterval(anima)  
-    anima=setInterval(move,20,0,-1)   
+    startMove(0,-1)  
 })
 
 btn_baixo.addEventListener("click",()=>{//para baixo
-    clearInterval(anima)  
-    anima=setInterval(move,20,0,1)  
+    startMove(0,1)
 })
 
 btn_parar.addEventListener("click",()=>{//Stop
