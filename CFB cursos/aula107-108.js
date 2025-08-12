@@ -4,7 +4,7 @@ const btn_esquerda=document.getElementById("btn_esquerda")
 const btn_direita=document.getElementById("btn_direita")
 
 const init=()=>{
-    carro.style="position:relative;left:0px"
+    carro.style=`position: relative; left:0px; top:0px;`
 }
 
 let anima=null
@@ -28,4 +28,4 @@ btn_direita.addEventListener("click",()=>{
 })
 
 
-window.addEventListener("load",init)
+window.addEventListener("load",init())
