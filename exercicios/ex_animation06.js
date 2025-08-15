@@ -16,21 +16,31 @@ painel.appendChild(btn_play)
 let anima = null
 let limiteHorizontal = null
 let limiteVertical = null
+let direcao=1
 
 const init = () => {
     carro.style = `position: relative; left:0px; top:0px;`
     attLimites()
-    
+
 }
 
-const attLimites=()=>{
+const attLimites = () => {
     limiteHorizontal = window.innerWidth - carro.offsetWidth
     limiteVertical = window.innerHeight - carro.offsetHeight
 }
 
 const move = (horizon, vert) => {
-    carro.style.left = parseInt(carro.style.left) + (10 * horizon) + "px"
-    carro.style.top = parseInt(carro.style.top) + (10 * vert) + "px"
+    let posH = parseInt(carro.style.left)
+    let posV = parseInt(carro.style.top)
+
+    let newH = posH + (10 * horizon)
+    let newV = posV + (10 * vert)
+
+    if()
+
+    
+    carro.style.left = newH + "px"
+    
 
 }
 
@@ -40,7 +50,17 @@ const startMove = (h, v) => {
 }
 
 
+btn_play.addEventListener("click", () => {
+    
+    if(parseInt(carro.style.left>=0)){
+        startMove(1,0)
+    }
+    if(parseInt(carro.style.left==limiteHorizontal)){
+        startMove(-1,0)
+    }
 
+   
+})
 
 
 btn_parar.addEventListener("click", () => {//Stop
@@ -50,4 +70,4 @@ btn_parar.addEventListener("click", () => {//Stop
 
 window.addEventListener("load", init)
 
-window.addEventListener("resize",attLimites)
+window.addEventListener("resize", attLimites)
