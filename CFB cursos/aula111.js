@@ -8,26 +8,19 @@ let tamCarro = null
 let dir = 0
 
 const init = () => {
-    carro.style = "position:relative;left:0px; width:100px;"
-    tamMax = window.innerWidth - parseInt(carro.style.width)
+    carro.style = "position:relative;left:0px; width:100px; height:40px;"
+    tamCarro=parseInt(carro.style.width)
+    tamMax = window.innerWidth - tamCarro
 }
 
-const move = (dir) => {
-    if (dir > 0) {
-        if (parseInt(carro.style.left) < tamMax) {
-            carro.style.left = parseInt(carro.style.left) + (10 * dir) + "px"
-            anima = setTimeout(move, 20, dir)
-        }else{
-            clearTimeout(anima)
-        }
-    }else if( dir < 0){
-        if (parseInt(carro.style.left) > 0){
-            carro.style.left = parseInt(carro.style.left) + (10 * dir) + "px"
-            anima = setTimeout(move, 20, dir)
-        }else{
-            clearTimeout(anima)
-        }
-    }
+const move = () => {
+    if(parseInt(carro.style.left) >= tamMax){
+        dir=-1
+    }else if(parseInt(carro.style.left) <= 0){
+        dir=1
+    }    
+    carro.style.left=parseInt(carro.style.left) + (10*dir) + "px"
+    anima=setTimeout(move,20,dir)
 }
 
 
@@ -35,15 +28,11 @@ btn_parar.addEventListener("click", () => {
     clearTimeout(anima)
 })
 
-btn_esquerda.addEventListener("click", () => {
-    clearTimeout(anima)
-    move(-1)
+btn_rodar.addEventListener("click",()=>{
+    move()
 })
 
-btn_direita.addEventListener("click", () => {
-    clearTimeout(anima)
-    move(1)
-})
+
 
 
 window.addEventListener("load", init())
