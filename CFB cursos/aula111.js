@@ -40,3 +40,18 @@ window.addEventListener("load", init())
 window.addEventListener("resize", () => {
     tamMax = window.innerWidth - parseInt(carro.style.width)
 })
+
+window.addEventListener("keydown",(evt)=>{
+    if(evt.code==="ArrowUp"){
+        carro.style.width=parseInt(carro.style.width)+10+"px"
+        carro.style.height=parseInt(carro.style.height)+10+"px"
+    }
+    if(evt.code==="ArrowDown"){
+        carro.style.width=parseInt(carro.style.width)-10+"px"
+        carro.style.height=parseInt(carro.style.height)-10+"px"
+    }
+
+    tamCarro=parseInt(carro.style.width)
+    tamMax=window.innerWidth-tamCarro
+    
+})
