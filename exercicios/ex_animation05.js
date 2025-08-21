@@ -63,24 +63,26 @@ const startMove = (h, v) => {
 
 let anima = null
 
-btn_direita.addEventListener("click", () => {//direita
-    startMove(1, 0)
-})
 
-btn_esquerda.addEventListener("click", () => {//esquerda
-    startMove(-1, 0)
-})
-
-btn_cima.addEventListener("click", () => {//para cima
-    startMove(0, -1)
-})
-
-btn_baixo.addEventListener("click", () => {//para baixo
-    startMove(0, 1)
-})
 
 btn_parar.addEventListener("click", () => {//Stop
     clearInterval(anima)
+})
+
+
+window.addEventListener("keydown",(evt)=>{
+    if(evt.code==="ArrowLeft"){        
+        startMove(-1,0)
+    }
+    if(evt.code==="ArrowRight"){        
+        startMove(1,0)
+    }
+    if(evt.code==="ArrowUp"){        
+        startMove(0,-1)
+    }
+    if(evt.code==="ArrowDown"){        
+        startMove(0,1)
+    }
 })
 
 
