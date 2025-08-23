@@ -45,14 +45,14 @@ const move = (horizon, vert) => {
 
     if (novaH >= 0 && novaH <= limiteHorizontal) {
         carro.style.left = novaH + "px"
-        velocidade +=10
+        
     } else {
         clearInterval(anima)
     }
 
     if (novaV >= 0 && novaV <= limiteVertical) {
         carro.style.top = novaV + "px"
-        velocidade +=10
+        
     } else {
         clearInterval(anima)
     }
