@@ -11,6 +11,10 @@ const btn_play = document.createElement('button')
 btn_play.innerText = "Play"
 painel.appendChild(btn_play)
 
+const btn_reset = document.createElement('button')
+btn_reset.innerText = "Reset"
+painel.appendChild(btn_reset)
+
 
 
 let anima = null
@@ -66,6 +70,12 @@ btn_play.addEventListener("click", () => {
 
 btn_parar.addEventListener("click", () => {//Stop
     clearInterval(anima)
+})
+
+btn_reset.addEventListener("click",()=>{
+    clearInterval(anima)
+    carro.style.left="0px"
+    carro.style.top="0px"
 })
 
 
