@@ -30,13 +30,11 @@ let limiteVertical = null
 
 const init = () => {
     carro.style = `position: relative; left:0px; top:0px;`
-
+    limiteHorizontal = window.innerWidth - carro.offsetWidth
+    limiteVertical = window.innerHeight - carro.offsetHeight
 }
 
 const move = (horizon, vert) => {
-    limiteHorizontal = window.innerWidth - carro.offsetWidth
-    limiteVertical = window.innerHeight - carro.offsetHeight
-
     const posH = parseInt(carro.style.left)
     const posV = parseInt(carro.style.top)
 
@@ -70,18 +68,18 @@ btn_parar.addEventListener("click", () => {//Stop
 })
 
 
-window.addEventListener("keydown",(evt)=>{
-    if(evt.code==="ArrowLeft"){        
-        startMove(-1,0)
+window.addEventListener("keydown", (evt) => {
+    if (evt.code === "ArrowLeft") {
+        startMove(-1, 0)
     }
-    if(evt.code==="ArrowRight"){        
-        startMove(1,0)
+    if (evt.code === "ArrowRight") {
+        startMove(1, 0)
     }
-    if(evt.code==="ArrowUp"){        
-        startMove(0,-1)
+    if (evt.code === "ArrowUp") {
+        startMove(0, -1)
     }
-    if(evt.code==="ArrowDown"){        
-        startMove(0,1)
+    if (evt.code === "ArrowDown") {
+        startMove(0, 1)
     }
 })
 
