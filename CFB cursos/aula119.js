@@ -21,3 +21,25 @@ document.querySelector("#btn_validar").addEventListener("click",(evt)=>{
 // O script confere se o campo f_nota atende às regras de validação do HTML (required, min, max etc.).
 // Se não atender, mostra a mensagem de erro do próprio navegador em #f_msg.
 // Sempre impede o envio do formulário (para não recarregar a página).
+
+
+//Métodos de validação do DOM
+//checkValidity()
+//setCustomValidity()
+
+//Propriedade de validação do DOM
+//validity
+//validationMessage
+
+//Propriedades de validação
+/*
+customError: true, se uma mensagem de validação personalizada for definida.
+patternMismatch: true, se o valor de um elemento não corresponder ao seu atributo padrão.
+rangeOverflow: true, se o valor de um elemento for maior que seu atributo max.
+rangeUnderflow: true, se o valor de um elemento for menor que seu atributo min.
+stepMismatch: true, se o valor de um elemento for inválido por seu atributo step.
+tooLong: true, se o valor de um elemento exceder seu atributo maxLength.
+typeMismatch: true, se o valor de um elemento for inválido por seu atributo type.
+valueMissing: true, se um elemento (com um atributo obrigatório) não tiver valor.
+valid: true, se o valor de um elemento for válido.
+*/
