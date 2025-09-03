@@ -1,4 +1,4 @@
-//Aprendendo sobre validação nativa em Javascript #P1 - Curso de Javascript - Aula 119
+//Aprendendo sobre validação nativa em Javascript #P1 - Curso de Javascript - Aula 120
 
 const f_nome=document.querySelector("#f_nome")
 const f_nota=document.querySelector("#f_nota")
