@@ -1,0 +1,1 @@
+//Aprendendo sobre FETCH para consumo de APIs em Javascript #P1 - Curso de Javascript - Aula 122
