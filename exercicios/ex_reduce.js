@@ -14,7 +14,7 @@ console.log(somar())
 // Faça uma função que multiplique todos os valores de um array e retorne o resultado.
 const multiplicar = () => {
     let numeros = [2, 2, 10]
-    let mult = numeros.reduce((ac, val) => ac * val, 1)
+    let mult = numeros.reduce((ac, val) => ac * val)
     return mult
 }
 console.log(multiplicar())
@@ -39,12 +39,22 @@ let contagem =frutas.reduce((acc,fruta)=>{
 },{})
 console.log(contagem)
 
-
-
-
-
 //5 Somar apenas números pares
 // Some apenas os valores pares de um array.
+let numeros3=[1,2,3,4,5,6,7,8,9,10]
+// const somarPares=()=>{
+//     let soma=numeros3.reduce((acc,val)=>{
+//         if(val%2==0){
+//             return acc+val
+//         }else{
+//             return acc
+//         }
+//     },0)
+//     return soma
+// }
+const somarPares=()=>
+    numeros3.reduce((acc,val)=> acc + (val % 2 === 0 ? val : 0),0)
+console.log(somarPares())
 
 //6 Transformar array em string
 // Concatene todas as palavras de um array em uma frase.
