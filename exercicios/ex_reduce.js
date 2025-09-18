@@ -1,6 +1,6 @@
 //Exercícios com reduce
 
-// Somar todos os números
+//ex01 Somar todos os números
 // Crie uma função que receba um array de números e retorne a soma deles.
 const somar = () => {
     let numero = [10, 20, 30, 40, 50]
@@ -80,6 +80,30 @@ console.log("ex08: "+  calcularMedia())
 
 //9 Agrupar por categoria
 // Dado um array de objetos, agrupe-os por uma propriedade.
+let produtos = [
+  { nome: "Maçã", categoria: "Fruta" },
+  { nome: "Banana", categoria: "Fruta" },
+  { nome: "Cenoura", categoria: "Legume" },
+  { nome: "Batata", categoria: "Legume" },
+  { nome: "Leite", categoria: "Bebida" },
+  { nome: "suco", categoria: "Bebida" }
+];
+
+let agrupados=produtos.reduce((acc,item)=>{
+    if(!acc[item.categoria]){
+        acc[item.categoria]=[]
+    }
+    acc[item.categoria].push(item)
+    return acc
+},{})
+
+console.log("ex09: ", agrupados)
 
 //10 Contar caracteres em uma string
 // Use reduce para contar quantas vezes cada letra aparece em uma string.
+let strin="banana"
+let contaString=strin.split("").reduce((acc,val)=>{
+    acc[val]=(acc[val] || 0) +1
+    return acc
+},{})
+console.log(contaString)
