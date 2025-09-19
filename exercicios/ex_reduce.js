@@ -106,4 +106,4 @@ let contaString=strin.split("").reduce((acc,val)=>{
     acc[val]=(acc[val] || 0) +1
     return acc
 },{})
-console.log(contaString)
+console.log("ex10: ", contaString)
