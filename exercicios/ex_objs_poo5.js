@@ -7,26 +7,47 @@
 // buscarContato(nome) (retorna o telefone ou "não encontrado").
 
 
-let agenda={
-    contatos:[
-        {nome:"marcelo", telefone:95959595},
+let agenda = {
+    contatos: [
+        { nome: "marcelo", telefone: 95959595 },
     ],
 
-    addContato:function(nom, tel){
-        this.contatos.push({nome:nom, telefone:tel})
+    addContato: function (nom, tel) {
+        this.contatos.push({ nome: nom, telefone: tel })
     },
 
-    listarContatos:function(){
-        this.contatos.forEach((el)=>{
+    listarContatos: function () {
+        this.contatos.forEach((el) => {
             console.log(`nome: ${el.nome}, telefone: ${el.telefone}`)
         })
+    },
+
+    buscarContato: function (termo) {
+        let encontrados = this.contatos.filter(c => 
+            c.nome.toLowerCase().includes(termo.toLowerCase())
+        )
+
+        if (encontrados.length) {
+            console.log("Contatos encontrados")
+            encontrados.forEach((el) => {
+                console.log(`${el.nome}, ${el.telefone}`)
+            })
+            return encontrados
+        } else {
+            console.log("Contato não encontrado")
+            return null
+        }
+
     }
 
 }
 
-agenda.addContato("joão", 5555555555)
+agenda.addContato("joão souza", 5555555555)
+agenda.addContato("joão silva", 7777777777)
+agenda.addContato("marcia", 78787878)
 
 agenda.listarContatos()
+agenda.buscarContato("ma")
 
 
 
