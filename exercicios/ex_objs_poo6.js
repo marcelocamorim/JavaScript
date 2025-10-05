@@ -14,32 +14,41 @@ let estoque = {
     ],
 
     add_item: function (nom, quant) {
-        this.itens.push({ nome: nom, quantidade: quant })
+        let item=this.itens.find(i => i.nome=== nom)
+        if(item){
+            item.quantidade += quant
+        }else{
+            this.itens.push({ nome: nom, quantidade: quant })
+        }
     },
 
     remov_item: function (nom, quant) {
-        this.itens.forEach((el) => {
+        let item = this.itens.find(i => i.nome === nom)
 
-            if (el.nome === nom) {
-                if (el.quantidade >= 0 && quant <= el.quantidade) {
-                    el.quantidade -= quant
-                }
-                if (quant > el.quantidade) {
-                    console.log(`estoque insuficiente, Itens em estoque:${el.nome},${el.quantidade}`)
-                }
-                if(el.quantidade===0){
-                    this.itens=this.itens.filter(i => i.nome !== nom)       
-                    console.log(`item: ${el} - sem estoque, item deletado!`)
-                }
+        if (!item) {
+            console.log("item não existe")
+            return
+        }
 
-            }
-        })
+        if (quant > item.quantidade) {
+            console.log("estoque insuficiente")
+            return
+        }
+
+        item.quantidade -= quant
+
+        if(item.quantidade===0){
+            this.itens=this.itens.filter(i => i.nome !== nom)
+            console.log("item esgotado e removido do estoque")
+        }
+
+
 
     },
 
 
     listarEstoque: function () {
-        this.itens.forEach((el)=>{
+        this.itens.forEach((el) => {
             console.log(` item: ${el.nome} - Quantitade: ${el.quantidade}`)
         })
 
@@ -47,7 +56,8 @@ let estoque = {
 }
 
 estoque.add_item("playStation", 18)
-estoque.remov_item("teclado", 1)
+estoque.add_item("mouse", 10)
+estoque.remov_item("teclado", 3)
 estoque.listarEstoque()
 
 
