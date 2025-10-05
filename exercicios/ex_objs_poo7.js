@@ -43,8 +43,11 @@ let carrinho = {
         }
     },
 
-    calc_total: function () {        
-        
+
+    calc_total: function () {
+        let total = this.produtos.reduce((acc, item) => acc + item.preco * item.quantidade,0)
+        console.log(total)
+        return total
     },
 
     ver_carrinho: function () {
@@ -57,6 +60,7 @@ let carrinho = {
 carrinho.add_produto("cafeteira", 80, 5)
 carrinho.add_produto("geladeira", 0, 5)
 carrinho.remov_produto("geladeira", 3)
+carrinho.ver_carrinho()
 carrinho.calc_total()
 
 
