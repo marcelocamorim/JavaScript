@@ -13,6 +13,8 @@ let biblioteca = {
         { titulo: "Osenhor dos aneis", autor: "JRR Tolkien", ano: 1994 },
         { titulo: "Aguerra dos tronos", autor: "George RR Martin", ano: 2007 },
         { titulo: "A torre negra", autor: "Stephen King", ano: 1993 },
+        { titulo: "Aespera de um milagre", autor: "Stephen King", ano: 1990 },
+        { titulo: "IT A coisa", autor: "Stephen King", ano: 2007 },
     ],
 
     addLivro:function(tit, aut, ano){
@@ -23,9 +25,13 @@ let biblioteca = {
         }else{
             this.livros.push({titulo:tit, autor:aut, ano:ano})
         }
+    },
+
+    buscarAutor:function(aut){
+        let encontrados=this.livros.filter(a => a.autor.toLowerCase().includes(aut.toLowerCase()))
     }
 }
 
 biblioteca.addLivro("harry potter")
 biblioteca.addLivro("As cronicas de narnia", "CS Lewis", 2002)
-console.log(biblioteca)
+biblioteca.buscarAutor("")
