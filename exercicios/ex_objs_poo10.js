@@ -10,28 +10,40 @@
 let biblioteca = {
     livros: [
         { titulo: "harry potter", autor: "JK Rolling", ano: 2000 },
-        { titulo: "Osenhor dos aneis", autor: "JRR Tolkien", ano: 1994 },
+        { titulo: "O senhor dos aneis", autor: "JRR Tolkien", ano: 1994 },
         { titulo: "Aguerra dos tronos", autor: "George RR Martin", ano: 2007 },
         { titulo: "A torre negra", autor: "Stephen King", ano: 1993 },
         { titulo: "Aespera de um milagre", autor: "Stephen King", ano: 1990 },
         { titulo: "IT A coisa", autor: "Stephen King", ano: 2007 },
     ],
 
-    addLivro:function(tit, aut, ano){
-        let livro=this.livros.find((li =>li.titulo === tit))
-        if(livro){
+    addLivro: function (tit, aut, ano) {
+        let livro = this.livros.find((li => li.titulo === tit))
+        if (livro) {
             console.log(`Livro ${tit} - já cadastrado`)
             return
-        }else{
-            this.livros.push({titulo:tit, autor:aut, ano:ano})
+        } else {
+            this.livros.push({ titulo: tit, autor: aut, ano: ano })
         }
     },
 
-    buscarAutor:function(aut){
-        let encontrados=this.livros.filter(a => a.autor.toLowerCase().includes(aut.toLowerCase()))
+    buscarAutor: function (aut) {
+        let autor = this.livros.find(a => a.autor === aut)
+        let encontrados = this.livros.filter(a => a.autor.toLowerCase().includes(aut.toLowerCase()))
+        if (!encontrados.length) {
+            console.log(`Autor ${aut} - não encontrado`)
+            return
+        } else {
+            console.log(`${encontrados.length} Obras do autor ${autor} encontradas: `)            
+            encontrados.forEach((el)=>{
+                console.log(el.titulo)
+            })
+            
+
+        }
     }
 }
 
 biblioteca.addLivro("harry potter")
 biblioteca.addLivro("As cronicas de narnia", "CS Lewis", 2002)
-biblioteca.buscarAutor("")
+biblioteca.buscarAutor("king")
