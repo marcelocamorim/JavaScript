@@ -28,22 +28,35 @@ let biblioteca = {
     },
 
     buscarAutor: function (aut) {
-        let autor = this.livros.find(a => a.autor === aut)
+        //let autor = this.livros.find(a => a.autor === aut)
         let encontrados = this.livros.filter(a => a.autor.toLowerCase().includes(aut.toLowerCase()))
         if (!encontrados.length) {
             console.log(`Autor ${aut} - não encontrado`)
             return
         } else {
-            console.log(`${encontrados.length} Obras do autor ${autor} encontradas: `)            
-            encontrados.forEach((el)=>{
-                console.log(el.titulo)
+            console.log(`${encontrados.length} Obras do autor ${aut} encontradas: `)
+            encontrados.forEach((el) => {
+                console.log(`livro: ${el.titulo} - autor: ${el.autor}`)
             })
-            
-
         }
+        return encontrados
+
+    },
+
+    listarLivros: function () {
+        let livrosOrdenados = [...this.livros].sort((a, b) => {
+           return a.ano - b.ano
+        })
+
+        livrosOrdenados.forEach((el)=>{
+            console.log(`Livro: ${el.titulo} - Autor: ${el.autor} - Ano: ${el.ano}`)
+        })
+        return livrosOrdenados
     }
 }
 
-biblioteca.addLivro("harry potter")
-biblioteca.addLivro("As cronicas de narnia", "CS Lewis", 2002)
-biblioteca.buscarAutor("king")
+// biblioteca.addLivro("harry potter")
+// biblioteca.addLivro("As cronicas de narnia", "CS Lewis", 2002)
+// biblioteca.buscarAutor("king")
+
+biblioteca.listarLivros()
