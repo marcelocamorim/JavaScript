@@ -29,10 +29,14 @@ let turma = {
     },
 
     ranking:function(){
-        let alunosRankeados=this.alunos.map((el)=>{
+        let alunosMedia=this.alunos.map((el)=>{
             let media=this.calcularMedia(el.nome)
-            console.log(media)
+            return media            
         })
+        let alunosRankeados=[...alunosMedia].sort((a,b)=>{
+            return b - a
+        })
+        
         
     }
 }
