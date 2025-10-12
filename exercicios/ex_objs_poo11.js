@@ -15,29 +15,36 @@ let turma = {
     ],
 
     calcularMedia: function (nome) {
-        let aluno=this.alunos.find((a=>a.nome===nome))
-        let nota=aluno.notas
+        let aluno = this.alunos.find((a => a.nome === nome))
+        let nota = aluno.notas
 
-        if(!aluno ){
+        if (!aluno) {
             console.log(`Aluno ${nome} não cadastrado`)
+            return
         }
 
-        let soma=nota.reduce((acc,val)=>acc+val,0)
-        let media=soma/nota.length
+        let soma = nota.reduce((acc, val) => acc + val, 0)
+        let media = soma / nota.length
         console.log(` Aluno ${nome} - Media ${media}`)
         return media
     },
 
-    ranking:function(){
-        let alunosMedia=this.alunos.map((el)=>{
-            let media=this.calcularMedia(el.nome)
-            return media            
+    ranking: function () {
+        let alunosRankeados = [...this.alunos].sort((a, b) => {
+            let mediaA = a.notas.reduce((acc, val) => acc + val, 0) / a.notas.length
+            let mediaB = b.notas.reduce((acc, val) => acc + val, 0) / b.notas.length
+            return mediaB - mediaA
         })
-        let alunosRankeados=[...alunosMedia].sort((a,b)=>{
-            return b - a
+
+        alunosRankeados.map((el, i) => {
+
+            let soma=el.notas.reduce((acc,val)=>acc+val,0)
+            let media=soma/el.notas.length
+
+            console.log(`${i+1}° lugar: ${el.nome} com Média: ${media}`)
+            return media
         })
-        
-        
+
     }
 }
 
