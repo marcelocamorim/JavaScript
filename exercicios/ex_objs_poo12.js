@@ -12,3 +12,40 @@
 
 
 
+let conta = {
+    saldo: 0,
+    historico: [],
+
+    depositar: function (valor) {
+        this.saldo += valor
+        console.log(`Deposito de ${valor} Realizado com Sucesso - Saldo atual ${this.saldo}`)
+
+    },
+
+    sacar: function (valor) {
+        if (this.saldo === 0 || valor > this.saldo) {
+            console.log(`Saldo insuficiente para essa transação - Saldo em conta ${this.saldo}`)
+            return
+        }
+
+        this.saldo -= valor
+        console.log(`Saque de ${valor} Realizado com Sucesso - Saldo atual: ${this.saldo}`)
+
+    },
+
+    exibirExtrato: function () {
+        let agora = new Date
+        if(this.depositar()){
+            //this.historico.push({tipo: "Depósito", valor:})
+            console.log("testeeee")
+        }
+        
+        
+    }
+}
+
+
+
+conta.exibirExtrato()
+//conta.depositar(100)
+conta.sacar(20)
