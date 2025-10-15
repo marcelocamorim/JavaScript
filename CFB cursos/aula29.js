@@ -1,4 +1,4 @@
-//operador this (voltar aqui mais pra frente)
+//operador this 
 
 function aluno(nome,nota){
     this.nome=nome
