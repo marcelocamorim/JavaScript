@@ -5,6 +5,7 @@ class Carro{
         this.nome=nome
         this.modelo=modelo
         this.ano=ano
+        this.ligado=false
     }
 
     ligar(){
@@ -70,14 +71,24 @@ class Funcionario{
         this.salario=salario
     }
 
-    apresentar(){
-        console.log(`Nome: ${this.nome} - Salario: ${this.salario}`)
+    apresentar=function(){
+        console.log(`Nome: ${this.nome} - Salario: R$${this.salario}`)
     }
 }
 
 
 class Gerente extends Funcionario{
-    constructor(bonus){
+    constructor(nome, salario, bonus){
+        super(nome,salario)
         this.bonus=bonus
     }
+
+    apresentarGerente=function(){
+        console.log(`Nome: ${this.nome} - Salario: R$${this.salario+this.bonus}`)
+    }
 }
+
+let f1=new Funcionario("joão",1500)
+let g1=new Gerente("genildo", 5000, 500)
+f1.apresentar()
+g1.apresentarGerente()
