@@ -6,63 +6,66 @@
 // buscarProduto(nome) → retorna o produto se existir
 // 🧠 Desafio extra: use find() e filter() nos métodos de busca.
 
-class Produto{
-    constructor(nome, preco, estoque){
-        this.nome=nome
-        this.preco=preco
-        this.estoque=estoque
+
+class Produto {
+    constructor(nome, preco, estoque) {
+        this.nome = nome
+        this.preco = preco
+        this.estoque = estoque
     }
 
-    info(){
-        console.log(`Produto: ${this.nome} - Preço: R$${this.preco} - Estoque: ${this.estoque}`)
+    info() {
+        console.log(`Produto: ${this.nome} - Preço: ${this.preco} - Estoque: ${this.estoque}`)
     }
 }
 
-class Loja{
-    constructor(){
-        this.produtos=[]
+
+class Loja {
+    constructor() {
+        this.produtos = []
     }
 
-    addProduto(produto){
-        let existene=this.produtos.find((p=>p.nome===produto.nome))
-        if(!item){
+    adicionarProduto(produto) {
+        let produtoExistente = this.produtos.find(p => p.nome === produto.nome)
+        if (!produtoExistente) {
             this.produtos.push(produto)
-            console.log(`Produto ${produto.nome} adicionado com sucesso!`)
-        }else{
-            existene.estoque += produto.estoque
+            console.log(`Produto ${produto.nome} adicionado com sucesso! - Estoque: ${produto.estoque}`)
+        } else {
+            produtoExistente.estoque += produto.estoque
+            console.log(`Produto ${produto.nome} Atualizado! - Estoque: ${produto.estoque}`)
         }
     }
 
-    listarProduto(){
-        console.log("Produtos Disponiveis:")
-        this.produtos.forEach((el)=>{
-           el.info()
-        })
+    listarProduto() {
+        console.log("Produtos Disponiveis")
+        this.produtos.forEach(el => el.info())
     }
 
-
-    buscarProduto(nome){
-        //let produto=this.produtos.find((p=>p.nome===nome))
-        let produtosEncontrados=this.produtos.filter((p=>p.nome.toLowerCase().includes(nome.toLowerCase())))
-        if(produtosEncontrados.length>0){
-            console.log("Itens encontrados:")
-            produtosEncontrados.forEach((el)=>{
-                el.info()
-            })
-            return produtosEncontrados
-        }else{
+    buscarProduto(nome) {
+        let encontrados = this.produtos.filter(p => p.nome.toLowerCase().includes(nome.toLowerCase()))
+        if (encontrados.length) {
+            console.log("Produtos encontrados:")
+            encontrados.forEach(el => el.info())
+            return encontrados
+        } else {
             console.log("Nenhum produto encontrado")
             return
         }
-
     }
+
 }
 
-const l1 = new Loja
-l1.addProduto("camiseta", 20)
-l1.addProduto("bermuda", 10)
-l1.addProduto("tenis", 8)
-l1.addProduto("camiseta", 20)
+const p1 = new Produto("camiseta", 80, 10)
+const p2 = new Produto("bermuda", 60, 6)
+const p3 = new Produto("tenis", 180, 4)
+const p4 = new Produto("camiseta", 80, 10)
 
-//l1.listarProduto()
-l1.buscarProduto("bermuda")
+const loja1 = new Loja()
+loja1.adicionarProduto(p1)
+loja1.adicionarProduto(p3)
+loja1.adicionarProduto(p2)
+loja1.adicionarProduto(p4)
+//loja1.listarProduto()
+
+loja1.buscarProduto("berm")
+
