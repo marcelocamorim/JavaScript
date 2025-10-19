@@ -13,14 +13,14 @@
 
 // Desafio extra: permita adicionar e remover itens dinamicamente.
 
-let listaDeItens = []
+
 
 class Produto {
     constructor(nome, preco) {
         this.nome = nome
         this.preco = preco
     }
-  
+
 }
 
 class ItemPedido {
@@ -29,10 +29,10 @@ class ItemPedido {
         this.quantidade = quantidade
     }
 
-    subtotal(){
+    subtotal() {
         return this.produto.preco * this.quantidade
     }
-    
+
 }
 
 class Pedido {
@@ -41,8 +41,12 @@ class Pedido {
         this.itens = []
     }
 
-    adicionarItem(item){
+    adicionarItem(item) {
         this.itens.push(item)
+    }
+
+    calcularTotal() {        
+        return this.itens.reduce((total, item) => total + item.subtotal(), 0)
     }
 }
 
