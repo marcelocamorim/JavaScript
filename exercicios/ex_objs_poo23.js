@@ -60,6 +60,11 @@ class Mesa {
         console.log(`Total a Pagar: R$${total}`)
         return total
     }
+
+    faturamentoMesa() {             
+        const total = this.pedidos.reduce((acc, item) => acc + (item.pedido.subtotal()), 0)
+        return total
+    }
 }
 
 
@@ -67,6 +72,7 @@ class Restaurante {
     constructor() {
         this.mesas = []
         this.faturamento=[]
+        
     }
 
     registrarMesa(mesa) {
@@ -93,7 +99,11 @@ class Restaurante {
         let dividirIgualmente = true
 
         //libera mesa
-        mesa.disponivel = true
+        mesa.disponivel = true      
+
+        let faturamento = mesa.faturamentoMesa()
+        let agora =new Date        
+        this.faturamento.push({valor: faturamento, data:agora})
 
 
         if (pagamentoIndividual) {
@@ -101,12 +111,14 @@ class Restaurante {
             this.mesas.forEach((el) => {
                 el.pedidos.forEach((el2) => {
                     console.log(`Cliente: ${el2.cliente} - Pagar R$${el2.pedido.subtotal()}`)
+                    console.log(`---------------------`)
                 })
             })
             return
 
         } else if (pagamentoUnico) {
             mesa.fecharConta()
+            console.log(`---------------------`)
             return
 
         } else if (dividirIgualmente) {
@@ -115,13 +127,21 @@ class Restaurante {
             let total = mesa.fecharConta()
             let totalDividido = total / quantidadeClientes
 
-            console.log(`Valor a Pagar: ${totalDividido.toFixed(2)} em 4x`)
-        }
-        
+            console.log(`Valor Dividido: ${totalDividido.toFixed(2)} em 4x`)
+            console.log(`---------------------`)
+        }        
 
     }
 
-
+    faturamentoDia(){
+        this.faturamento.forEach((el)=>{
+            console.log(`Valor: R$${el.valor} - Data: ${el.data.toLocaleString()} `)
+            
+        })
+        let somaFaturamento=this.faturamento.reduce((acc,el)=>acc+(el.valor),0)
+        console.log(`Faturamento do dia - total: R$${somaFaturamento}`)
+        return somaFaturamento
+    }
 
 }
 
@@ -147,11 +167,17 @@ mesa1.registrarCliente("maria")
 mesa1.registrarCliente("carlos")
 mesa1.registrarCliente("vitória")
 
-
 mesa1.fazerPedido("joão", prato1, 1)
 mesa1.fazerPedido("carlos", prato2, 1)
 mesa1.fazerPedido("maria", prato3, 1)
 mesa1.fazerPedido("vitória", prato4, 1)
+
+
+mesa2.registrarCliente("silvania")
+mesa2.registrarCliente("amaral")
+
+mesa2.fazerPedido("silvania", prato2, 1)
+mesa2.fazerPedido("amaral", prato3, 1)
 
 
 // console.log(mesa1.pedidos)
@@ -159,4 +185,7 @@ mesa1.fazerPedido("vitória", prato4, 1)
 // restaurante.mesasInfo()
 //mesa1.fecharConta()
 restaurante.receberPagamento(mesa1)
-console.log(mesa1.disponivel)
+restaurante.receberPagamento(mesa2)
+
+restaurante.faturamentoDia()
+
