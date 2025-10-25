@@ -36,10 +36,12 @@ class Mesa {
     constructor() {
         this.clientes = []
         this.pedidos = []
+        this.disponivel = true
     }
 
     registrarCliente(clienteNome) {
         this.clientes.push(clienteNome)
+        this.disponivel = false
     }
 
     fazerPedido(clienteNome, prato, quantidade) {
@@ -64,6 +66,7 @@ class Mesa {
 class Restaurante {
     constructor() {
         this.mesas = []
+        this.faturamento=[]
     }
 
     registrarMesa(mesa) {
@@ -82,14 +85,19 @@ class Restaurante {
                 console.log(`Mesa ${i + 1} Livre`)
             }
         })
-    }   
+    }
 
     receberPagamento(mesa) {
-        let pagamentoIndividual = true
+        let pagamentoIndividual = false
         let pagamentoUnico = false
-        let dividirIgualmente = false
+        let dividirIgualmente = true
+
+        //libera mesa
+        mesa.disponivel = true
+
 
         if (pagamentoIndividual) {
+            mesa.fecharConta()
             this.mesas.forEach((el) => {
                 el.pedidos.forEach((el2) => {
                     console.log(`Cliente: ${el2.cliente} - Pagar R$${el2.pedido.subtotal()}`)
@@ -102,15 +110,19 @@ class Restaurante {
             return
 
         } else if (dividirIgualmente) {
+            
             let quantidadeClientes = mesa.clientes.length
             let total = mesa.fecharConta()
             let totalDividido = total / quantidadeClientes
 
             console.log(`Valor a Pagar: ${totalDividido.toFixed(2)} em 4x`)
         }
-
+        
 
     }
+
+
+
 }
 
 
@@ -147,3 +159,4 @@ mesa1.fazerPedido("vitória", prato4, 1)
 // restaurante.mesasInfo()
 //mesa1.fecharConta()
 restaurante.receberPagamento(mesa1)
+console.log(mesa1.disponivel)
