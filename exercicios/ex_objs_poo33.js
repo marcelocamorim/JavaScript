@@ -29,7 +29,7 @@ class Funcionario {
     }
 
     info() {
-        console.log(`Nome: ${this.nome} - Cargo: ${this.tipo} - Salario: ${this.salario}`)
+        console.log(`Nome: ${this.nome} - Cargo: ${this.tipo} - Salario: ${this.calcSalario()}`)
     }
 }
 
@@ -59,15 +59,13 @@ class FuncionarioFactory {
 
     criarFuncionario(nome, tipo) {
         if (tipo === "gerente") {
-            const gerente = new Gerente(nome)
-            gerente.calcSalario()
+            const gerente = new Gerente(nome)            
             this.listaFuncionarios.push(gerente)
             console.log(`${tipo} ${nome} Criado com Sucesso!`)
             return gerente
 
         } else if (tipo === "desenvolvedor") {
-            const desenvolvedor = new Desenvolvedor(nome)
-            desenvolvedor.calcSalario()
+            const desenvolvedor = new Desenvolvedor(nome)            
             this.listaFuncionarios.push(desenvolvedor)
             console.log(`${tipo} ${nome} Criado com Sucesso!`)
             return desenvolvedor
