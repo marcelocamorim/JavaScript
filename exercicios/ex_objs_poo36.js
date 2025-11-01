@@ -4,13 +4,13 @@
 // Crie:
 
 // Classe Canal → tem uma lista de inscritos (observers)
-//class canal -> nome -> array de usuarios ->
+
 
 // método inscrever(observer)
-//usuario -> push arrray inscritos
+
 
 // método cancelarInscricao(observer)
-//remove usuario de array inscritos com filter
+
 
 // método publicar(video) → notifica todos os inscritos
 
@@ -20,48 +20,61 @@
 
 // Teste com vários usuários inscritos e diferentes vídeos sendo publicados.
 
-class Canal {
-    constructor(nome) {
-        this.nome = nome
-        this.inscritos = []
+class Canal{
+    constructor(nome){
+        this.nome=nome
+        this.inscritos=[]
         this.videos=[]
     }
 
-    inscrever(usuario) {
-        console.log(`${usuario.nome} se Inscreveu no canal ${this.nome}`)
+    follow(usuario){
         this.inscritos.push(usuario)
+        console.log(`${usuario.nome} Se inscreveu no canal ${this.nome}`)
+        console.log("------------------------------------")
     }
 
-    cancelarInscrição(usuario) {
-        this.inscritos = this.inscritos.filter((u => u.nome !== usuario.nome))
-        console.log(`Usuario ${usuario.nome} Cancelou a inscrição no canal ${this.nome}`)
+    unFollow(usuario){
+        this.inscritos = this.inscritos.filter(u=>u.nome!==usuario.nome)
+        console.log(`Usuario ${usuario.nome} Deixou de seguir o canal ${this.nome}`)
+        console.log("------------------------------------")
     }
 
-    Publicar(video){
-        console.log(`Canal ${this.nome} publicou um novo Video: ${video}`)
+    publicar(video){
         this.videos.push(video)
-        this.notificar(video)
-    }
+        console.log(`Video "${video}" Publicado com sucesso!`)
 
-    notificar(video){
         this.inscritos.forEach((el)=>{
             el.notificar(this.nome, video)
         })
     }
 
+
+
     info(){
         console.log(`Resumo do Canal ${this.nome}`)
-        console.log(`Inscritos ativos: ${this.inscritos.length}`)
+        console.log(`Inscritos Ativos: ${this.inscritos.length}`)
+        console.log(`Videos Publicados: ${this.videos.length}`)
+        console.log("------------------------------------")
+
+        console.log("Lista de Inscritos:")
         this.inscritos.forEach((el)=>{
             console.log(el.nome)
         })
-        console.log("--------------------------")
-        console.log(`Videos Publicados: ${this.videos.length}`)
+        console.log("------------------------------------")
+
+        console.log("Lista de Vídeos Publicados:")
         this.videos.forEach((el)=>{
             console.log(el)
-        })
+        })     
+        console.log("------------------------------------")   
     }
 }
+
+
+
+
+
+
 
 
 class Usuario{
@@ -70,23 +83,24 @@ class Usuario{
     }
 
     notificar(canal, video){
-        console.log(`${this.nome} Recebeu notificação: Novo Vídeo: ${video} do canal: ${canal} `)
+        console.log(`${this.nome} Recebeu notificção - Novo video: "${video}" no Canal: ${canal}`)
     }
+
 }
 
-const canal1 = new Canal("Ninja tech")
+const canal1=new Canal("Ninja Tech")
 
-const usuario1 = new Usuario("joão")
-const usuario2 = new Usuario("maria")
-const usuario3 = new Usuario("carlos")
+const user1 = new Usuario("joão")
+const user2= new Usuario("maria")
+const user3 = new Usuario("pedro")
+const user4 = new Usuario("alice")
 
-canal1.inscrever(usuario1)
-canal1.inscrever(usuario2)
-canal1.inscrever(usuario3)
+canal1.follow(user1)
+canal1.follow(user2)
+canal1.unFollow(user1)
+canal1.follow(user3)
+canal1.follow(user4)
 
-canal1.Publicar("dicas do VS Code")
-// canal1.Publicar("Como pensar como um dev pro")
-// canal1.Publicar("entenda lógica de programação")
+canal1.publicar("Atalhos ninjas para o VScode")
 
-canal1.info()
-
+//canal1.info()
