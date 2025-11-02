@@ -13,6 +13,8 @@ Investidor → observador com método notificar(empresa, valor)
 Permita que investidores escolham em quais empresas querem se inscrever.
 */
 
+
+
 class Bolsa {
     constructor() {
         if(Bolsa.instancia){
@@ -36,29 +38,47 @@ class Bolsa {
     atualizarPreco(empresa, valor) {
         console.log(`empresa ${empresa} agora vale: ${valor}`)
     }
+
+    notificar(empresa, valor){
+        this.empresas.forEach((el)=>{
+            
+        })
+    }
 }
 
 
 class Empresa{
     constructor(nome){
         this.nome=nome
-        this.Investidores=[]
+        this.investidores=[]
     }
+
+    cadastrarInvestidor(investidor){
+        this.investidores.push(investidor)
+        console.log(`investidor ${investidor.nome} Cadastrado na ${this.nome} Com Sucesso!`)
+    }
+
+    info(){
+        console.log(`Empresa ${this.nome}`)
+        console.log(`Investidores:`)
+        this.investidores.forEach((el=>console.log(el.nome)))
+        
+    }
+    
 }
 
 
-class Investidor {
-    constructor(nome) {
+class Investidor{
+    constructor(nome) {            
         this.nome = nome
+        
     }
 
     notificar(empresa, valor) {
         console.log(`${this.nome} Recebeu Atualização. ${empresa} Agora Vale: R$${valor}`)
     }
 
-    solicitarInscrição(investidor, empresa){
-        console.log(`${investidor.nome} Solicitou inscrição na ${empresa} `)
-    }
+    
 }
 
 const bolsa=new Bolsa()
@@ -72,3 +92,17 @@ const invest1 = new Investidor("joão")
 const invest2 = new Investidor("maria")
 const invest3 = new Investidor("sofia")
 const invest4 = new Investidor("antonio")
+
+bolsa.cadastrarEmpresa(empresa1)
+bolsa.cadastrarEmpresa(empresa2)
+bolsa.cadastrarEmpresa(empresa3)
+bolsa.cadastrarEmpresa(empresa4)
+
+empresa1.cadastrarInvestidor(invest1)
+// invest2.solicitarInscrição("google")
+// invest3.solicitarInscrição("xiaomi")
+// invest4.solicitarInscrição("amazon")
+
+empresa1.info()
+
+console.log(bolsa.empresas)
