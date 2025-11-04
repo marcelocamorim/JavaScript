@@ -39,11 +39,6 @@ class Bolsa {
         console.log(`empresa ${empresa} agora vale: ${valor}`)
     }
 
-    notificar(empresa, valor){
-        this.empresas.forEach((el)=>{
-            
-        })
-    }
 }
 
 
