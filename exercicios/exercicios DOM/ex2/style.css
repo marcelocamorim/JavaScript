@@ -1,0 +1,33 @@
+div{
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 20px;
+    cursor: pointer;
+    background-color: rgb(151, 253, 228);
+}
+div:hover{
+    background-color: rgb(22, 116, 92) ;
+}
+
+button{
+    cursor: pointer;
+}
+
+div p{
+    text-align: center;
+    
+
+}
+
+
+#dv1{
+    
+}
+#dv2{
+
+}
+#dv3{
+
+}
