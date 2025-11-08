@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 14 de DOM</title>
+    <link rel="stylesheet" href="ex14.css">
+</head>
+
+<body>
+
+    <h1>Exercício 14 — Formulário dinâmico</h1>
+
+    <p>
+        Crie um formulário com os campos: nome, idade e e-mail.
+        Ao clicar em “Enviar”, os dados devem aparecer organizados em uma tabela logo abaixo do formulário.
+        Cada nova submissão deve criar uma nova linha.
+    </p>
+
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+        <form  method="get" autocomplete="on">
+            <p>
+                <label for="inome">Nome</label>
+                <input type="text" name="Nome" id="inome">
+            </p>
+             <p>
+                <label for="iidade">Idade</label>
+                <input type="number" name="idade" id="iidade">
+            </p>
+            <p>
+                <label for="iemail">E-mail</label>
+                <input type="email" name="email" id="iemail" required autocomplete="email">
+            </p>
+           
+            <p>
+                <input id="enviar" type="submit" value="Enviar">
+                <input id="limpar" type="reset" value="Limpar">
+            </p>
+        </form>
+    </fieldset>
+
+    <table>
+        
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Idade</td>
+                <td>E-mail</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>teste</td>
+                <td>teste</td>
+                <td>teste</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+    <script src="ex14.js"></script>
+</body>
+
+</html>
