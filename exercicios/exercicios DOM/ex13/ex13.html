@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 13 de DOM</title>
+    <style>
+        .grande{
+            width: 400px;
+            height: 500px;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .mini{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        .mini:hover{
+            transform: scale(1.5);
+            transition: 0.3s;
+        }
+        #container{
+            
+            width: 400px;
+            
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exercício 13 — Galeria de imagens com miniaturas</h1>
+
+    <p>
+        Crie uma imagem principal grande e várias miniaturas pequenas abaixo.
+        Quando o usuário clicar em uma miniatura, a imagem principal muda para aquela.
+    </p>
+
+    <img class="grande" src="img-css.png" alt="">
+    <div id="container">
+        <img class="mini" id="css" src="img-css.png" alt="">
+        <img class="mini" id="html" src="img-html.png" alt="">
+        <img class="mini" id="js" src="javascript-logo-png_seeklogo-255387.png" alt="">
+    </div>
+
+
+    <script src="ex13.js"></script>
+</body>
+
+</html>
