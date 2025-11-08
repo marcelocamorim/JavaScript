@@ -1,0 +1,5 @@
+const nome=document.getElementById("inome")
+const idade=document.getElementById("iidade")
+const email=document.getElementById("iemail")
+const enviar=document.getElementById("enviar")
+const limpar=document.getElementById("limpar")
