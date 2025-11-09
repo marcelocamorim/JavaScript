@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 15 de DOM</title>
+
+    <style>
+        div{
+            width: 150px;
+            height: 50px;
+            border: 1px solid black;
+            background-color: aqua;
+            position: absolute;
+            top: 230px;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Exercício 15 — Animação com o DOM</h1>
+
+    <p>
+        Crie uma div representando um quadrado.
+        Ao clicar em um botão “Mover”, ele deve se deslocar suavemente da esquerda para a direita.
+    </p>
+
+    <p>
+        👉 Dica:
+        Use setInterval() e altere element.style.left progressivamente (ou use requestAnimationFrame() se quiser um
+        desafio extra).
+    </p>
+
+    <button id="btn_mover_direita">Mover direita</button>
+    <button id="btn_parar">Parar</button>
+    <button id="btn_mover_esquerda">Mover esquerda</button>
+
+
+    <div id="div"></div>
+
+
+    <script src="aula15.js"></script>
+</body>
+
+</html>
