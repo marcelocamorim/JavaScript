@@ -19,7 +19,7 @@ let deslocamentoH = 0
 let deslocamentoV = 0
 
 const limiteEsquerda = 0
-const limiteCima = 252
+const limiteCima = 0
 const limiteDireita = container_mov.clientWidth - div_mov.offsetWidth
 const limiteBaixo = container_mov.clientHeight - div_mov.offsetHeight
 
@@ -59,5 +59,9 @@ btn_mover_cima.addEventListener("click", () => {
 
 btn_mover_baixo.addEventListener("click", () => {
     mover(0,1)
+})
+
+btn_parar.addEventListener("click",()=>{
+    
 })
 
