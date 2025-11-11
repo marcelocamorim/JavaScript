@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 18 de DOM</title>
+    <link rel="stylesheet" href="ex18.css">
+</head>
+
+<body>
+
+    <h1>Exercício 17 — Sistema de notas</h1>
+
+    <p>
+        Crie inputs para nome do aluno e três notas.
+        Ao clicar em “Calcular”, exiba na tela a média e se o aluno está “Aprovado” ou “Reprovado”.
+        Guarde cada resultado em uma tabela que vai crescendo a cada novo cálculo.
+    </p>
+
+    <p>
+        👉 Dica:
+        Você vai criar tr e td dinamicamente com createElement.
+    </p>
+
+    <input type="text" name="" id="nome" placeholder="nome do aluno">
+    <input type="number" name="" id="nota1" placeholder="nota 1" min="0" max="10">
+    <input type="number" name="" id="nota2" placeholder="nota 2" min="0" max="10">
+    <input type="number" name="" id="nota3" placeholder="nota 3" min="0" max="10">
+
+    <button id="registrar">Registrar</button>
+
+    <table id="listaAlunos">
+        <tr>
+            <td>Nome</td>
+            <td>Nota 1</td>
+            <td>Nota 2</td>
+            <td>Nota 3</td>
+            <td>Média</td>
+            <td>Status</td>
+        </tr>
+        
+    </table>
+
+    <input type="text" placeholder="Buscar Por nome" id="buscar">
+
+    <script src="ex18.js"></script>
+</body>
+
+</html>
