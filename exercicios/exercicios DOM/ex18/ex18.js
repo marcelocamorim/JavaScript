@@ -64,7 +64,7 @@ btn.addEventListener("click", () => {
     tr.appendChild(tdStatus)
 
 
-    alunos.push({nome:nome.value, notas:[Number(nota1.value), Number(nota2.value), Number(nota3.value)]})
+    alunos.push({nome:nome.value, notas:[Number(nota1.value), Number(nota2.value), Number(nota3.value)], media:media})
     limpar()
     console.log(alunos)
 
@@ -74,6 +74,16 @@ btn.addEventListener("click", () => {
 const buscar=document.getElementById("buscar")
 
 buscar.addEventListener("input",()=>{
-    let textoBuscado=buscar.value.toLoerCase()
-    
+    let textoBuscado=buscar.value.toLowerCase()
+    let linhas=tabela.querySelectorAll("tr")
+    linhas.forEach((linha)=>{
+        const alun=linha.querySelector("td").textContent.toLowerCase()
+
+        if(alun.includes(textoBuscado)){
+            linha.style.display=""
+        }else{
+            linha.style.display="none"
+        }
+
+    })
 })
