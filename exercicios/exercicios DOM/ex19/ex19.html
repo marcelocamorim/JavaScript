@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 19 de DOM</title>
+
+    <link rel="stylesheet" href="ex19.css">
+</head>
+
+<body>
+    <h1>Exercício 19 — Calculadora simples no DOM</h1>
+
+    <p>
+        Crie botões numéricos (0–9), operadores (+, −, ×, ÷) e um visor.
+        Quando o usuário clicar, o número/operador aparece no visor.
+        Ao clicar em “=”, o resultado é mostrado.
+    </p>
+
+    <div id="calculadora">
+        <div id="display">
+            <div id="visor">
+                0
+            </div>
+        </div>
+
+        <div id="primeiraLinha">
+            <button id="on" class="power">ON</button>
+            <button id="off" class="power">OFF</button>
+            <button class="power">Limpar</button>
+        </div>
+        
+        <div id="teclas">
+            <button id="num9" class="numeros">9</button>
+            <button id="num8" class="numeros">8</button>
+            <button id="num7" class="numeros">7</button>
+            <button id="num6" class="numeros">6</button>
+            <button id="num5" class="numeros">5</button>
+            <button id="num4" class="numeros">4</button>
+            <button id="num3" class="numeros">3</button>
+            <button id="num2" class="numeros">2</button>
+            <button id="num1" class="numeros">1</button>
+            <button id="num0" class="numeros">0</button>
+            <button id="abreParenteses" class="operador">(</button>
+            <button id="fechaParenteses" class="operador">)</button>
+
+            <button id="soma" class="operador">+</button>
+            <button id="subtracao" class="operador">-</button>
+            <button id="multiplicacao" class="operador">x</button>
+            <button id="divisao" class="operador">/</button>
+            <button id="igual" class="operador">=</button>
+            <button id="virgula" class="operador">,</button>
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+    <script src="ex19.js"></script>
+</body>
+
+</html>
