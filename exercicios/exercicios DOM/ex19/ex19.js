@@ -2,17 +2,21 @@ const on = document.getElementById("on")
 const off = document.getElementById("off")
 const limpar = document.getElementById("limpar")
 
+const abreParenteses = document.getElementById("abreParenteses")
+const fechaParenteses = document.getElementById("fechaParenteses")
+
+const virgula = document.getElementById("virgula")
+const igual = document.getElementById("igual")
+
+
 const numeros = [...document.querySelectorAll(".numeros")]
 const operador = [...document.querySelectorAll(".operador")]
-
-const parenteses =[...documen]
 
 let visor = document.getElementById("visor")
 
 let ligado = false
 let desligado = true
-let liberaOperador = false
-let liberaVirgula=true
+
 
 limpar.addEventListener("click", () => {
     visor.innerHTML = 0
@@ -20,27 +24,47 @@ limpar.addEventListener("click", () => {
 
 numeros.forEach((el) => {
     el.addEventListener("click", () => {
-        if(visor.innerHTML === "0"){
-            visor.innerHTML=""
+        if (visor.innerHTML === "0") {
+            visor.innerHTML = ""
         }
 
-        visor.innerHTML+=el.innerHTML
-        liberaOperador=true
-        liberaVirgula=false
-        
+        visor.innerHTML += el.innerHTML
+        liberaOperador = true
+
+
     })
 })
 
 operador.forEach((el) => {
     el.addEventListener("click", () => {
-        if(visor.innerHTML === ","){
-            visor.innerHTML="0,"
-        }
-
         if (liberaOperador) {
             visor.innerHTML += el.innerHTML
             liberaOperador = false
-            liberaVirgula=true
         }
     })
+})
+
+function liberaVirgula(visor) {
+    const valor = visor.innerHTML
+    const ultimoValor = valor.split(/[\+\-\*\/\(\)]/).pop()
+    return ultimoValor.includes(".")
+}
+
+virgula.addEventListener("click", () => {
+    const val = visor.innerHTML
+    const ultimoVal = val.slice(-1)
+    
+    if("+-*/".includes(ultimoVal)){
+        visor.innerHTML+="0."
+        return
+    }
+
+    if (visor.innerHTML === "0") {
+        visor.innerHTML = "0."
+        return
+    }
+
+    if (!liberaVirgula(visor)) {
+        visor.innerHTML += "."
+    }
 })
