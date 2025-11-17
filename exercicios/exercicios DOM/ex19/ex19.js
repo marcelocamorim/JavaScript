@@ -44,7 +44,7 @@ operador.forEach((el) => {
     })
 })
 
-function liberaVirgula(visor) {
+function liberaVirgula() {
     const valor = visor.innerHTML
     const ultimoValor = valor.split(/[\+\-\*\/\(\)]/).pop()
     return ultimoValor.includes(".")
@@ -53,9 +53,9 @@ function liberaVirgula(visor) {
 virgula.addEventListener("click", () => {
     const val = visor.innerHTML
     const ultimoVal = val.slice(-1)
-    
-    if("+-*/".includes(ultimoVal)){
-        visor.innerHTML+="0."
+
+    if ("+-*/".includes(ultimoVal)) {
+        visor.innerHTML += "0."
         return
     }
 
@@ -64,7 +64,48 @@ virgula.addEventListener("click", () => {
         return
     }
 
-    if (!liberaVirgula(visor)) {
+    if (!liberaVirgula()) {
         visor.innerHTML += "."
     }
 })
+
+function liberaAbrirParenteses() {
+    const valor = visor.innerHTML
+    const ultimoValor = valor.slice(-1)
+
+    if (ultimoValor === "(") {
+        return false
+    }
+    if (ultimoValor === ")") {
+        return false
+    }
+    if (ultimoValor === ".") {
+        return false
+    }
+
+    return true
+
+}
+abreParenteses.addEventListener("click", () => {
+    if (visor.innerHTML === "0") {
+        visor.innerHTML = "("
+    }
+
+    if (liberaAbrirParenteses()) {
+        visor.innerHTML += "("
+    }
+})
+
+function liberaFecharParentes(){
+    const valor= visor.innerHTML
+    const ultimoValor=visor.slice(-1)
+
+    const abertos=valor.split("(").length-1
+    const fechados=valor.split(")").length-1
+
+    if(ultimoValor==="(") return false
+    if(fechados>=abertos) return false
+    if("+-*/".includes(ultimoValor)) return false
+
+    return true
+}
