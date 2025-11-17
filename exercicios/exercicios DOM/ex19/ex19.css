@@ -25,6 +25,7 @@
     width: 400px;
     height: 500px;
     border-radius: 15px;
+    
 }
 
 #teclado {}
@@ -33,6 +34,7 @@ button {
     width: 70px;
     height: 80px;
     margin: 5px;
+    font-size: 25pt;
 }
 
 #primeiraLinha {
