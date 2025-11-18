@@ -83,7 +83,9 @@ function liberaAbrirParenteses() {
         return false
     }
 
-    return true
+    if ("+-*/".includes(ultimoValor)) {
+        return true
+    }
 
 }
 abreParenteses.addEventListener("click", () => {
@@ -96,16 +98,29 @@ abreParenteses.addEventListener("click", () => {
     }
 })
 
-function liberaFecharParentes(){
-    const valor= visor.innerHTML
-    const ultimoValor=visor.slice(-1)
+function liberaFecharParentes() {
+    const valor = visor.innerHTML
+    const ultimoValor = visor.slice(-1)
 
-    const abertos=valor.split("(").length-1
-    const fechados=valor.split(")").length-1
+    const abertos = valor.split("(").length - 1
+    const fechados = valor.split(")").length - 1
 
-    if(ultimoValor==="(") return false
-    if(fechados>=abertos) return false
-    if("+-*/".includes(ultimoValor)) return false
+    if (ultimoValor === "(") {
+        return false
+    }
+    if (fechados > abertos) {
+        return false
+    }
+    if ("+-*/".includes(ultimoValor)) {
+        return false
+    }
 
     return true
 }
+fechaParenteses.addEventListener("click", () => {
+    if (visor.innerHTML === "0") return
+
+    if (liberaFecharParentes()) {
+        visor.innerHTML += ")"
+    }
+})
