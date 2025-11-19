@@ -24,12 +24,13 @@ limpar.addEventListener("click", () => {
 })
 
 numeros.forEach((el) => {
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (evt) => {
         if (visor.innerHTML === "0") {
             visor.innerHTML = ""
         }
 
-        visor.innerHTML += el.innerHTML
+        const valor=evt.target.innerHTML
+        visor.innerHTML += valor
         liberaOperador = true
 
 
@@ -38,12 +39,13 @@ numeros.forEach((el) => {
 
 operador.forEach((el) => {
     el.addEventListener("click", (evt) => {
+        const valor=evt.target.innerHTML
         if (liberaOperador) {
             if (evt.target.innerHTML === "x") {
                 visor.innerHTML += "*"
                 return
             }
-            visor.innerHTML += el.innerHTML
+            visor.innerHTML += valor
             liberaOperador = false
         }
     })
@@ -137,11 +139,8 @@ fechaParenteses.addEventListener("click", () => {
 })
 
 igual.addEventListener("click", () => {
-    try{
-        visor.innerHTML = eval(visor.innerHTML)
-    } catch{
-        visor.innerHTML="ERRO"
-    }
-    
+    const res=eval(visor.innerHTML)
+
+    visor.innerHTML = res
 
 })
