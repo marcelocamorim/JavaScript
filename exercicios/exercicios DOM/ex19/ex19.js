@@ -16,6 +16,7 @@ let visor = document.getElementById("visor")
 
 let ligado = false
 let desligado = true
+let liberaOperador = false
 
 
 limpar.addEventListener("click", () => {
@@ -36,8 +37,12 @@ numeros.forEach((el) => {
 })
 
 operador.forEach((el) => {
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (evt) => {
         if (liberaOperador) {
+            if (evt.target.innerHTML === "x") {
+                visor.innerHTML += "*"
+                return
+            }
             visor.innerHTML += el.innerHTML
             liberaOperador = false
         }
@@ -54,7 +59,7 @@ virgula.addEventListener("click", () => {
     const val = visor.innerHTML
     const ultimoVal = val.slice(-1)
 
-    if ("+-*/".includes(ultimoVal)) {
+    if ("+-*/(".includes(ultimoVal)) {
         visor.innerHTML += "0."
         return
     }
@@ -82,15 +87,21 @@ function liberaAbrirParenteses() {
     if (ultimoValor === ".") {
         return false
     }
+    if (/\d/.test(ultimoValor)) {
+        return false
+    }
 
     if ("+-*/".includes(ultimoValor)) {
         return true
     }
 
+    return true
+
 }
 abreParenteses.addEventListener("click", () => {
     if (visor.innerHTML === "0") {
         visor.innerHTML = "("
+        return
     }
 
     if (liberaAbrirParenteses()) {
@@ -100,7 +111,7 @@ abreParenteses.addEventListener("click", () => {
 
 function liberaFecharParentes() {
     const valor = visor.innerHTML
-    const ultimoValor = visor.slice(-1)
+    const ultimoValor = valor.slice(-1)
 
     const abertos = valor.split("(").length - 1
     const fechados = valor.split(")").length - 1
@@ -108,7 +119,7 @@ function liberaFecharParentes() {
     if (ultimoValor === "(") {
         return false
     }
-    if (fechados > abertos) {
+    if (abertos <= fechados) {
         return false
     }
     if ("+-*/".includes(ultimoValor)) {
@@ -123,4 +134,14 @@ fechaParenteses.addEventListener("click", () => {
     if (liberaFecharParentes()) {
         visor.innerHTML += ")"
     }
+})
+
+igual.addEventListener("click", () => {
+    try{
+        visor.innerHTML = eval(visor.innerHTML)
+    } catch{
+        visor.innerHTML="ERRO"
+    }
+    
+
 })
