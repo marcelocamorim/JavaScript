@@ -1,60 +1,76 @@
 #display {
-    background-color: black;
-
-    height: 40px;
+    background-color: rgb(9, 59, 71);
+    
+    height: 60px;
     padding: 15px;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    border: 5px solid black;
 }
 
 #visor {
-    background-color: rgb(50, 112, 0);
-    width: 350px;
-    color: rgb(255, 255, 255);
+    overflow: hidden;
+    background-color: rgb(161, 189, 139);
+    width: 360px;
+    height: 60px;
+    color: rgb(0, 0, 0);
     font-size: 2.5em;
     display: flex;
     justify-content: right;
     align-items: center;
-    padding: 10px;
+    padding: ;
+    margin-top: 5px;    
+    flex-wrap: nowrap;
+    border-radius: 10px;
 }
 
 #calculadora {
-    background-color: gray;
-    width: 400px;
-    height: 500px;
+    background-color: rgb(62, 113, 133);
+    width: 420px;
+    height: 520px;
     border-radius: 15px;
     
 }
 
-#teclado {}
+#teclado {
+
+}
 
 button {
     width: 70px;
     height: 80px;
     margin: 5px;
     font-size: 25pt;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(174, 231, 231);
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
 
 #primeiraLinha {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0px;
-
+    padding-left: 5px ;
 }
 
 #primeiraLinha button {
-    width: 120px;
+    width: 90px;
     height: 50px;
+    font-size: 1.2em;
+    font-weight: bolder;
+    
 }
 
 #teclas {
     width: 200px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-
     gap: 0px;
+    padding-left: 10px ;
 }
 
 #num9 {
@@ -120,6 +136,12 @@ button {
     grid-column: 4/6;
     grid-row: 4/4;
 }
+.notNumber{
+    background-color: rgba(209, 149, 221, 0.884);
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 5px rgb(255, 0, 242);
+}
 
 #operador {
     display: grid;
@@ -127,14 +149,50 @@ button {
     grid-template-rows: repeat(4, 1fr);
 }
 .operador{
-    background-color: rgb(233, 155, 66);
+    background-color: rgba(209, 149, 221, 0.884);
     border-radius: 10px;
     border: 2px solid black;
-    box-shadow: 0px 0px 5px red;
+    box-shadow: 0px 0px 5px rgb(255, 0, 242);
 }
 .power{
     border-radius: 10px;
 }
-#on{
-    
+
+
+#delet{
+    background-color: rgba(245, 183, 113, 0.884);
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 5px rgb(255, 0, 0);
+}
+#limpar{
+    background-color: rgb(255, 101, 101);
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 5px rgb(255, 115, 0);
+}
+
+
+.ligado{
+    background-color: rgb(0, 155, 26);
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 10px rgb(106, 255, 100);
+    color: rgb(255, 255, 255);
+}
+
+.desligado{
+    background-color: rgb(155, 0, 0);
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 10px rgb(255, 100, 100);
+    color: rgb(255, 255, 255);
+}
+
+.natural{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    color: black;
 }
