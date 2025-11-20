@@ -16,41 +16,117 @@ const igual = document.getElementById("igual")
 
 let liberaNumero = true
 let liberaOperador = false
+let liberaVirgula = false
 
+
+abreParenteses.addEventListener("click", () => {
+    let valorVisor = visor.innerHTML
+    let ultimoDigito = valorVisor.slice(-1)
+
+    if (visor.innerHTML === "0") {
+        visor.innerHTML = "("
+        return
+
+    }
+    if("0123456789.()".includes(ultimoDigito) ){
+        return
+    }    
+    visor.innerHTML += "("     
+
+})
+
+fechaParenteses.addEventListener("click",()=>{
+    let valorVisor=visor.innerHTML
+    let ultimoDigito=valorVisor.slice(-1)
+
+    let abertos=visor.innerHTML.split("(")-1
+    let fechados=visor.innerHTML.split(")")-1
+    
+
+    if("(+-*/.".includes(ultimoDigito)){
+        return
+    }
+
+    if(abertos<=fechados){
+        visor.innerHTML+=")"
+    }
+
+})
+
+
+//limpar
 limpar.addEventListener("click", () => {
     visor.innerHTML = "0"
     liberaNumero = true
     liberaOperador = false
+    liberaVirgula = false
 })
 
+//numeros
 numeros.forEach((el) => {
-    el.addEventListener("click", (evt) => { 
+    el.addEventListener("click", (evt) => {
 
         let digitado = evt.target.innerHTML
         if (visor.innerHTML === "0") {
             visor.innerHTML = digitado
-            liberaOperador=true
+            liberaOperador = true
             return
         }
 
         visor.innerHTML += digitado
-        liberaOperador=true
+        liberaOperador = true
     })
 })
 
-operadores.forEach((el)=>{
-    el.addEventListener("click",(evt)=>{        
-        
+//operadores
+operadores.forEach((el) => {
+    el.addEventListener("click", (evt) => {
+        liberaVirgula = false
+
         let digitado = evt.target.innerHTML
 
-        if(digitado==="x"){
-            digitado="*"                       
+        if (digitado === "x") {
+            digitado = "*"
         }
 
-        if(liberaOperador){
-            visor.innerHTML+=digitado
+        if (liberaOperador) {
+            visor.innerHTML += digitado
         }
 
-        liberaOperador=false
+        liberaOperador = false
     })
+})
+
+//virgula
+virgula.addEventListener("click", (evt) => {
+    virgula.innerHTML = "."
+
+    let valorVisor = visor.innerHTML
+    let ultimoDigito = valorVisor.slice(-1)
+
+
+    if (!liberaVirgula) {
+        liberaVirgula = true
+
+        if (visor.innerHTML === "0") {
+            visor.innerHTML = "0."
+
+        } else if ("+-*/".includes(ultimoDigito)) {
+            visor.innerHTML += "0."
+        } else {
+            visor.innerHTML += "."
+        }
+
+    }
+
+})
+
+
+//resultado
+igual.addEventListener("click", () => {
+    liberaOperador = false
+    liberaVirgula = false
+
+    let res = eval(visor.innerHTML)
+    visor.innerHTML = res
 })
