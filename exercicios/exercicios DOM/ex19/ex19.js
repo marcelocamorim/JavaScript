@@ -15,38 +15,58 @@ const operadores = [...document.querySelectorAll(".operador")]
 const virgula = document.getElementById("virgula")
 const igual = document.getElementById("igual")
 
-let liberaNumero = true
+let ligado = false
 let liberaOperador = false
 let liberaVirgula = false
 
+if(!ligado){
+    visor.innerHTML = "OFF"
+    visor.style.color = "red"
+    visor.style.boxShadow="0px 0px 20px rgba(255, 83, 83, 1)"
+    visor.style.border="2px dashed rgba(114, 0, 0, 1)"
+    
+}
 
-on.addEventListener("click",()=>{
+on.addEventListener("click", () => {
+    ligado = true
     on.classList.remove("natural")
     on.classList.add("ligado")
     off.classList.add("natural")
     off.classList.remove("desligado")
-    visor.innerHTML="0"
-    visor.style.color=""
+    visor.innerHTML = "0"  
+    visor.style.color = "black"
 
+    visor.style.boxShadow="0px 0px 20px rgba(124, 255, 120, 1)"
+    visor.style.border="2px dashed rgba(3, 83, 0, 1)"
+    
 })
 
-off.addEventListener("click",()=>{
+off.addEventListener("click", () => {
+    ligado = false
     off.classList.remove("natural")
     off.classList.add("desligado")
     on.classList.add("natural")
     on.classList.add("ligado")
 
-    visor.innerHTML="OFF"
-    visor.style.color="red"
-
+    visor.innerHTML = "OFF"
+    visor.style.color = "red"
+    visor.style.boxShadow="0px 0px 20px rgba(255, 83, 83, 1)"
+    visor.style.border="2px dashed rgba(114, 0, 0, 1)"
+    
 })
 
-delet.addEventListener("click",()=>{
-    visor.innerHTML=visor.innerHTML.slice(0,-1)
-    if(visor.innerHTML===""){
-        visor.innerHTML="0"
+
+
+
+
+delet.addEventListener("click", () => {
+    if(!ligado)return
+
+    visor.innerHTML = visor.innerHTML.slice(0, -1)
+    if (visor.innerHTML === "") {
+        visor.innerHTML = "0"
     }
-    if(visor.innerHTML==="0"){
+    if (visor.innerHTML === "0") {
         return
     }
 
@@ -54,6 +74,8 @@ delet.addEventListener("click",()=>{
 
 //ABRE parenteses
 abreParenteses.addEventListener("click", () => {
+    if(!ligado)return
+
     let valorVisor = visor.innerHTML
     let ultimoDigito = valorVisor.slice(-1)
 
@@ -62,30 +84,32 @@ abreParenteses.addEventListener("click", () => {
         return
 
     }
-    if("0123456789.()".includes(ultimoDigito) ){
+    if ("0123456789.()".includes(ultimoDigito)) {
         return
-    }    
-    visor.innerHTML += "("     
+    }
+    visor.innerHTML += "("
 
 })
 
 //FECHA parenteses
-fechaParenteses.addEventListener("click",()=>{
-    let valorVisor=visor.innerHTML
-    let ultimoDigito=valorVisor.slice(-1)
+fechaParenteses.addEventListener("click", () => {
+    if(!ligado)return
 
-    let abertos=visor.innerHTML.split("(").length
-    let fechados=visor.innerHTML.split(")").length
+    let valorVisor = visor.innerHTML
+    let ultimoDigito = valorVisor.slice(-1)
+
+    let abertos = visor.innerHTML.split("(").length
+    let fechados = visor.innerHTML.split(")").length
     console.log(abertos)
     console.log(fechados)
-    
 
-    if("(+-*/.".includes(ultimoDigito)){
+
+    if ("(+-*/.".includes(ultimoDigito)) {
         return
     }
 
-    if(abertos>fechados){
-        visor.innerHTML+=")"
+    if (abertos > fechados) {
+        visor.innerHTML += ")"
     }
 
 })
@@ -93,15 +117,19 @@ fechaParenteses.addEventListener("click",()=>{
 
 //limpar
 limpar.addEventListener("click", () => {
+    if(!ligado)return
+
     visor.innerHTML = "0"
-    liberaNumero = true
+    
     liberaOperador = false
     liberaVirgula = false
 })
 
 //numeros
 numeros.forEach((el) => {
+    
     el.addEventListener("click", (evt) => {
+        if(!ligado)return
 
         let digitado = evt.target.innerHTML
         if (visor.innerHTML === "0") {
@@ -117,13 +145,15 @@ numeros.forEach((el) => {
 
 //operadores
 operadores.forEach((el) => {
+    
     el.addEventListener("click", (evt) => {
+        if(!ligado)return
         liberaVirgula = false
-        let valorVisor=visor.innerHTML
-        let ultimoDigito=valorVisor.slice(-1)
+        let valorVisor = visor.innerHTML
+        let ultimoDigito = valorVisor.slice(-1)
         let digitado = evt.target.innerHTML
 
-        if("(.+-*/".includes(ultimoDigito)){
+        if ("(.+-*/".includes(ultimoDigito)) {
             return
         }
 
@@ -141,6 +171,8 @@ operadores.forEach((el) => {
 
 //virgula
 virgula.addEventListener("click", (evt) => {
+    if(!ligado)return
+
     virgula.innerHTML = "."
 
     let valorVisor = visor.innerHTML
@@ -166,9 +198,12 @@ virgula.addEventListener("click", (evt) => {
 
 //resultado
 igual.addEventListener("click", () => {
+    if(!ligado)return
+
     liberaOperador = true
     liberaVirgula = false
 
     let res = eval(visor.innerHTML)
     visor.innerHTML = res
 })
+
