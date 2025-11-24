@@ -1,0 +1,9 @@
+.temaClaro{
+    background-color: white;
+    color: black;
+}
+
+.temaEscuro{
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
