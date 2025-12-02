@@ -6,9 +6,24 @@
     <title>ex22 popUp</title>
     <link rel="stylesheet" href="ex22.css">
 </head>
-<body>
+<body class="">
 
-    <div id="pop">
+    <div id="overlay"></div>
+    <header>
+        Cabeçalho
+    </header>
+
+    <main>
+        <h1>Corpo do site</h1>
+        <button id="deletarConta">Deletar conta</button>
+    </main>
+
+    <footer>
+        <p>Exercício 22 de Manipulação de DOM</p>
+    </footer>
+
+    <!--popUP-->
+    <div id="pop" class="invisivel">
         <div id="div_fechar">
             <button id="fechar">X</button>
         </div>
@@ -29,6 +44,6 @@
         </div>
     </div>
 
-    
+    <script src="ex22.js"></script>
 </body>
 </html>
