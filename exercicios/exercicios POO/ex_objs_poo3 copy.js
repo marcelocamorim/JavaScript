@@ -1,6 +1,9 @@
 // 🔹 Percorrendo Objetos
 
 // Crie um objeto produtos com vários itens e preços. Use for...in para mostrar o nome do produto e o preço.
+let produtos={
+    
+}
 
 
 
