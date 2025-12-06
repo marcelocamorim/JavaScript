@@ -61,3 +61,16 @@ calcularTotal()
 
 
 // Crie um objeto biblioteca que contém um array de livros (cada livro é um objeto com título e autor). Mostre todos os títulos dos livros usando um loop.
+
+const biblioteca={
+    livros:[
+        {titulo:"harry potter", autor:"JK Roling"},
+        {titulo:"Senhor dos aneis", autor:"JR Tolkien"},
+        {titulo:"Legados de loriem", autor:"Pitacus Lore"},
+        {titulo:"A torre negra", autor:"Stephen king"},
+    ]
+}
+
+biblioteca.livros.forEach((el)=>{
+    console.log(`Livro: ${el.titulo} - Autor: ${el.autor}`)
+})
