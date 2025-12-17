@@ -25,8 +25,10 @@ const restaurante={
         if(!pratoExistente){
             this.pedidos.push({nome:prato, quantidade:quanti})
             console.log(`Pedido Registrado com Sucesso!`)
+            return
         }else{
             pratoExistente.quantidade += quanti
+            return
         }        
     },
 
@@ -37,6 +39,7 @@ const restaurante={
     }
 }
 
-restaurante.fazerPedido()
+restaurante.fazerPedido("pizza",2)
+restaurante.fazerPedido("pizza",2)
 
 restaurante.listarPedido()
