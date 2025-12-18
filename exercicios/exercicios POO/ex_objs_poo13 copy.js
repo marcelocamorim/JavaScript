@@ -19,27 +19,43 @@ const restaurante={
     //nome,quantidade
     pedidos:[],
 
-    fazerPedido:function(prato,quanti){
-        const pratoExistente=this.pedidos.find(p=>p.nome===prato)
+    fazerPedido:function(nome,quanti){
+        const itemExistente=this.cardapio.find(item=>item.nome===nome)
+        if(!itemExistente){
+            console.log(`ERRO - Item ${nome} Não consta no Cardapio`)
+            return
+        }
 
-        if(!pratoExistente){
-            this.pedidos.push({nome:prato, quantidade:quanti})
-            console.log(`Pedido Registrado com Sucesso!`)
-            return
+        let valorTotal = itemExistente.preco * quanti
+
+        const ItemPedidoExistente = this.pedidos.find(item=>item.nome===nome)
+        if(!ItemPedidoExistente){
+            this.pedidos.push({nome:nome, quantidade:quanti, valor:valorTotal})
+            console.log(`Pedido Registrado! Item: ${nome} - x${quanti}`)
         }else{
-            pratoExistente.quantidade += quanti
-            return
-        }        
+            ItemPedidoExistente.quantidade += quanti
+            ItemPedidoExistente.valor += valorTotal
+            console.log(`Pedido Atualizado! Item: ${nome} +${quanti}`)
+        }
     },
 
-    listarPedido:function(){
+    calcularTotal:function(){
+        let total = this.pedidos.reduce((acc,item)=>acc+item.valor,0)
+        return total
+    },
+
+    resumoPedido:function(){
+        console.log(`Resumo do Pedido`)
+        let totalPagar=this.calcularTotal()
         this.pedidos.forEach((el)=>{
-            console.log(`Prato: ${el.nome} - Quantidade: ${el.quantidade}`)
+            console.log(`Item: ${el.nome} - Quantidade: ${el.quantidade} - Valor: R$${el.valor.toFixed(2)}`)
         })
+        console.log(`Total a Pagar: R$${totalPagar.toFixed(2)}`)
     }
 }
 
 restaurante.fazerPedido("pizza",2)
 restaurante.fazerPedido("pizza",2)
-
-restaurante.listarPedido()
+restaurante.fazerPedido("pudim",5)
+restaurante.fazerPedido("salada",3)
+restaurante.resumoPedido()
