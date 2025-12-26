@@ -34,7 +34,8 @@ class Usuario {
     infoUsuario(){
         console.log(`Usuario: ${this.nome}`)
         if(!this.livrosEmprestados.length){
-            console.log(` Não Possui Livros Emprestados `)
+            console.log(`Não Possui Livros Emprestados `)
+            console.log("-----------------------")
             return
         }
         console.log(`Livros Emprestados:`)
@@ -96,6 +97,33 @@ class Biblioteca {
         })
         
     }
+
+    emprestarLivro(nomeLivro, NomeUsuario){
+        const livroExistente=this.livros.find(li=>li.titulo.toLowerCase()===nomeLivro.toLowerCase())
+        const usuarioExistente=this.usuarios.find(user=>user.nome===NomeUsuario)
+
+        if(!livroExistente){
+            console.log(`ERRO - Livro: ${nomeLivro} Não Cadastrado`)
+            console.log("-----------------------")
+            return
+        }
+
+        if(!livroExistente.disponivel){
+            console.log(`ERRO - Livro: ${nomeLivro} Indisponível - Emprestado`)
+            console.log("-----------------------")
+            return
+        }
+
+        if(!usuarioExistente){
+            console.log(`ERRO - Usuario: ${NomeUsuario} Não Cadastrado!`)
+            console.log("-----------------------")
+        }
+
+        usuarioExistente.livrosEmprestados.push(livroExistente)
+        livroExistente.disponivel=false
+        console.log(`Livro: ${livroExistente.titulo} Emprestado para Usuario: ${NomeUsuario}`)
+        console.log("-----------------------")
+    }
 }
 
 const livro1 = new Livro("A torre negra", " Stephen King")
@@ -109,8 +137,24 @@ const usuario3 = new Usuario("luiz")
 const usuario4 = new Usuario("bili")
 
 const biblioteca1 = new Biblioteca
-biblioteca1.adicionarLivro(livro1)
-biblioteca1.adicionarLivro(livro1)
 
-biblioteca1.registrarUsuario()
+biblioteca1.adicionarLivro(livro1)
+biblioteca1.adicionarLivro(livro1)
+biblioteca1.adicionarLivro(livro2)
+biblioteca1.adicionarLivro(livro3)
+biblioteca1.adicionarLivro(livro4)
+
+biblioteca1.registrarUsuario(usuario1)
+biblioteca1.registrarUsuario(usuario1)
+biblioteca1.registrarUsuario(usuario2)
+biblioteca1.registrarUsuario(usuario3)
+biblioteca1.registrarUsuario(usuario4)
+
+biblioteca1.emprestarLivro("A TORRE negra", "amanda")
+biblioteca1.emprestarLivro("A torre negra", "amanda")
+biblioteca1.emprestarLivro("harry potter", "amanda")
+biblioteca1.emprestarLivro("A torre negra", "luiz")
+biblioteca1.emprestarLivro("senhor dos aneis", "luiz")
+
 biblioteca1.mostrarLivros()
+biblioteca1.mostrarUsuarios()
