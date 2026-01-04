@@ -12,20 +12,29 @@
 // Desafio extra:
 // Adicione um método aplicarDesconto(percentual) que reduz o total.
 
-class Produto{
-    constructor(nome,preco){
-        this.nome=nome
-        this.preco=preco
+class Produto {
+    constructor(nome, preco) {
+        this.nome = nome
+        this.preco = preco
     }
 }
 
-class Carrinho{
-    constructor(){
-        this.itens=[]
+class Carrinho {
+    constructor() {
+        this.itens = []
     }
 
-    adicionarItem(){
-        const itemExistente=this.itens.find(i=>i)
+    adicionarItem(produto, quanti) {
+        const itemExistente = this.itens.find((i=>i.nome===item))
+
+        if(itemExistente){
+            itemExistente.quantidade += quanti
+            console.log(`Item ${itemExistente.nome} Atualizado! - Quantidade +${quanti}`)
+            return
+        }
+
+        this.itens.push({item:produto.nome, preco:produto.preco, quantidade:quanti })
+        console.log(`Produto ${produto.nome} Adicionado com Sucesso!`)
     }
 }
 
@@ -37,4 +46,10 @@ const produto3 = new Produto("playStation", 3000)
 const produto4 = new Produto("headPhone", 200)
 
 const carrinho1 = new Carrinho()
+
+carrinho1.adicionarItem(produto1, 2)
+carrinho1.adicionarItem(produto1, 2)
+console.log(carrinho1.itens)
+
+
 
