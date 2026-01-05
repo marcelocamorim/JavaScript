@@ -25,16 +25,28 @@ class Carrinho {
     }
 
     adicionarItem(produto, quanti) {
-        const itemExistente = this.itens.find((i=>i.nome===item))
+        const itemExistente = this.itens.find((i => i.nome === produto.nome))
+        const valor = quanti * produto.preco 
 
-        if(itemExistente){
+        if (itemExistente) {
             itemExistente.quantidade += quanti
+            itemExistente.subtotal += valor
+
             console.log(`Item ${itemExistente.nome} Atualizado! - Quantidade +${quanti}`)
             return
         }
 
-        this.itens.push({item:produto.nome, preco:produto.preco, quantidade:quanti })
-        console.log(`Produto ${produto.nome} Adicionado com Sucesso!`)
+        produto.quantidade = quanti
+        produto.subtotal = valor
+        this.itens.push(produto)
+        console.log(`Produto ${produto.nome} Adicionado ao Carrinho!`)
+    }
+
+
+    removerProduto(produto,quanti){
+        const itemExistente = this.itens.find((i=>i.nome===produto.nome))
+
+        this.itens=this.itens.filter((i=>i.nome!==itemExistente.nome))
     }
 }
 
@@ -49,6 +61,8 @@ const carrinho1 = new Carrinho()
 
 carrinho1.adicionarItem(produto1, 2)
 carrinho1.adicionarItem(produto1, 2)
+carrinho1.adicionarItem(produto2, 1)
+carrinho1.adicionarItem(produto3, 1)
 console.log(carrinho1.itens)
 
 
