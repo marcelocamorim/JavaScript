@@ -2,75 +2,74 @@
 
 // Crie um objeto contaBancaria com propriedades saldo e métodos depositar(valor) e sacar(valor). Teste as operações.
 
-const contaBancaria = {
+let contaBancaria = {
     saldo: 0,
 
     depositar: function (valor) {
+        if (valor <= 0) {
+            console.log(`ERRO - Valor Irregular para essa transação`)
+            return
+        }
         this.saldo += valor
-        console.log(`Depósito de R$${Number(valor).toFixed(2)} Realizado com Sucesso! `)
-        console.log(`Saldo Atual é de R$ ${this.saldo.toFixed(2)}`)
-        console.log("-------------------")
-
+        console.log(`Depósito de R$${valor.toFixed(2)} realizado com sucesso!`)
+        console.log(`Saldo atual R$${this.saldo.toFixed(2)}`)
     },
 
     sacar: function (valor) {
-        if (valor <= this.saldo) {
-            this.saldo -= valor
-            console.log(`Saque de R$${Number(valor).toFixed(2)} Realizado com Sucesso!`)
-            console.log(`Saldo Atual é de R$ ${this.saldo.toFixed(2)}`)
-            console.log("-------------------")
-        }else{
-            console.log(`Saldo insuficiente para essa transação`)
-            console.log(`Tentativa de Saque R$${valor.toFixed(2)} - Saldo Disponível R$${this.saldo.toFixed(2)}`)
-            console.log("-------------------")
+        if (valor <= 0) {
+            console.log(`ERRO - Valor Irregular para essa transação`)
+            return
+
+        } else if (valor > this.saldo) {
+            console.log(`ERRO - Saldo Insuficiente`)
+            console.log(`Saque solicitado: R$${valor.toFixed(2)} - Saldo em conta: R$${this.saldo.toFixed(2)}`)
+            return
         }
 
+        this.saldo -= valor
+        console.log(`Saque de R$${valor.toFixed(2)} Realizado com Sucesso!`)
+        console.log(`Saldo atual R$${this.saldo.toFixed(2)}`)
     }
-
 }
-
 contaBancaria.depositar(50)
 contaBancaria.depositar(50)
-contaBancaria.sacar(50)
-contaBancaria.sacar(50)
-contaBancaria.sacar(50)
+contaBancaria.sacar(20)
+contaBancaria.sacar(80)
+contaBancaria.sacar(80)
 
-
+console.log("----------------------------------------")
 // Crie um objeto carrinho que começa vazio. Adicione dinamicamente produtos com nome e preco, e depois calcule o total da compra.
 
-const carrinho=[]
+let carrinho = {
+    produtos: [
 
-carrinho.push({item:"camiseta", preco:80})
-carrinho.push({item:"calça", preco:180})
-carrinho.push({item:"meia", preco:30})
-
-function calcularTotal(){
-    console.log("Resumo da Compra")  
-
-    carrinho.forEach((el)=>{
-        console.log(`Item: ${el.item} - Valor: R$${el.preco.toFixed(2)}`)
-    })
-
-    let total = carrinho.reduce((acc,item)=>acc+item.preco,0)
-    console.log(`Total a pagar: R$${total}`)
-    return Number(total).toFixed(2)
-
-}
-calcularTotal()
-
-
-
-// Crie um objeto biblioteca que contém um array de livros (cada livro é um objeto com título e autor). Mostre todos os títulos dos livros usando um loop.
-
-const biblioteca={
-    livros:[
-        {titulo:"harry potter", autor:"JK Roling"},
-        {titulo:"Senhor dos aneis", autor:"JR Tolkien"},
-        {titulo:"Legados de loriem", autor:"Pitacus Lore"},
-        {titulo:"A torre negra", autor:"Stephen king"},
     ]
 }
 
-biblioteca.livros.forEach((el)=>{
-    console.log(`Livro: ${el.titulo} - Autor: ${el.autor}`)
-})
+carrinho.produtos.push({ nome: "camiseta", valor: 80 })
+carrinho.produtos.push({ nome: "calça", valor: 180 })
+carrinho.produtos.push({ nome: "bermuda", valor: 120 })
+carrinho.produtos.push({ nome: "meia", valor: 30 })
+
+let total = carrinho.produtos.reduce((acc, val) => {
+    return acc + val.valor
+}, 0)
+console.log(`Total a pagar R$${total.toFixed(2)}`)
+
+console.log("----------------------------------------")
+
+// Crie um objeto biblioteca que contém um array de livros (cada livro é um objeto com título e autor). Mostre todos os títulos dos livros usando um loop.
+
+let biblioteca = {
+    livros: [
+        { titulo: "harry potter", autor: "JK Roling" },
+        { titulo: "Senhor dos aneis", autor: "JR Tolkien" },
+        { titulo: "Legados de loriem", autor: "Pitacus Lore" },
+        { titulo: "Atorre negra", autor: "Stephen king" }
+    ]
+}
+
+console.log(`Lista de livros`)
+biblioteca.livros.forEach(element => {
+    console.log(`Livro: ${element.titulo} - Autor: ${element.autor}`)
+});
