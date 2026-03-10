@@ -6,72 +6,85 @@
 // removerProduto(nome)
 // calcularTotal() (somar todos os preços * quantidades).
 
-const carrinho = {
+let carrinho = {
     produtos: [
-        { nome: "teclado", preco: 30, quantidade: 2 }
+        //nome,preco,quantidade
     ],
 
-    adicionarProduto: function (nom, valor, quant) {
-        let produtoExistente = this.produtos.find(p => p.nome === nom)
+    separar: function () {
+        console.log("------------------------------------")
+    },
+
+    adicionarProduto: function (nome, preco, quantidade) {
+        const produtoExistente = this.produtos.find(p => p.nome === nome)
+        let subttotal = preco * quantidade
 
         if (produtoExistente) {
-            produtoExistente.quantidade += quant
-            console.log(`Quantidade de ${nom} Atualizada no Carrinho!`)
-            console.log("----------------------------")
+            produtoExistente.quantidade += quantidade
+            produtoExistente.valor += subttotal
+            console.log(`Carrinho Atualizado`)
+            console.log(`${nome} +${quantidade}`)
+            this.separar()
             return
         }
 
-        this.produtos.push({ nome: nom, preco: valor, quantidade: quant })
-        console.log(`Item ${nom} Adicionado ao Carrinho!`)
-        console.log("----------------------------")
+
+        this.produtos.push({ nome: nome, preco: preco, quantidade: quantidade, valor: subttotal })
+        console.log(`Produto "${nome} ${quantidade}x" Adicionado ao Carrinho!`)
+        this.separar()
     },
 
-    verCarrinho: function () {
-        console.log(`Itens no Carrinho`)
-        this.produtos.forEach((el) => {
-            console.log(`Item: ${el.nome} - Preço: R$${el.preco} - Quantidade: ${el.quantidade}`)
-            console.log("----------------------------")
-        })
-    },
-
-    removerProduto: function (nom, quant) {
-        let produtoExistente = this.produtos.find(p => p.nome === nom)
-
+    removerProduto: function (nome, quantidade) {
+        const produtoExistente = this.produtos.find(p => p.nome === nome)
+        
         if (!produtoExistente) {
-            console.log(`ERRO -Produto ${nom} não consta no Carrinho!`)
-            console.log("----------------------------")
+            console.log(`ERRO - Produto "${nome}" não consta no Carrinho!`)
+            this.separar()
             return
         }
-        if (!quant<=0) {
-            console.log(`ERRO -Digite uma Quantidade válida!`)
-            console.log("----------------------------")
+
+        
+        if (quantidade >= produtoExistente.quantidade) {
+            this.produtos = this.produtos.filter(p => p.nome !== produtoExistente.nome)
+            console.log(`Produto ${nome} Excluido do carrinho!`)
+            this.separar()
             return
         }
-        produtoExistente.quantidade -= quant
-        console.log(`Quantidade de ${nom} Atualizada no Carrinho!`)
-        console.log("----------------------------")
+        let subtotal = produtoExistente.preco * quantidade
 
-        if (produtoExistente.quantidade === 0) {
-            this.produtos = this.produtos.filter(p => p.nome !== nom)
-            console.log(`Produto ${nom} Removido do Carrinnho`)
-            console.log("----------------------------")
-        }
-
+        produtoExistente.quantidade -= quantidade
+        produtoExistente.valor -=subtotal
+        console.log(`Carrinho atualizado`)
+        console.log(`"${nome} -${quantidade}x"`)
+        this.separar()
     },
 
     calcularTotal:function(){
-        let total=0
-        this.produtos.forEach((el)=>{
-            let subtotal=el.preco*el.quantidade
-            console.log(`Item: ${el.nome} - Preço: R$${el.preco} - Quantidade: ${el.quantidade} - valor: R$${subtotal}`)
-            total+=subtotal
+        let total = this.produtos.reduce((acc,item)=>{
+            return acc + item.valor
+        },0)
+
+        return total
+    },
+
+    resumoCarrinho: function () {
+        console.log(`Resumo do Carrinho`)
+        this.produtos.forEach((el) => {
+            console.log(`Produto: ${el.nome} - Preço: R$${el.preco} - Quantidade: ${el.quantidade} - Valor: ${el.valor}`)
         })
-        console.log(`Total a Pagar: R$${total.toFixed(2)}`)
+        const total=this.calcularTotal()
+        console.log(`Total a pagar: R$${total}`)
     }
 }
 
-carrinho.adicionarProduto("mouse", 20, 1)
-carrinho.adicionarProduto("mouse", 20, 1)
-carrinho.removerProduto("mouse", 1)
-carrinho.verCarrinho()
-carrinho.calcularTotal()
+
+carrinho.adicionarProduto("camiseta", 80, 20)
+carrinho.adicionarProduto("camiseta", 80, 10)
+carrinho.adicionarProduto("bermuda", 100, 10)
+carrinho.adicionarProduto("tenis", 500, 2)
+
+carrinho.removerProduto("meia", 5)
+carrinho.removerProduto("camiseta", 5)
+carrinho.removerProduto("bermuda", 10)
+carrinho.resumoCarrinho()
+
