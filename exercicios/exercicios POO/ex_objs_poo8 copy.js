@@ -5,19 +5,21 @@
 // "Acertou!" se for igual.
 // "Muito alto" ou "Muito baixo" caso contrário.
 
+const jogo={
+    numeroSecreto: Math.floor(Math.random()*10)+1, 
 
-const jogo = {
-    numeroSecreto: Math.floor(Math.random()*11),
-
-    adivinhar:function(num){
-        if(num===this.numeroSecreto){
-            console.log(`ACERTOU!!! Palpite: ${num} - Sorteado: ${this.numeroSecreto}`)
-        }else if(num<this.numeroSecreto){
-            console.log(`Não foi dessa Vez! número sorteado MAIOR do que seu palpite`)
-        }else if(num>this.numeroSecreto){
-            console.log(`Não foi dessa Vez! número sorteado MENOR do que seu palpite`)
+    adivinhar:function(palpite){
+        if(palpite>this.numeroSecreto){
+            console.log(`Palpite "MAIOR" que o numero sorteado - `)
+            return
+        }else if(palpite<this.numeroSecreto){
+            console.log(`Palpite "MENOR" que o numero sorteado`)
+            return
         }
+
+        console.log(`Parabéns! Você Ganhou!`)
     }
 }
+jogo.adivinhar(5)
 
-jogo.adivinhar(4)
+console.log(jogo.numeroSecreto)

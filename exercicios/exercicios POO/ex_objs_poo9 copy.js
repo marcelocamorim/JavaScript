@@ -5,51 +5,58 @@
 // adicionarNota(nome, nota)
 // calcularMedia(nome)
 
-const escola={
-    alunos:[
-        {nome:"joão", notas:[10,8,6,5,7,3]},
-        {nome:"maria", notas:[2,3,4,6,7,2]},
-        {nome:"leticia", notas:[5,8,9,10,6,7]},
+const escola = {
+    alunos: [
+        { nome: "leila", notas: [10, 8, 10, 5] }
     ],
+    separar: function () {
+        console.log('---------------------------------------------')
+    },
 
-    adicionarAluno:function(nom){
-        const alunoExistente=this.alunos.find(a=>a.nome===nom)
+    adicionarAlunos: function (nome) {
+        const alunoExistente = this.alunos.find(a => a.nome === nome)
+        if (alunoExistente) {
+            console.log(`Alunos "${nome}" já consta em cadastro`)
+            this.separar()
+            return
+        }
+        this.alunos.push({ nome: nome, notas: [] })
+        console.log(`Aluno "${nome}" Adicionado com sucesso!`)
+        this.separar()
+    },
 
-        if(alunoExistente){
-            console.log(`Aluno ${nom} já cadastrado no sistema`)
+    adicionarNotas: function (nome, notas) {
+        const alunoExistente = this.alunos.find(a => a.nome === nome)
+        if (!alunoExistente) {
+            console.log(`ERRO - Aluno "${nome}" não cadastrado`)
+            this.separar()
+
             return
         }
 
-        this.alunos.push({nome:nom, notas:[]})
-        console.log(`Aluno ${nom} Adicionado com Sucesso!`)
+        alunoExistente.notas.push(notas)
+        console.log(`Notas de "${nome}" Adicionadas com sucesso!`)
+        this.separar()
+
     },
 
-    adicionarNotas:function(nom,not){
-        const alunoExistente=this.alunos.find(a=>a.nome===nom)
+    listarAlunos: function () {
+        this.alunos.forEach((el) => {
+            console.log(`Aluno: ${el.nome}`)
+            if (el.notas.length) {
+                console.log(`Notas: ${el.notas.join(", ")}`)
+                
+            } else {
+                console.log(`Notas: --Sem notas cadastradas`)
+            }
+            this.separar()
+        })
 
-        if(!alunoExistente){
-            console.log(`Aluno ${nom} não cadastrado - cadastre antes de adicionar notas!`)
-        }
-
-        alunoExistente.notas.push(...not)
-        console.log(`Notas Adicionadas com Sucesso! `)
-    },
-
-    calcularMedia:function(nom){
-        const alunoExistente=this.alunos.find(a=>a.nome===nom)
-
-        let media = alunoExistente.notas.reduce((acc,val)=> acc+ val / alunoExistente.notas.length,0 )
-
-        let status=null
-        media>5?status="Aprovado":status="Reprovado"
-
-        console.log(`Aluno ${nom} - Media: ${media.toFixed(2)} - ${status}`)
-        return media
     }
 }
 
-escola.adicionarAluno("cleide")
-escola.adicionarNotas("cleide",[10,10,10,10,10,10])
 
-escola.calcularMedia("maria")
-console.log(escola.alunos)
+escola.adicionarAlunos("joão")
+escola.adicionarAlunos("joão")
+escola.adicionarAlunos("maria")
+escola.listarAlunos()
