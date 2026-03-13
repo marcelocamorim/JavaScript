@@ -8,9 +8,8 @@
 // listarLivrosOrdenados() → mostra todos os livros ordenados por ano.
 // 🧠 Desafio extra: use sort() para ordenar os livros e filter() na busca por autor.
 
-
-let biblioteca={
-    livros:[
+const biblioteca = {
+    livros: [
         { titulo: "harry potter", autor: "JK Rolling", ano: 2000 },
         { titulo: "O senhor dos aneis", autor: "JRR Tolkien", ano: 1994 },
         { titulo: "Aguerra dos tronos", autor: "George RR Martin", ano: 2007 },
@@ -19,46 +18,55 @@ let biblioteca={
         { titulo: "IT A coisa", autor: "Stephen King", ano: 2007 },
     ],
 
-    listarLivros:function(){
-        this.livros.sort((a,b)=>a.ano-b.ano)
-        this.livros.forEach((el)=>{
-            console.log(`Livro: ${el.titulo} - Autor: ${el.autor} - Ano: ${el.ano}`)
-        })
+    //apenas separação no console
+    separar: function () {
+        console.log("------------------------------------")
     },
 
-    adicionarLivro:function(nome,autor,ano){
-        let livroExistente=this.livros.find(livro=>livro.titulo===nome)
-        if(livroExistente){
-            console.log(`Livro ${nome} Já Cadastrado!`)
-            console.log(`----------------------------`)
+    //adicionar livro
+    adicionarLivro: function (titulo, autor, ano) {
+        const livroExistente = this.livros.find(livro => livro.titulo === titulo)
+        if (livroExistente) {
+            console.log(`Falha ao adicionar livro`)
+            console.log(` -- ERRO - Livro: "${titulo}" já cadastrado!`)
+            this.separar()
             return
         }
-
-        this.livros.push({titulo:nome, autor:autor, ano:ano})
-        console.log(`Livro: ${nome} Adicionado Com Sucesso!`)
-        console.log(`----------------------------`)
+        this.livros.push({ titulo: titulo, autor: autor, ano: ano })
+        console.log(`Livro "${titulo}" adicionado com sucesso!`)
+        this.separar()
     },
 
-    BuscaPorAutor:function(termo){        
-        let encontrados=this.livros.filter((en=>en.autor.toLowerCase().includes(termo)))
+    buscaPorAutor: function (autorBuscado) {
+        let obrasEncontradas = this.livros.filter(obras => obras.autor.toLowerCase().includes(autorBuscado.toLowerCase()))
 
-        if(!encontrados.length){
-            console.log(`autor "${termo}" Não Encontrado!`)
-            console.log(`----------------------------`)
-            return
+        console.log(`Busca Por autor`)
+
+        if (obrasEncontradas.length) {
+            console.log(`"${obrasEncontradas.length}" Obras de ${autorBuscado} encontradas`)
+            obrasEncontradas.forEach((el) => {
+                console.log(` --  Livro: ${el.titulo} - Autor: ${el.autor} - Ano: ${el.ano}`)
+            })
+        }else{
+            console.log(`"Sem resultados" - autor "${autorBuscado}" não encontrado`)
         }
+        this.separar()
+    },
 
-        console.log(`Obras de "${termo}" Encontradas`)
-        encontrados.forEach((el)=>{
-            console.log(`Livro: ${el.titulo} - Autor: ${el.autor} - Ano: ${el.ano}`)
+
+    //listar todos os livros
+    listarLivros: function () {
+        this.livros.sort((a, b) => a.ano - b.ano)
+        console.log(`Lista de livros disponíveis`)
+        this.livros.forEach((el) => {
+            console.log(` --  Livro: ${el.titulo} - Autor: ${el.autor} - Ano: ${el.ano}`)
         })
-        console.log(`----------------------------`)
-
-        return encontrados
+        this.separar()
     }
 }
-biblioteca.adicionarLivro("O Nevoeiro", "Stephen King", 2007)
-biblioteca.adicionarLivro("O Nevoeiro", "Stephen King", 2007)
-biblioteca.BuscaPorAutor("step")
 
+
+biblioteca.adicionarLivro("legados de lorien", "Pitacus Lore", 2002)
+biblioteca.adicionarLivro("legados de lorien", "Pitacus Lore", 2002)
+biblioteca.buscaPorAutor("step")
 biblioteca.listarLivros()
