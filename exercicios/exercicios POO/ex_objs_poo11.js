@@ -15,22 +15,30 @@ const turma = {
     ],
 
 
-    calcularMedia:function(nome){
-        const alunoExistente=this.alunos.find(a=>a.nome===nome)
-        if(!alunoExistente){
+    calcularMedia: function (nome) {
+        const alunoExistente = this.alunos.find(a => a.nome === nome)
+        if (!alunoExistente) {
             console.log(`ERRO - ALuno "${nome}" não cadastrado`)
             return
         }
 
-        let soma = alunoExistente.notas.reduce((acc,val)=>acc+val,0)
-        let media= soma / alunoExistente.notas.length
+        let soma = alunoExistente.notas.reduce((acc, val) => acc + val, 0)
+        let media = soma / alunoExistente.notas.length
         return media
     },
 
-    ranking:function(){
-        let alunosMedias = this.alunos.map((el)=>{
-            this.calcularMedia(el.nome)
-            
+    ranking: function () {
+        let alunosPorMedia = []
+        this.alunos.forEach((el) => {
+            const media = this.calcularMedia(el.nome)
+            alunosPorMedia.push({ nome: el.nome, mediaFinal: media })
+
+        })
+
+        alunosPorMedia.sort((a, b) => b.mediaFinal - a.mediaFinal)
+        console.log(`Lista rankeada de alunos`)
+        alunosPorMedia.forEach((el,i)=>{
+            console.log(`${i+1}°Lugar - Aluno: "${el.nome}" Com média ${el.mediaFinal}`)
         })
 
     }
