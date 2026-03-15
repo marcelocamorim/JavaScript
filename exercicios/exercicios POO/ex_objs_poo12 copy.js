@@ -11,74 +11,68 @@
 
 
 
-const contaBancaria={
-    saldo:0,
+const conta = {
+    saldo: 0,
+    historico: [
+        //operação,valor,data
+    ],
 
-    //transação, valor, data
-    historico:[],
-    
-
-    registrarHistorico:function(tipo, valor, data){
-        this.historico.push({tipo:tipo, valor:valor, data:data})
+    separar: function () {
+        console.log('----------------------------')
     },
 
-    separarLinha:function(){
-        console.log("------------------------")
-    },
-
-    
-    depositar:function(valor){
-        let data=new Date
-        if(valor<=0){
-            console.log("ERRO - Digite um valor Válido")
-            this.separarLinha()
+    depositar: function (valor) {
+        let data = new Date().toLocaleString('pt-br', { dateStyle: 'short', timeStyle: 'short' })
+        if (valor <= 0) {
+            console.log(`ERRO - valor irregular para essa transação`);
+            this.separar()
             return
         }
 
-        this.saldo+=valor
-        console.log(`Depósito de R$${valor} Realizado com Sucesso!`)
-        console.log(`Saldo Atual: R$${this.saldo}`)
-        this.registrarHistorico("Depósito", valor, data.toLocaleString())
+        this.saldo += valor
+        this.historico.push({ operacao: "deposito", valor: valor, data: data })
+        console.log(`Depósito de "R$${valor}" realizado com sucesso!`)
+        console.log(`Saldo atual R$${this.saldo}`)
+        this.separar()
+    },
 
-        this.separarLinha()
-    }, 
+    sacar: function (valor) {
+        let data = new Date().toLocaleString('pt-br', { dateStyle: 'short', timeStyle: 'short' })
 
-
-    sacar:function(valor){
-        let data=new Date
-
-        if(valor>this.saldo){
-            console.log("ERRO - Saldo insuficiente")
-            console.log(`Solicitação: R$${valor} - Saldo Disponível: R$${this.saldo}`)
-            this.separarLinha()
+        if (valor <= 0) {
+            console.log(`ERRO - valor irregular para essa transação`);
+            this.separar()
             return
-        }   
-        
-        this.saldo-=valor
-        console.log(`Saque de R$${valor} Realizado com Sucesso!`)
-        console.log(`Saldo Atual: R$${this.saldo}`)
-        this.registrarHistorico("Saque", valor, data.toLocaleString())
-        this.separarLinha()
 
+        } else if (valor > this.saldo || this.saldo === 0) {
+            console.log(`ERRO - Saldo insuficiente para essa transação`);
+            console.log(`Saldo atual R$${this.saldo}`)
+            this.separar()
+            return
+        }
+
+        this.saldo -= valor
+        this.historico.push({ operacao: "saque", valor: valor, data: data })
+        console.log(`Saque de "R$${valor}" realizado com sucesso!`)
+        console.log(`Saldo atual R$${this.saldo}`)
+        this.separar()
 
     },
 
-    extratoCompleto:function(){
-        console.log("Extrato Completo")
-        this.historico.forEach((el)=>{
-            console.log(`Transação: ${el.tipo} - Valor: R$${el.valor} - Data: ${el.data}`)
-        })
-
-        console.log(`Saldo Atual: R$${this.saldo}`)
-
-        this.separarLinha()
+    exibirExtrato:function(){
+        console.log(`Extrato detalhado`)
+        this.historico.forEach(el => {
+            console.log(`Operação: ${el.operacao} - Valor:R$${el.valor} - Data: ${el.data} `)
+        });
     }
 }
 
-contaBancaria.depositar(10)
-contaBancaria.depositar(10)
-contaBancaria.sacar(5)
-contaBancaria.sacar(15)
-contaBancaria.sacar(15)
 
-contaBancaria.extratoCompleto()
+conta.depositar(0)
+conta.depositar(100)
+
+conta.sacar(0)
+conta.sacar(-10)
+conta.sacar(100)
+conta.sacar(100)
+conta.exibirExtrato()
