@@ -21,51 +21,63 @@ class Funcionario {
         this.salario = salario
     }
 
-    aumentarSalario(porcentagem) {
-        const salarioAumentado = this.salario + (this.salario * (porcentagem / 100))
-        console.log(`Salario Aumentado em ${porcentagem}% - Novo Salario: R$${salarioAumentado.toFixed(2)}`)
-        this.salario=salarioAumentado
-        return salarioAumentado
+    aumentarSalario(percentual) {
+        const calculo = percentual / 100 * this.salario
+        this.salario += calculo
+
+        console.log(`Solicitação de aumento de salario`)
+        console.log(`--Funcionario: ${this.nome} - Cargo: ${this.cargo} - Requisição de aumento: ${percentual}%`)     
+        console.log(`--Salario aumentado em ${percentual}%`)
+        console.log(`--Novo salario ${this.salario}`)
     }
 
-    info(){
-        console.log(`Nome: ${this.nome} - Cargo: ${this.cargo} - Salario: R$${this.salario.toFixed(2)}`)
-    }
-}
-
-class Gerente extends Funcionario {
-    constructor(nome, salario) {
-        super(nome, "gerente", salario)
-    }
-
-    aumentarSalario(porcentagem) {
-        const bonus = 10
-        const aumentoTotal= porcentagem + bonus       
-        
-        super.aumentarSalario(aumentoTotal)
-        
+    separarInfo(){
+        console.log("------------------------------------")
     }
 }
 
 class Estagiario extends Funcionario{
     constructor(nome,salario){
-        super(nome, "Estagiario", salario)
+        super(nome,"Estagiario",salario)
     }
 
-    aumentarSalario(porcentagem){
-        if(porcentagem>5){
-            console.log(`ERRO - Estagiarios não podem receber aumento superior a "5%"`)
+    aumentarSalario(percentual){
+        if(percentual > 5){
+            console.log(`ERRO - estagiarios não podem receber aumento superior a 5%`)
             return
         }
-        super.aumentarSalario(porcentagem)
+
+        super.aumentarSalario(percentual)
+        super.separarInfo()
     }
 }
 
-const funcionario1 = new Funcionario("joão", "ajudante", 1000)
+class Gerente extends Funcionario{
+    constructor(nome,salario){
+        super(nome,"gerente",salario)
+        this.nome=nome
+        this.salario=salario
+    }
 
-const estagiario1 = new Estagiario("felipe", 800)
-const ger1 = new Gerente("jack", 5000)
-ger1.aumentarSalario(10)
-estagiario1.aumentarSalario(6)
-ger1.info()
-estagiario1.info()
+    aumentarSalario(percentual){
+        const bonusFixo=10
+        let percentualTotal = percentual + bonusFixo
+
+        const calculo = percentualTotal / 100 * this.salario
+        this.salario+= calculo
+
+        console.log(`Solicitação de aumento de salario`)
+        console.log(`--Funcionario: ${this.nome} - Cargo: ${this.cargo} - Bonus do cargo ${bonusFixo}% - Requisição de aumento: ${percentual}%`)
+        console.log(`--Salario aumentado em ${percentualTotal}%`)
+        console.log(`--Novo salario ${this.salario}`)
+        
+        super.separarInfo()
+    }
+
+}
+
+const gerente1 = new Gerente("pedro",5000)
+gerente1.aumentarSalario(10)
+
+const estagiario1 = new Estagiario("lucas",1200)
+estagiario1.aumentarSalario(5)

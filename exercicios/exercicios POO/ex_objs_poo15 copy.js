@@ -13,14 +13,13 @@
 
 // Desafio extra: o mesmo carro pode trocar de motor (ex: motor mais potente).
 
-
 class Motor{
     constructor(potencia){
         this.potencia=potencia
     }
 
     ligar(){
-        console.log(`Motor ligado com ${this.potencia} Cavalos de potência`)
+        console.log(`Motor ligado com ${this.potencia} cavalos de potencia`)
     }
 }
 
@@ -31,21 +30,22 @@ class Carro{
 
     dirigir(){
         this.motor.ligar()
-        console.log(`Carro em Movimento!`)
+        console.log(`Carro em movimento`)
     }
 
     trocarMotor(novoMotor){
         this.motor=novoMotor
-        console.log(`Motor trocado para ${this.motor.potencia} Cavalos`)
+        console.log(`Motor trocado para ${novoMotor.potencia} cavalos`)
     }
 }
 
 const motor1=new Motor(150)
-const motor2=new Motor(300)
-const motor3=new Motor(500)
+const motor2=new Motor(350)
+const motor3=new Motor(750)
 
-const carro1=new Carro(motor1)
+const carro1 = new Carro(motor1)
 
 carro1.dirigir()
-carro1.trocarMotor(motor3)
+
+carro1.trocarMotor(motor2)
 carro1.dirigir()
