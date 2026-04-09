@@ -20,58 +20,23 @@ class Produto{
     }
 }
 
-class ItemPedido{
-    constructor(produto,quantidade){
-        this.produto=produto
-        this.quantidade=quantidade
-    }
 
-    subTotal(){
-        return this.produto.preco * this.quantidade
-    }
-}
 
 class Pedido{
-    constructor(cliente){
-        this.cliente=cliente
-        this.itensPedidos=[]
+    constructor(nomeCliente,item,quantidade){
+        this.nomeCliente=nomeCliente
+        this.item=item
+        this.quantidade=quantidade
+        this.listaRegistro=[]
     }
 
-    adicionarItem(item){
-        this.itensPedidos.push(item)
-    }
+    
 
-    calcularTotal(){
-        return this.itensPedidos.reduce((total,item)=>total+item.subTotal(),0)
-    }
-
-    resumoPedido(){
-        console.log(`Resumo do Pedido - Cliente: ${this.cliente}`)
-
-        this.itensPedidos.forEach((el)=>{
-            console.log(`Item: ${el.produto.nome} - Preço: ${el.produto.preco} - Quantidade: ${el.quantidade} - Valor: R$${el.subTotal().toFixed(2)}`)
-        })
-
-        const total=this.calcularTotal()
-        console.log(`Total a pagar: R$${total.toFixed(2)}`)
-    }
+   
 }
 
-const pizza=new Produto("pizza",80)
-const pastel=new Produto("pastel",15)
-const coxinha=new Produto("coxinha",10)
-const suco=new Produto("suco",8)
+
+const pastel=new Produto("pastel",8)
+const coxinha=new Produto("coxinha",15)
+const hamburguer=new Produto("hamburguer",25)
 const refrigerante=new Produto("refrigerante",12)
-
-const item1=new ItemPedido(pizza,2)
-const item2=new ItemPedido(coxinha,3)
-const item3=new ItemPedido(refrigerante,2)
-
-
-const pedido1= new Pedido("joão")
-
-pedido1.adicionarItem(item1)
-pedido1.adicionarItem(item2)
-pedido1.adicionarItem(item3)
-
-pedido1.resumoPedido()
